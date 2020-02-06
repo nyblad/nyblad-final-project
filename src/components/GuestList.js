@@ -1,22 +1,19 @@
 import React from 'react'
-import styled from 'styled-components'
+import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
+import { Button } from 'components/Button'
 
-const Button = styled.button`
-  height: 40px;
+const Wrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 `
-const GuestWrapper = styled.div`
-  width: 25%;
-  /* height: 150px; */
-  border: 1px solid #f1f1f1;
-  border-radius: 6px;
-  margin: 5px 0;
-  padding: 5px;
-`
-const Text = styled.p`
-  font-size: 14px;
+const ButtonWrapper = styled.div`
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
 `
 
 export const GuestList = () => {
@@ -25,10 +22,11 @@ export const GuestList = () => {
   const guests = useSelector(state => state.guests.guests)
 
   return (
-    <>
-
-      <Button onClick={() => dispatch(fetchGuests('/guests?attending=true'))}>Show attending guests</Button>
-      <Button onClick={() => dispatch(fetchGuests('/guests?attending=false'))}>Show not attending</Button>
+    <Wrapper>
+      <ButtonWrapper>
+        <Button title='Attending guests' onClick={() => dispatch(fetchGuests('/guests?attending=true'))} />
+        <Button title='Not attending guests' onClick={() => dispatch(fetchGuests('/guests?attending=false'))} />
+      </ButtonWrapper>
 
       {guests.map(guest => (
         <GuestItem
@@ -42,6 +40,6 @@ export const GuestList = () => {
         />
       ))}
 
-    </>
+    </Wrapper>
   )
 }
