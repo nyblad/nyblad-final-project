@@ -15,6 +15,11 @@ const ButtonWrapper = styled.div`
   display: flex;
   justify-content: space-between;
 `
+const SmallText = styled.p`
+  font-size: 12px;
+  color: #333;
+  text-align: center;
+`
 
 export const GuestList = () => {
   const dispatch = useDispatch()
@@ -60,7 +65,8 @@ export const GuestList = () => {
           other={guest.other}
         />
       ))}
-
+      {page < totalPages && <SmallText>Page {page + 1} of {totalPages + 1}</SmallText>}
+      {page > totalPages && <SmallText>Page {page + 1} of {totalPages + page + 1}</SmallText>}
       <ButtonWrapper>
         {page > 0 && <Button title='Prev' onClick={() => setPage(page - 1)} />}
         {page < totalPages && <Button title='Next' onClick={() => setPage(page + 1)} />}
