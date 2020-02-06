@@ -8,6 +8,8 @@ import { SearchBar } from 'lib/SearchBar'
 import search from 'assets/search-24.png'
 
 const Wrapper = styled.section`
+  background: #f1f1f1;
+  padding: 10px;
   width: 100%;
   display: flex;
   flex-direction: column;
