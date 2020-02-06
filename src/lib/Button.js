@@ -4,7 +4,7 @@ import styled from 'styled-components/macro'
 const StyledButton = styled.button`
   font-family: 'Open Sans', sans-serif;
   height: 40px;
-  /* width: 100px; */
+  min-width: 60px;
   padding: 5px 10px;
   border: 2px solid #fff;
   border-radius: 6px;

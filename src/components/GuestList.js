@@ -3,7 +3,9 @@ import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
-import { Button } from 'components/Button'
+import { Button } from 'lib/Button'
+import { SearchBar } from 'lib/SearchBar'
+import search from 'assets/search-24.png'
 
 const Wrapper = styled.section`
   width: 100%;
@@ -25,6 +27,7 @@ export const GuestList = () => {
   const dispatch = useDispatch()
   const [query, setQuery] = useState('?page=')
   const [page, setPage] = useState(0)
+  const [searchInput, setSearchInput] = useState('')
 
   const guests = useSelector(state => state.guests.guests)
   const totalPages = useSelector(state => state.guests.totalPages)
@@ -42,6 +45,14 @@ export const GuestList = () => {
     setPage(0)
   }
 
+  const handleSearchSubmit = (event) => {
+    event.preventDefault()
+    setQuery(`?name=${searchInput}&page=`)
+    setPage(0)
+    setSearchInput('')
+    console.log(searchInput)
+  }
+
   useEffect(() => {
     dispatch(fetchGuests(`/guests${query}${page}`))
   }, [dispatch, query, page])
@@ -53,6 +64,16 @@ export const GuestList = () => {
         <Button title='Attending' onClick={handleAttending} />
         <Button title='Not attending' onClick={handleNotAttending} />
       </ButtonWrapper>
+
+      <SearchBar
+        onSubmit={handleSearchSubmit}
+        value={searchInput}
+        onChange={(event) => setSearchInput(event.target.value)}
+        type='text'
+        placeholder='Search for a name..'
+        src={search}
+        alt='search'
+      />
 
       {guests.map(guest => (
         <GuestItem
@@ -71,6 +92,6 @@ export const GuestList = () => {
         {page > 0 && <Button title='Prev' onClick={() => setPage(page - 1)} />}
         {page < totalPages && <Button title='Next' onClick={() => setPage(page + 1)} />}
       </ButtonWrapper>
-    </Wrapper>
+    </Wrapper >
   )
 }
