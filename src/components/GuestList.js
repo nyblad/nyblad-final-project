@@ -16,7 +16,6 @@ const Wrapper = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   background: url(${wallpaperSmall});
   background-size: cover;
   background-position: center;
@@ -50,43 +49,48 @@ const SmallText = styled.p`
   font-size: 12px;
   color: #999;
   text-align: center;
+  width: 100%;
 `
 
 export const GuestList = () => {
   const dispatch = useDispatch()
-  const [query, setQuery] = useState('?page=')
-  const [page, setPage] = useState(0)
+  const [query, setQuery] = useState('')
   const [searchInput, setSearchInput] = useState('')
+  const [currentPage, setCurrentPage] = useState(1)
 
   const guests = useSelector(state => state.guests.guests)
-  const totalPages = useSelector(state => state.guests.totalPages)
   const loading = useSelector(state => state.ui.isLoading)
-  console.log(totalPages)
 
   const handleAll = () => {
-    setQuery('?page=')
-    setPage(0)
+    setQuery('')
+    setCurrentPage(1)
   }
   const handleAttending = () => {
-    setQuery('?attending=true&page=')
-    setPage(0)
+    setQuery('?attending=true')
+    setCurrentPage(1)
   }
   const handleNotAttending = () => {
-    setQuery('?attending=false&page=')
-    setPage(0)
+    setQuery('?attending=false')
+    setCurrentPage(1)
   }
 
   const handleSearchSubmit = (event) => {
     event.preventDefault()
-    setQuery(`?name=${searchInput}&page=`)
-    setPage(0)
+    setQuery(`?name=${searchInput}`)
     setSearchInput('')
+    setCurrentPage(1)
   }
 
-  // To fetch endpoint from guest reducer
   useEffect(() => {
-    dispatch(fetchGuests(`/guests${query}${page}`))
-  }, [dispatch, query, page])
+    dispatch(fetchGuests(`/guests${query}`))
+  }, [dispatch, query])
+
+  // Frontend pagination
+  const itemsPerPage = 12
+  const indexOfLastItem = currentPage * itemsPerPage
+  const indexOfFirstItem = indexOfLastItem - itemsPerPage
+  const currentItems = guests.slice(indexOfFirstItem, indexOfLastItem)
+  const totalPages = Math.ceil(guests.length / itemsPerPage)
 
   return (
     <Wrapper>
@@ -112,7 +116,7 @@ export const GuestList = () => {
 
       {!loading &&
         <ItemWrapper>
-          {guests.map(guest => (
+          {currentItems.map(guest => (
             <GuestItem
               key={guest._id}
               firstName={guest.first_name}
@@ -125,11 +129,11 @@ export const GuestList = () => {
           ))}
 
           <ButtonWrapper>
-            {page > 0 && <Button title='Prev' onClick={() => setPage(page - 1)} />}
-            {page < totalPages && <Button title='Next' onClick={() => setPage(page + 1)} />}
+            {currentPage > 1 && <Button title='Prev' onClick={() => setCurrentPage(currentPage - 1)} />}
+            {currentPage < totalPages && <Button title='Next' onClick={() => setCurrentPage(currentPage + 1)} />}
           </ButtonWrapper>
 
-          <SmallText>Page {page + 1} of {totalPages + 1}</SmallText>
+          <SmallText>Guests in list: {guests.length} | Page {currentPage} of {totalPages}</SmallText>
 
         </ItemWrapper>
       }
