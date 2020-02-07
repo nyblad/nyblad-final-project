@@ -15,7 +15,11 @@ const StyledButton = styled.button`
     background: rgba(0,0,0, 0.6);
   }
   @media (min-width: 450px) {
-    font-size: 24px;
+    font-size: 22px;
+    padding: 5px 10px;
+  }
+  @media (min-width: 4668px) {
+    font-size: 25px;
     padding: 10px 15px;
   }
 `

@@ -6,7 +6,7 @@ import edit from 'assets/edit-24.png'
 
 const GuestWrapper = styled.div`
   width: 100%;
-  background: #657881;
+  background: #666;
   border: 1px solid #f1f1f1;
   border-radius: 6px;
   color: #f1f1f1;
@@ -14,6 +14,15 @@ const GuestWrapper = styled.div`
   padding: 10px;
   display: flex;
   justify-content: space-between;
+  @media (min-width: 668px) {
+    width: 48%;
+  }
+  @media (min-width: 800px) {
+    width: 32%;
+  }
+  @media (min-width: 992px) {
+    width: 24%;
+  }
 `
 const InfoWrapper = styled.div`
 
