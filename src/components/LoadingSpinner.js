@@ -4,10 +4,10 @@ import styled from 'styled-components/macro'
 import Loader from 'react-loader-spinner'
 
 const LoadingWrapper = styled.section`
+  height: 30vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
 `
 
 export const LoadingSpinner = () => {

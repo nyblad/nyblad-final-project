@@ -27,6 +27,9 @@ const Wrapper = styled.section`
 `
 const ActionWrapper = styled.div`
   width: 100%;
+  @media (min-width: 992px) {
+    width: 50%;
+  }
 `
 const ButtonWrapper = styled.div`
   margin-bottom: 10px;
@@ -37,17 +40,16 @@ const ButtonWrapper = styled.div`
 const ItemWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   @media (min-width: 668px) {
     flex-direction: row;
     flex-wrap: wrap;
   }
 `
-const SmallText = styled.p`
-  font-size: 12px;
-  color: #666;
-  text-align: center;
-`
+// const SmallText = styled.p`
+//   font-size: 12px;
+//   color: #999;
+//   text-align: center;
+// `
 
 export const GuestList = () => {
   const dispatch = useDispatch()
@@ -77,9 +79,9 @@ export const GuestList = () => {
     setQuery(`?name=${searchInput}&page=`)
     setPage(0)
     setSearchInput('')
-    console.log(searchInput)
   }
 
+  // To fetch endpoint from guest reducer
   useEffect(() => {
     dispatch(fetchGuests(`/guests${query}${page}`))
   }, [dispatch, query, page])
@@ -103,6 +105,7 @@ export const GuestList = () => {
           alt='search'
         />
       </ActionWrapper>
+
       {loading && <LoadingSpinner />}
 
       {!loading &&
@@ -119,11 +122,12 @@ export const GuestList = () => {
             />
           ))}
 
+          {/* Show pages */}
+          {/* {page < totalPages && <SmallText>Page {page + 1} of {totalPages + 1}</SmallText>}
+          {page > totalPages && <SmallText>Page {page + 1} of {totalPages + page + 1}</SmallText>} */}
 
           <ButtonWrapper>
             {page > 0 && <Button title='Prev' onClick={() => setPage(page - 1)} />}
-            {page < totalPages && <SmallText>Page {page + 1} of {totalPages + 1}</SmallText>}
-            {page > totalPages && <SmallText>Page {page + 1} of {totalPages + page + 1}</SmallText>}
             {page < totalPages && <Button title='Next' onClick={() => setPage(page + 1)} />}
           </ButtonWrapper>
         </ItemWrapper>

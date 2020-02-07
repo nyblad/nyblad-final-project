@@ -30,12 +30,18 @@ const Headline = styled.h1`
   @media (min-width: 450px) {
     font-size: 36px;
   }
+  @media (min-width: 992px) {
+    font-size: 52px;
+  }
 `
 const SecondaryText = styled.h3`
   margin: 0;
   color: #f1f1f1;
   @media (min-width: 450px) {
     font-size: 30px;
+  }
+  @media (min-width: 992px) {
+    font-size: 36px;
   }
 `
 

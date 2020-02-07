@@ -6,11 +6,11 @@ import edit from 'assets/edit-24.png'
 
 const GuestWrapper = styled.div`
   width: 100%;
-  background: #666;
+  background: rgba(0,0,0, 0.8);
   border: 1px solid #f1f1f1;
   border-radius: 6px;
   color: #f1f1f1;
-  margin: 8px 0;
+  margin: 8px 8px 8px 0;
   padding: 10px;
   display: flex;
   justify-content: space-between;
@@ -21,7 +21,7 @@ const GuestWrapper = styled.div`
     width: 32%;
   }
   @media (min-width: 992px) {
-    width: 24%;
+    width: 23%;
   }
 `
 const InfoWrapper = styled.div`
