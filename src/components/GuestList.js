@@ -16,6 +16,7 @@ const Wrapper = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   background: url(${wallpaperSmall});
   background-size: cover;
   background-position: center;
@@ -26,16 +27,16 @@ const Wrapper = styled.section`
   }
 `
 const ActionWrapper = styled.div`
-  width: 100%;
+  width: 98%;
   @media (min-width: 992px) {
     width: 50%;
   }
 `
 const ButtonWrapper = styled.div`
-  margin-bottom: 10px;
+  margin: 10px 0;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-evenly;
 `
 const ItemWrapper = styled.section`
   display: flex;
@@ -45,11 +46,11 @@ const ItemWrapper = styled.section`
     flex-wrap: wrap;
   }
 `
-// const SmallText = styled.p`
-//   font-size: 12px;
-//   color: #999;
-//   text-align: center;
-// `
+const SmallText = styled.p`
+  font-size: 12px;
+  color: #999;
+  text-align: center;
+`
 
 export const GuestList = () => {
   const dispatch = useDispatch()
@@ -60,6 +61,7 @@ export const GuestList = () => {
   const guests = useSelector(state => state.guests.guests)
   const totalPages = useSelector(state => state.guests.totalPages)
   const loading = useSelector(state => state.ui.isLoading)
+  console.log(totalPages)
 
   const handleAll = () => {
     setQuery('?page=')
@@ -122,14 +124,13 @@ export const GuestList = () => {
             />
           ))}
 
-          {/* Show pages */}
-          {/* {page < totalPages && <SmallText>Page {page + 1} of {totalPages + 1}</SmallText>}
-          {page > totalPages && <SmallText>Page {page + 1} of {totalPages + page + 1}</SmallText>} */}
-
           <ButtonWrapper>
             {page > 0 && <Button title='Prev' onClick={() => setPage(page - 1)} />}
             {page < totalPages && <Button title='Next' onClick={() => setPage(page + 1)} />}
           </ButtonWrapper>
+
+          <SmallText>Page {page + 1} of {totalPages + 1}</SmallText>
+
         </ItemWrapper>
       }
     </Wrapper >
