@@ -63,7 +63,7 @@ const ListWrapper = styled.div`
 const ItemWrapper = styled.section`
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: space-evenly;
   @media (min-width: 668px) {
     flex-direction: row;
     flex-wrap: wrap;
