@@ -9,7 +9,7 @@ const GuestWrapper = styled.div`
   background: rgba(0,0,0, 0.8);
   border-radius: 6px;
   color: #f1f1f1;
-  margin: 8px 8px 8px 0;
+  margin: 8px 0;
   padding: 10px;
   display: flex;
   justify-content: space-between;

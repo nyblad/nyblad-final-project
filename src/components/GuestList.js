@@ -16,6 +16,7 @@ const Wrapper = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  align-content: center;
   background: url(${wallpaperSmall});
   background-size: cover;
   background-position: center;
@@ -26,9 +27,16 @@ const Wrapper = styled.section`
   }
 `
 const ActionWrapper = styled.div`
-  width: 98%;
+  padding: 10px;
+  background: rgba(0,0,0, 0.8);
+  border-radius: 6px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 100%;
   @media (min-width: 992px) {
-    width: 50%;
+    flex-direction: row;
   }
 `
 const ButtonWrapper = styled.div`
@@ -36,20 +44,45 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-evenly;
+  @media (min-width: 992px) {
+    width: 50%;
+  }
+`
+const SearchWrapper = styled.div`
+  width: 100%;
+  @media (min-width: 992px) {
+    width: 40%;
+  }
+`
+const ListWrapper = styled.div`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 70vh;
 `
 const ItemWrapper = styled.section`
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   @media (min-width: 668px) {
     flex-direction: row;
     flex-wrap: wrap;
   }
 `
-const SmallText = styled.p`
-  font-size: 12px;
-  color: #999;
-  text-align: center;
+const PaginationWrapper = styled.div`
   width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: baseline;
+`
+const PageButtons = styled.div`
+  
+`
+const SmallText = styled.p`
+  font-size: 14px;
+  color: #999;
 `
 
 export const GuestList = () => {
@@ -101,41 +134,46 @@ export const GuestList = () => {
           <Button title='Not attending' onClick={handleNotAttending} />
         </ButtonWrapper>
 
-        <SearchBar
-          onSubmit={handleSearchSubmit}
-          value={searchInput}
-          onChange={(event) => setSearchInput(event.target.value)}
-          type='text'
-          placeholder='Search for a name..'
-          src={search}
-          alt='search'
-        />
+        <SearchWrapper>
+          <SearchBar
+            onSubmit={handleSearchSubmit}
+            value={searchInput}
+            onChange={(event) => setSearchInput(event.target.value)}
+            type='text'
+            placeholder='Search for a name..'
+            src={search}
+            alt='search'
+          />
+        </SearchWrapper>
       </ActionWrapper>
 
       {loading && <LoadingSpinner />}
 
       {!loading &&
-        <ItemWrapper>
-          {currentItems.map(guest => (
-            <GuestItem
-              key={guest._id}
-              firstName={guest.first_name}
-              lastName={guest.last_name}
-              email={guest.email}
-              phone={guest.phone}
-              allergies={guest.allergies}
-              other={guest.other}
-            />
-          ))}
+        <ListWrapper>
+          <ItemWrapper>
+            {currentItems.map(guest => (
+              <GuestItem
+                key={guest._id}
+                firstName={guest.first_name}
+                lastName={guest.last_name}
+                email={guest.email}
+                phone={guest.phone}
+                allergies={guest.allergies}
+                other={guest.other}
+              />
+            ))}
+          </ItemWrapper>
+          <PaginationWrapper>
+            <PageButtons>
+              {currentPage > 1 && <Button title='Prev' onClick={() => setCurrentPage(currentPage - 1)} />}
+              {currentPage < totalPages && <Button title='Next' onClick={() => setCurrentPage(currentPage + 1)} />}
+            </PageButtons>
 
-          <ButtonWrapper>
-            {currentPage > 1 && <Button title='Prev' onClick={() => setCurrentPage(currentPage - 1)} />}
-            {currentPage < totalPages && <Button title='Next' onClick={() => setCurrentPage(currentPage + 1)} />}
-          </ButtonWrapper>
+            <SmallText>Guests in list: {guests.length} | Page {currentPage} of {totalPages}</SmallText>
 
-          <SmallText>Guests in list: {guests.length} | Page {currentPage} of {totalPages}</SmallText>
-
-        </ItemWrapper>
+          </PaginationWrapper>
+        </ListWrapper>
       }
     </Wrapper >
   )

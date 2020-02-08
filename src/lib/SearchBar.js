@@ -13,6 +13,8 @@ const SearchInput = styled.input`
   width: 80%;
   padding: 10px;
   height: 45px;
+  border-radius: 6px 0 0 6px;
+  border: none;
 `
 const SearchButton = styled.button`
   height: 45px;
@@ -23,11 +25,13 @@ const SearchButton = styled.button`
   justify-content: center;
   align-items: center;
   justify-content: center;
-  background: #B76D68;
+  background: #fff;
+  border-radius: 0 6px 6px 0;
   border: none;
 `
 const Icon = styled.img`
   margin: 0;
+  filter: invert(1);
 `
 
 export const SearchBar = ({ onSubmit, type, value, onChange, placeholder, src, alt }) => (
