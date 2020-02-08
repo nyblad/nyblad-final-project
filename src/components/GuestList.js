@@ -120,9 +120,9 @@ export const GuestList = () => {
 
   // Frontend pagination
   const itemsPerPage = 12
-  const indexOfLastItem = currentPage * itemsPerPage
-  const indexOfFirstItem = indexOfLastItem - itemsPerPage
-  const currentItems = guests.slice(indexOfFirstItem, indexOfLastItem)
+  const endIndex = currentPage * itemsPerPage
+  const startIndex = endIndex - itemsPerPage
+  const currentItems = guests.slice(startIndex, endIndex)
   const totalPages = Math.ceil(guests.length / itemsPerPage)
 
   return (

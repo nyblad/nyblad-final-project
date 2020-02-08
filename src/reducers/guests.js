@@ -21,7 +21,7 @@ export const fetchGuests = (path) => {
     fetch(`https://nyblad-guest-list.herokuapp.com${path}`)
       .then(res => res.json())
       .then(json => {
-        dispatch(guests.actions.setGuests(json))
+        dispatch(guests.actions.setGuests(json.guests))
         dispatch(ui.actions.setLoading(false))
       })
   }
