@@ -16,7 +16,7 @@ const Wrapper = styled.section`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  align-content: center;
+  align-items: center;
   background: url(${wallpaperSmall});
   background-size: cover;
   background-position: center;
@@ -34,24 +34,33 @@ const ActionWrapper = styled.div`
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
-  width: 100%;
+  width: 97%;
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
   @media (min-width: 992px) {
     flex-direction: row;
+    padding: 10px 5px;
   }
 `
 const ButtonWrapper = styled.div`
   margin: 10px 0;
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   @media (min-width: 992px) {
-    width: 50%;
+    width: 55%;
   }
 `
 const SearchWrapper = styled.div`
   width: 100%;
+  @media (min-width: 668px) {
+    width: 45%;
+    margin-left: 15px;
+  }
   @media (min-width: 992px) {
-    width: 40%;
+    width: 35%;
+    margin-left: 10px;
   }
 `
 const ListWrapper = styled.div`
@@ -61,6 +70,7 @@ const ListWrapper = styled.div`
   min-height: 70vh;
 `
 const ItemWrapper = styled.section`
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

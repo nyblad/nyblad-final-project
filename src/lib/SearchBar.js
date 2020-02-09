@@ -8,6 +8,7 @@ const SearchForm = styled.form`
   margin: 5px 0;
 `
 const SearchInput = styled.input`
+  font-family: 'Open Sans', sans-serif;
   background-color: #fff;
   color: #1E1E1E;
   width: 80%;

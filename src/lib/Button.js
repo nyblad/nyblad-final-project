@@ -3,8 +3,8 @@ import styled from 'styled-components/macro'
 
 const StyledButton = styled.button`
   font-family: 'Open Sans', sans-serif;
+  height: 45px;
   min-width: 60px;
-  padding: 5px 10px;
   border: 2px solid #fff;
   border-radius: 6px;
   background: rgba(0,0,0, 0.4);
@@ -15,12 +15,10 @@ const StyledButton = styled.button`
     background: rgba(0,0,0, 0.6);
   }
   @media (min-width: 450px) {
-    font-size: 22px;
-    padding: 5px 10px;
+    font-size: 16px;
   }
-  @media (min-width: 4668px) {
+  @media (min-width: 992px) {
     font-size: 25px;
-    padding: 10px 15px;
   }
 `
 
