@@ -52,7 +52,7 @@ export const StartPage = () => {
       <InnerWrapper>
         <Headline>The Nyblad Wedding</Headline>
         <SecondaryText>Hälsingland | Fall 2022</SecondaryText>
-        <Link to={'/guests'}>
+        <Link to={'/#guests'}>
           <Button title='See guestlist' />
         </Link>
       </InnerWrapper>
