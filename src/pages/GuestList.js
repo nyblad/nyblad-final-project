@@ -68,6 +68,7 @@ const ListWrapper = styled.div`
   flex-direction: column;
   justify-content: space-between;
   min-height: 70vh;
+  width: 100%;
 `
 const ItemWrapper = styled.section`
   width: 100%;
@@ -171,6 +172,7 @@ export const GuestList = () => {
                 phone={guest.phone}
                 allergies={guest.allergies}
                 other={guest.other}
+                attending={guest.isAttending ? "😃" : "☹️"}
               />
             ))}
           </ItemWrapper>

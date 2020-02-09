@@ -54,7 +54,7 @@ const Icon = styled.img`
   margin: 0;
 `
 
-export const GuestItem = ({ firstName, lastName, email, phone, allergies, other }) => {
+export const GuestItem = ({ firstName, lastName, email, phone, allergies, other, attending }) => {
 
   // const dispatch = useDispatch()
 
@@ -76,6 +76,7 @@ export const GuestItem = ({ firstName, lastName, email, phone, allergies, other 
         <Text><FatText>Phone:</FatText> {phone}</Text>
         {allergies && <Text><FatText>Allergies:</FatText> {allergies}</Text>}
         {other && <Text><FatText>Other:</FatText> {other}</Text>}
+        <Text><FatText>Attending:</FatText> {attending}</Text>
       </InfoWrapper>
       <ActionsWrapper>
         <ActionButton onClick={handleUpdateGuest}>

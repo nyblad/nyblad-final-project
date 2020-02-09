@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components'
 import { ui } from './reducers/ui'
 import { guests } from './reducers/guests'
 // import { RsvpForm } from './components/rsvpForm'
-import { GuestList } from './components/GuestList'
+import { GuestList } from './pages/GuestList'
 import { StartPage } from './pages/StartPage'
 
 
