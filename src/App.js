@@ -44,7 +44,7 @@ export const App = () => {
             <StartPage />
           </Route>
 
-          <Route path="/#guests">
+          <Route path="/guests">
             <GuestList />
           </Route>
 
