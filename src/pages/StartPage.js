@@ -55,6 +55,9 @@ export const StartPage = () => {
         <Link to={'/guests'}>
           <Button title='See guestlist' />
         </Link>
+        <Link to={'/rsvp'}>
+          <Button title='RSVP' />
+        </Link>
       </InnerWrapper>
     </Wrapper>
   )

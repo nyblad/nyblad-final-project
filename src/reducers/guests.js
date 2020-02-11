@@ -11,6 +11,9 @@ export const guests = createSlice({
     setGuests: (state, action) => {
       state.guests = action.payload
     }
+    // addGuest
+    // deleteGuest
+    // updateGuest
   }
 })
 
