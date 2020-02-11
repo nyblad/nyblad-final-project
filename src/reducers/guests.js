@@ -10,14 +10,17 @@ export const guests = createSlice({
   reducers: {
     setGuests: (state, action) => {
       state.guests = action.payload
+    },
+    addGuest: (state, action) => {
+      // state.guests.push({  })
     }
-    // addGuest
+
     // deleteGuest
     // updateGuest
   }
 })
 
-// Thunk middleware to fetch the guest list
+// Thunk middleware
 export const fetchGuests = (path) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
@@ -29,3 +32,15 @@ export const fetchGuests = (path) => {
       })
   }
 }
+
+// Just started setup:
+// export const sendGuests = () => {
+//   return dispatch => {
+//     fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
+//       method: "POST", body: JSON.stringify({ })
+//     })
+//       .then(() => {
+//         dispatch(guests.actions.addGuest())
+//       })
+//   }
+// }

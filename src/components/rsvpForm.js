@@ -1,6 +1,6 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-// import { useDispatch } from 'react-redux'
+import { useDispatch } from 'react-redux'
 import wallpaperLarge from 'assets/couple-hills.jpg'
 import { Button } from 'lib/Button'
 
@@ -73,8 +73,22 @@ const TextAreaInput = styled.textarea`
 
 export const RsvpForm = () => {
 
+  const dispatch = useDispatch()
+
+  const [formValues, setFormValues] = useState({
+    first_name: '',
+    last_name: '',
+    isAttending: '',
+    email: '',
+    phone: '',
+    allergies: '',
+    other: '',
+  });
+
   const handleSubmit = (event) => {
     event.preventDefault()
+    console.log(formValues)
+    // dispatch()
   }
 
   return (
@@ -83,6 +97,8 @@ export const RsvpForm = () => {
         <Label>
           <LabelText>First name *</LabelText>
           <Input
+            onChange={event => setFormValues({ ...formValues, first_name: event.target.value })}
+            value={formValues.first_name}
             type="text"
             placeholder="First name"
             required
@@ -92,6 +108,8 @@ export const RsvpForm = () => {
         <Label>
           <LabelText>Last name *</LabelText>
           <Input
+            onChange={event => setFormValues({ ...formValues, last_name: event.target.value })}
+            value={formValues.last_name}
             type="text"
             placeholder="Last name"
             required
@@ -101,11 +119,25 @@ export const RsvpForm = () => {
         <Label>
           <LabelText>Will you attend the wedding? *</LabelText>
           <RadioWrapper>
-            <RadioInput type="radio" name="Attending" value="Yes" defaultChecked />
+            <RadioInput
+              onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
+              type="radio"
+              name="isAttending"
+              value="true"
+              checked={formValues.isAttending === "true"}
+            />
             <RadioText>Yes</RadioText>
           </RadioWrapper>
+        </Label>
+        <Label>
           <RadioWrapper>
-            <RadioInput type="radio" name="Attending" value="No" />
+            <RadioInput
+              onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
+              type="radio"
+              name="isAttending"
+              value="false"
+              checked={formValues.isAttending === "false"}
+            />
             <RadioText>No</RadioText>
           </RadioWrapper>
         </Label>
@@ -113,6 +145,8 @@ export const RsvpForm = () => {
         <Label>
           <LabelText>E-mail *</LabelText>
           <Input
+            onChange={event => setFormValues({ ...formValues, email: event.target.value })}
+            value={formValues.email}
             placeholder="mail@mail.com"
             required
           />
@@ -120,23 +154,36 @@ export const RsvpForm = () => {
 
         <Label>
           <LabelText>Phone number</LabelText>
-          <Input placeholder="46700000000" />
+          <Input
+            onChange={event => setFormValues({ ...formValues, phone: event.target.value })}
+            value={formValues.phone}
+            type="number"
+            placeholder="46700000000"
+          />
         </Label>
 
         <Label>
           <LabelText>Allergies</LabelText>
-          <Input placeholder="If you have any food allergies/requirements.." />
+          <Input
+            onChange={event => setFormValues({ ...formValues, allergies: event.target.value })}
+            value={formValues.allergies}
+            type="text"
+            placeholder="If you have any food allergies/requirements.."
+          />
         </Label>
 
         <Label>
           <LabelText>Other</LabelText>
           <TextAreaInput
+            onChange={event => setFormValues({ ...formValues, other: event.target.value })}
+            value={formValues.other}
+            type="text"
             rows="4"
             placeholder="Type your message here.." />
         </Label>
 
         <Button type="submit" title="Submit" />
       </Form>
-    </Wrapper>
+    </Wrapper >
   )
 }

@@ -5,7 +5,7 @@ const StyledButton = styled.button`
   font-family: 'Open Sans', sans-serif;
   height: 45px;
   min-width: 60px;
-  border: 2px solid #fff;
+  border: 3px solid #fff;
   border-radius: 6px;
   background: rgba(0,0,0, 0.4);
   transition: 0.6s;
