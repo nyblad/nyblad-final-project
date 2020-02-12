@@ -136,7 +136,7 @@ export const GuestList = () => {
   }
 
   useEffect(() => {
-    dispatch(fetchGuests(`/guests${query}`))
+    dispatch(fetchGuests(`/${query}`))
   }, [dispatch, query])
 
   // Frontend pagination

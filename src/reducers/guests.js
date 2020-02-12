@@ -25,7 +25,7 @@ export const guests = createSlice({
 export const fetchGuests = (path) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-guest-list.herokuapp.com${path}`)
+    fetch(`https://nyblad-guest-list.herokuapp.com/guests${path}`)
       .then(res => res.json())
       .then(json => {
         dispatch(guests.actions.setGuests(json.guests))
