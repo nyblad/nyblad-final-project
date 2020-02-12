@@ -86,11 +86,22 @@ export const RsvpForm = () => {
     other: '',
   });
 
+  const clearInputs = () => {
+    setFormValues({
+      first_name: '',
+      last_name: '',
+      isAttending: '',
+      email: '',
+      phone: '',
+      allergies: '',
+      other: '',
+    })
+  }
+
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log('On submit: ', formValues)
-    // dispatch(guests.actions.addGuest(formValues))
     dispatch(sendGuests(formValues))
+    clearInputs()
   }
 
   return (
