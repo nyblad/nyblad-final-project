@@ -6,9 +6,9 @@ import edit from 'assets/edit-24.png'
 
 const GuestWrapper = styled.div`
   width: 100%;
-  background: rgba(0,0,0, 0.8);
+  background: rgba(255,255,255, 0.4);
   border-radius: 6px;
-  color: #f1f1f1;
+  color: #333;
   margin: 8px 0;
   padding: 10px;
   display: flex;

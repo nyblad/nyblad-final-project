@@ -7,29 +7,10 @@ import { Button } from 'lib/Button'
 import { SearchBar } from 'lib/SearchBar'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 import search from 'assets/search-24.png'
-import wallpaperLarge from 'assets/couple-hills-2500.jpg'
-import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 
-const Wrapper = styled.section`
-  padding: 10px;
-  width: 100%;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: url(${wallpaperLarge});
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
-  @media (min-width: 450px) {
-    background: url(${wallpaperSmall});
-    background-size: cover;
-    background-position: center;
-  }
-`
 const ActionWrapper = styled.div`
   padding: 10px;
-  background: rgba(0,0,0, 0.8);
+  background: rgba(255,255,255, 0.4);
   border-radius: 6px;
   display: flex;
   flex-direction: column;
@@ -147,7 +128,7 @@ export const GuestList = () => {
   const totalPages = Math.ceil(guests.length / itemsPerPage)
 
   return (
-    <Wrapper>
+    <>
       <ActionWrapper>
         <ButtonWrapper>
           <Button title='All guests' onClick={handleAll} />
@@ -197,6 +178,6 @@ export const GuestList = () => {
           </PaginationWrapper>
         </ListWrapper>
       }
-    </Wrapper >
+    </ >
   )
 }

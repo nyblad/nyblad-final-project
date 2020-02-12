@@ -6,7 +6,7 @@ import { createGlobalStyle } from 'styled-components'
 import { ui } from './reducers/ui'
 import { guests } from './reducers/guests'
 import { RsvpForm } from './components/rsvpForm'
-import { GuestList } from './pages/GuestList'
+import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
 
 
@@ -49,7 +49,7 @@ export const App = () => {
           </Route>
 
           <Route path="/guests">
-            <GuestList />
+            <GuestPage />
           </Route>
 
         </Switch>
