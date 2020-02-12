@@ -38,7 +38,7 @@ export const fetchGuests = (path) => {
 export const sendGuests = (guest) => {
   return dispatch => {
     fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
-      method: "POST", body: JSON.stringify({ guest }), headers: { "Content-Type": "application/json" }
+      method: "POST", body: JSON.stringify(guest), headers: { "Content-Type": "application/json" }
     })
       .then(() => {
         dispatch(guests.actions.addGuest(guest))
