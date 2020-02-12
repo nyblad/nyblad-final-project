@@ -107,6 +107,7 @@ export const RsvpForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
+    // Sending the form values to the thunk in reducer
     dispatch(sendGuests(formValues))
     clearInputs()
   }
