@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
+import { sendGuests } from 'reducers/guests'
 import wallpaperLarge from 'assets/couple-hills.jpg'
 import { Button } from 'lib/Button'
 
@@ -88,7 +89,8 @@ export const RsvpForm = () => {
   const handleSubmit = (event) => {
     event.preventDefault()
     console.log(formValues)
-    // dispatch()
+    // dispatch(guests.actions.addGuest(formValues))
+    dispatch(sendGuests(formValues))
   }
 
   return (

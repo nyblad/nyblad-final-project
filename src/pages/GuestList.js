@@ -151,7 +151,7 @@ export const GuestList = () => {
             value={searchInput}
             onChange={(event) => setSearchInput(event.target.value)}
             type='text'
-            placeholder='Search for a name..'
+            placeholder='Search for first or last name..'
             src={search}
             alt='search'
           />

@@ -4,15 +4,15 @@ import { ui } from './ui'
 export const guests = createSlice({
   name: 'guests',
   initialState: {
-    guests: []
+    guests: [],
   },
-  // The actions of guest reducer
+  // The actions of the reducer
   reducers: {
     setGuests: (state, action) => {
       state.guests = action.payload
     },
     addGuest: (state, action) => {
-      // state.guests.push({  })
+      state.guests.push({ guest: action.payload })
     }
 
     // deleteGuest
@@ -34,13 +34,13 @@ export const fetchGuests = (path) => {
 }
 
 // Just started setup:
-// export const sendGuests = () => {
-//   return dispatch => {
-//     fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
-//       method: "POST", body: JSON.stringify({ })
-//     })
-//       .then(() => {
-//         dispatch(guests.actions.addGuest())
-//       })
-//   }
-// }
+export const sendGuests = (guest) => {
+  return dispatch => {
+    fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
+      method: "POST", body: JSON.stringify({ guest }), headers: { "Content-Type": "application/json" }
+    })
+      .then(() => {
+        dispatch(guests.actions.addGuest(guest))
+      })
+  }
+}
