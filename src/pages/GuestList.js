@@ -7,8 +7,8 @@ import { Button } from 'lib/Button'
 import { SearchBar } from 'lib/SearchBar'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 import search from 'assets/search-24.png'
-import wallpaperLarge from 'assets/couple-night.jpg'
-import wallpaperSmall from 'assets/couple-night.jpg'
+import wallpaperLarge from 'assets/couple-hills-2500.jpg'
+import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 
 const Wrapper = styled.section`
   padding: 10px;
@@ -17,11 +17,12 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(${wallpaperSmall});
+  background: url(${wallpaperLarge});
   background-size: cover;
   background-position: center;
+  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
   @media (min-width: 450px) {
-    background: url(${wallpaperLarge});
+    background: url(${wallpaperSmall});
     background-size: cover;
     background-position: center;
   }
@@ -89,7 +90,16 @@ const PaginationWrapper = styled.div`
   align-self: baseline;
 `
 const PageButtons = styled.div`
-  
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  @media (min-width: 668px) {
+    width: 50%;
+  }
+  @media (min-width: 992px) {
+    width: 30%;
+  }
 `
 const SmallText = styled.p`
   font-size: 14px;

@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { sendGuests } from 'reducers/guests'
-import wallpaperLarge from 'assets/couple-hills.jpg'
+import wallpaperLarge from 'assets/couple-hills-2500.jpg'
+import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import { Button } from 'lib/Button'
 
 const Wrapper = styled.main`
@@ -13,6 +14,12 @@ const Wrapper = styled.main`
   background: url(${wallpaperLarge});
   background-size: cover;
   background-position: center;
+  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
+  @media (min-width: 450px) {
+    background: url(${wallpaperSmall});
+    background-size: cover;
+    background-position: center;
+  }
   @media (min-width: 668px) {
     padding: 20px;
   }
