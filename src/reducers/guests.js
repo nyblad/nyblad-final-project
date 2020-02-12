@@ -13,6 +13,7 @@ export const guests = createSlice({
     },
     addGuest: (state, action) => {
       state.guests.push({ guest: action.payload })
+      console.log('Action payload: ', action.payload)
     }
 
     // deleteGuest
@@ -20,7 +21,7 @@ export const guests = createSlice({
   }
 })
 
-// Thunk middleware
+// Thunk middleware for get
 export const fetchGuests = (path) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
@@ -33,7 +34,7 @@ export const fetchGuests = (path) => {
   }
 }
 
-// Just started setup:
+// Thunk middleware for post
 export const sendGuests = (guest) => {
   return dispatch => {
     fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
@@ -41,6 +42,7 @@ export const sendGuests = (guest) => {
     })
       .then(() => {
         dispatch(guests.actions.addGuest(guest))
+        console.log('Dispatched: ', guest)
       })
   }
 }

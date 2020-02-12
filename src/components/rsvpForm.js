@@ -88,7 +88,7 @@ export const RsvpForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    console.log(formValues)
+    console.log('On submit: ', formValues)
     // dispatch(guests.actions.addGuest(formValues))
     dispatch(sendGuests(formValues))
   }
