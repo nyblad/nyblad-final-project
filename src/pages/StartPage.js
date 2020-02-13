@@ -1,31 +1,37 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { Link } from 'react-router-dom'
 import wallpaperLarge from 'assets/couple-hills-2500.jpg'
 import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import coupleOne from 'assets/couple-1.jpg'
 import coupleFour from 'assets/couple-4.jpg'
 import { Button } from 'lib/Button'
-import { Link } from 'react-router-dom'
+import { NavBar } from 'components/NavBar'
 
 const Wrapper = styled.main`
 
 `
 const Hero = styled.section`
-  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background: url(${wallpaperSmall});
+  background-size: cover;
+  background-position: center;
+  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
+  @media (min-width: 450px) {
+    background: url(${wallpaperLarge});
+    background-size: cover;
+    background-position: center;
+  }
+`
+const HeroInner = styled.section`
+  height: 80vh;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  background: url(${wallpaperLarge});
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
-  @media (min-width: 450px) {
-    background: url(${wallpaperSmall});
-    background-size: cover;
-    background-position: center;
-  }
 `
 const SectionWhite = styled.section`
   width: 100%;
@@ -90,14 +96,14 @@ export const StartPage = () => {
   return (
     <Wrapper>
       <Hero>
-        <Headline>Celebrate with us.</Headline>
-        <SecondaryText>Hälsingland | Fall 2022</SecondaryText>
-        <Link to={'/guests'}>
-          <Button title='See guestlist' />
-        </Link>
-        <Link to={'/rsvp'}>
-          <Button title='RSVP' />
-        </Link>
+        <NavBar />
+        <HeroInner>
+          <Headline>Celebrate with us.</Headline>
+          <SecondaryText>Hälsingland | Fall 2022</SecondaryText>
+          <Link to={'/rsvp'}>
+            <Button title='RSVP' />
+          </Link>
+        </HeroInner>
       </Hero>
       <SectionWhite>
         <Image src={coupleFour} alt="hands" />

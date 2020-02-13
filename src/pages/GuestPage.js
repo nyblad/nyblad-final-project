@@ -11,12 +11,12 @@ const Wrapper = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(${wallpaperLarge});
+  background: url(${wallpaperSmall});
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
   @media (min-width: 450px) {
-    background: url(${wallpaperSmall});
+    background: url(${wallpaperLarge});
     background-size: cover;
     background-position: center;
   }

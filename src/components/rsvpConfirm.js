@@ -1,7 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button } from 'lib/Button'
+import { ui } from 'reducers/ui'
 
 const Wrapper = styled.section`
   width: 100%;
@@ -30,12 +32,18 @@ const Text = styled.h3`
 `
 export const RsvpConfirm = () => {
 
+  const dispatch = useDispatch()
+
+  const handleClick = () => {
+    dispatch(ui.actions.setSubmitted(false))
+  }
+
   return (
     <Wrapper>
       <Text>Thank you.</Text>
       <Text>Hope we see you at the ceremony!</Text>
       <Link to={'/rsvp'}>
-        <Button title='RSVP for another guest?' />
+        <Button title='RSVP for another guest?' onClick={handleClick} />
       </Link>
     </Wrapper>
   )
