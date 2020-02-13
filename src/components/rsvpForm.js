@@ -2,31 +2,9 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { sendGuests } from 'reducers/guests'
-import wallpaperLarge from 'assets/couple-hills-2500.jpg'
-import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import { Button } from 'lib/Button'
+import { ui } from 'reducers/ui'
 
-const Wrapper = styled.main`
-  padding: 10px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: url(${wallpaperLarge});
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
-  @media (min-width: 450px) {
-    background: url(${wallpaperSmall});
-    background-size: cover;
-    background-position: center;
-  }
-  @media (min-width: 668px) {
-    padding: 20px;
-  }
-  @media (min-width: 992px) {
-    padding: 30px;
-  }
-`
 const Form = styled.form`
   width: 100%;
   padding: 15px;
@@ -82,7 +60,6 @@ const TextAreaInput = styled.textarea`
 export const RsvpForm = () => {
 
   const dispatch = useDispatch()
-
   const [formValues, setFormValues] = useState({
     first_name: '',
     last_name: '',
@@ -110,101 +87,101 @@ export const RsvpForm = () => {
     // Sending the form values to the thunk in reducer
     dispatch(sendGuests(formValues))
     clearInputs()
+    // Set isSubmitted to true when submit button is hit
+    dispatch(ui.actions.setSubmitted(true))
   }
 
   return (
-    <Wrapper>
-      <Form onSubmit={handleSubmit}>
-        <Label>
-          <LabelText>First name *</LabelText>
-          <Input
-            onChange={event => setFormValues({ ...formValues, first_name: event.target.value })}
-            value={formValues.first_name}
-            type="text"
-            placeholder="First name"
-            required
+    <Form onSubmit={handleSubmit}>
+      <Label>
+        <LabelText>First name *</LabelText>
+        <Input
+          onChange={event => setFormValues({ ...formValues, first_name: event.target.value })}
+          value={formValues.first_name}
+          type="text"
+          placeholder="First name"
+          required
+        />
+      </Label>
+
+      <Label>
+        <LabelText>Last name *</LabelText>
+        <Input
+          onChange={event => setFormValues({ ...formValues, last_name: event.target.value })}
+          value={formValues.last_name}
+          type="text"
+          placeholder="Last name"
+          required
+        />
+      </Label>
+
+      <Label>
+        <LabelText>Will you attend the wedding? *</LabelText>
+        <RadioWrapper>
+          <RadioInput
+            onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
+            type="radio"
+            name="isAttending"
+            value="true"
+            checked={formValues.isAttending === "true"}
           />
-        </Label>
-
-        <Label>
-          <LabelText>Last name *</LabelText>
-          <Input
-            onChange={event => setFormValues({ ...formValues, last_name: event.target.value })}
-            value={formValues.last_name}
-            type="text"
-            placeholder="Last name"
-            required
+          <RadioText>Yes</RadioText>
+        </RadioWrapper>
+      </Label>
+      <Label>
+        <RadioWrapper>
+          <RadioInput
+            onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
+            type="radio"
+            name="isAttending"
+            value="false"
+            checked={formValues.isAttending === "false"}
           />
-        </Label>
+          <RadioText>No</RadioText>
+        </RadioWrapper>
+      </Label>
 
-        <Label>
-          <LabelText>Will you attend the wedding? *</LabelText>
-          <RadioWrapper>
-            <RadioInput
-              onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
-              type="radio"
-              name="isAttending"
-              value="true"
-              checked={formValues.isAttending === "true"}
-            />
-            <RadioText>Yes</RadioText>
-          </RadioWrapper>
-        </Label>
-        <Label>
-          <RadioWrapper>
-            <RadioInput
-              onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
-              type="radio"
-              name="isAttending"
-              value="false"
-              checked={formValues.isAttending === "false"}
-            />
-            <RadioText>No</RadioText>
-          </RadioWrapper>
-        </Label>
+      <Label>
+        <LabelText>E-mail *</LabelText>
+        <Input
+          onChange={event => setFormValues({ ...formValues, email: event.target.value })}
+          value={formValues.email}
+          placeholder="mail@mail.com"
+          required
+        />
+      </Label>
 
-        <Label>
-          <LabelText>E-mail *</LabelText>
-          <Input
-            onChange={event => setFormValues({ ...formValues, email: event.target.value })}
-            value={formValues.email}
-            placeholder="mail@mail.com"
-            required
-          />
-        </Label>
+      <Label>
+        <LabelText>Phone number</LabelText>
+        <Input
+          onChange={event => setFormValues({ ...formValues, phone: event.target.value })}
+          value={formValues.phone}
+          type="number"
+          placeholder="46700000000"
+        />
+      </Label>
 
-        <Label>
-          <LabelText>Phone number</LabelText>
-          <Input
-            onChange={event => setFormValues({ ...formValues, phone: event.target.value })}
-            value={formValues.phone}
-            type="number"
-            placeholder="46700000000"
-          />
-        </Label>
+      <Label>
+        <LabelText>Allergies</LabelText>
+        <Input
+          onChange={event => setFormValues({ ...formValues, allergies: event.target.value })}
+          value={formValues.allergies}
+          type="text"
+          placeholder="If you have any food allergies/requirements.."
+        />
+      </Label>
 
-        <Label>
-          <LabelText>Allergies</LabelText>
-          <Input
-            onChange={event => setFormValues({ ...formValues, allergies: event.target.value })}
-            value={formValues.allergies}
-            type="text"
-            placeholder="If you have any food allergies/requirements.."
-          />
-        </Label>
+      <Label>
+        <LabelText>Other</LabelText>
+        <TextAreaInput
+          onChange={event => setFormValues({ ...formValues, other: event.target.value })}
+          value={formValues.other}
+          type="text"
+          rows="4"
+          placeholder="Type your message here.." />
+      </Label>
 
-        <Label>
-          <LabelText>Other</LabelText>
-          <TextAreaInput
-            onChange={event => setFormValues({ ...formValues, other: event.target.value })}
-            value={formValues.other}
-            type="text"
-            rows="4"
-            placeholder="Type your message here.." />
-        </Label>
-
-        <Button type="submit" title="Submit" />
-      </Form>
-    </Wrapper >
+      <Button type="submit" title="Submit" />
+    </Form>
   )
 }

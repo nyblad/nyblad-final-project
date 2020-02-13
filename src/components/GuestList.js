@@ -10,7 +10,7 @@ import search from 'assets/search-24.png'
 
 const ActionWrapper = styled.div`
   padding: 10px;
-  background: rgba(255,255,255, 0.4);
+  background: rgba(255,255,255, 0.5);
   border-radius: 6px;
   display: flex;
   flex-direction: column;

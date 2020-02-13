@@ -4,7 +4,7 @@ import { ui } from './ui'
 export const guests = createSlice({
   name: 'guests',
   initialState: {
-    guests: [],
+    guests: []
   },
   // The actions of the reducer
   reducers: {
@@ -17,7 +17,7 @@ export const guests = createSlice({
     }
 
     // deleteGuest
-    // updateGuest
+    // updateGuest isAttending
   }
 })
 

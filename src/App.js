@@ -5,7 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { ui } from './reducers/ui'
 import { guests } from './reducers/guests'
-import { RsvpForm } from './components/rsvpForm'
+import { RsvpPage } from './pages/RsvpPage'
 import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
 
@@ -45,7 +45,7 @@ export const App = () => {
           </Route>
 
           <Route path="/rsvp">
-            <RsvpForm />
+            <RsvpPage />
           </Route>
 
           <Route path="/guests">

@@ -17,7 +17,6 @@ const Hero = styled.section`
   justify-content: space-evenly;
   align-items: center;
   width: 100%;
-  /* min-height: 100vh; */
   background: url(${wallpaperLarge});
   background-size: cover;
   background-position: center;

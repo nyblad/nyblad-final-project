@@ -3,11 +3,15 @@ import { createSlice } from '@reduxjs/toolkit'
 export const ui = createSlice({
   name: 'ui',
   initialState: {
-    isLoading: false
+    isLoading: false,
+    isSubmitted: false
   },
   reducers: {
     setLoading: (state, action) => {
       state.isLoading = action.payload
+    },
+    setSubmitted: (state, action) => {
+      state.isSubmitted = action.payload
     }
   }
 })

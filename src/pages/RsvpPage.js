@@ -1,15 +1,17 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
-import { GuestList } from 'components/GuestList'
 import wallpaperLarge from 'assets/couple-hills-2500.jpg'
 import wallpaperSmall from 'assets/couple-hills-1100.jpg'
+import { RsvpForm } from 'components/rsvpForm'
+import { RsvpConfirm } from 'components/rsvpConfirm'
 
-const Wrapper = styled.section`
-  padding: 10px;
-  width: 100%;
+const Wrapper = styled.main`
   min-height: 100vh;
+  padding: 10px;
   display: flex;
   flex-direction: column;
+  justify-content: center;
   align-items: center;
   background: url(${wallpaperLarge});
   background-size: cover;
@@ -20,14 +22,22 @@ const Wrapper = styled.section`
     background-size: cover;
     background-position: center;
   }
+  @media (min-width: 668px) {
+    padding: 20px;
+  }
+  @media (min-width: 992px) {
+    padding: 30px;
+  }
 `
 
-export const GuestPage = () => {
+export const RsvpPage = () => {
+
+  const submitted = useSelector(state => state.ui.isSubmitted)
 
   return (
     <Wrapper>
-      <GuestList />
+      {!submitted && <RsvpForm />}
+      {submitted && <RsvpConfirm />}
     </Wrapper>
   )
-
 }
