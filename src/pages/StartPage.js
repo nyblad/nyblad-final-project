@@ -55,7 +55,7 @@ const Image = styled.img`
 `
 const Headline = styled.h1`
   margin: 0;
-  color: #f1f1f1;
+  color: #fff;
   font-weight: 700;
   font-size: 32px;
   @media (min-width: 450px) {
@@ -70,7 +70,7 @@ const Headline = styled.h1`
 `
 const SecondaryText = styled.h3`
   margin: 0;
-  color: #f1f1f1;
+  color: #fff;
   @media (min-width: 450px) {
     font-size: 30px;
   }
@@ -107,8 +107,8 @@ export const StartPage = () => {
       </SectionWhite>
       <SectionGray>
         <Image src={coupleOne} alt="couple" />
-        <Text>Best wishes</Text>
-        <Text>Sofie | Magnus</Text>
+        <Text>with love</Text>
+        <Text>Magnus | Sofie</Text>
       </SectionGray>
     </Wrapper>
   )
