@@ -57,7 +57,7 @@ const Icon = styled.img`
   margin: 0;
 `
 
-export const GuestItem = ({ firstName, lastName, email, phone, allergies, other, attending, onClickEdit, onClickDelete }) => {
+export const GuestItem = ({ firstName, lastName, email, phone, allergies, other, attending, addedAt, onClickEdit, onClickDelete }) => {
 
   return (
     <GuestWrapper>
@@ -68,6 +68,7 @@ export const GuestItem = ({ firstName, lastName, email, phone, allergies, other,
         {allergies && <Text><FatText>Allergies:</FatText> {allergies}</Text>}
         {other && <Text><FatText>Other:</FatText> {other}</Text>}
         <Text><FatText>Attending:</FatText> {attending}</Text>
+        <Text><FatText>Added:</FatText> {addedAt}</Text>
       </InfoWrapper>
       <ActionsWrapper>
         <ActionButton onClick={onClickEdit}>

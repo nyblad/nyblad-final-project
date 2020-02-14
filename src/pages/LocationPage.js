@@ -24,6 +24,16 @@ const Wrapper = styled.main`
     padding-top: 0;
   }
 `
+const InnerWrapper = styled.section`
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
+`
 const Text = styled.p`
   color: #fff;
   font-size: 16px;
@@ -33,22 +43,37 @@ const Text = styled.p`
 const Iframe = styled.iframe`
   width: 90%;
   height: 400px;
-  @media (min-width: 668px) {
-    width: 50%;
-  }
-  @media (min-width: 992px) {
-    height: 600px;
-  }
+  margin: 0;
+  /* @media (min-width: 668px) {
+    width: 90%;
+  } */
+`
+const MapOuter = styled.div`
+  position: relative;
+  text-align: right;
+`
+const MapCanvas = styled.div`
+  overflow: hidden;
+  background: none;
 `
 
-export const MusicPage = () => {
+export const LocationPage = () => {
 
   return (
     <Wrapper>
       <NavBar />
-      <Text>Want to add your favourite song to our playlist? Open the playlist in your Spotify app and shoot!</Text>
-      <Iframe src="https://open.spotify.com/embed/playlist/2WlD0nCuBif7ftksjMn9TL" frameBorder="0" allowtransparency="true" allow="encrypted-media" SameSite="none" Secure />
+      <InnerWrapper>
+        <Text>The wedding will be in Bollnäs, Hälsingland.</Text>
+        <MapOuter>
+          <MapCanvas>
+            <Iframe src='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no' />
+            <a href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>Map</a>
+          </MapCanvas>
+        </MapOuter>
+      </InnerWrapper>
       <Footer />
     </Wrapper>
   )
+
 }
+

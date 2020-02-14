@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
+import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGuests } from 'reducers/guests'
 import { deleteGuests } from 'reducers/guests'
@@ -115,10 +116,6 @@ export const GuestList = () => {
     setCurrentPage(1)
   }
 
-  // const handleDeleteGuest = () => {
-  //   dispatch(deleteGuests(guest._id))
-  // }
-
   useEffect(() => {
     dispatch(fetchGuests(`/${query}`))
   }, [dispatch, query])
@@ -167,7 +164,7 @@ export const GuestList = () => {
                 allergies={guest.allergies}
                 other={guest.other}
                 attending={guest.isAttending ? "😃" : "☹️"}
-                // onClickDelete={handleDeleteGuest}
+                addedAt={moment(guest.addedAt).format('ll')}
                 onClickDelete={() => dispatch(deleteGuests(guest._id))}
               />
             ))}

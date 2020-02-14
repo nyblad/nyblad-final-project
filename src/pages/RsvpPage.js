@@ -6,6 +6,7 @@ import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import { RsvpForm } from 'components/rsvpForm'
 import { RsvpConfirm } from 'components/rsvpConfirm'
 import { NavBar } from 'components/NavBar'
+import { Footer } from 'components/Footer'
 
 const Wrapper = styled.main`
   padding-top: 60px;
@@ -36,6 +37,7 @@ export const RsvpPage = () => {
       <NavBar />
       {!submitted && <RsvpForm />}
       {submitted && <RsvpConfirm />}
+      <Footer />
     </Wrapper>
   )
 }

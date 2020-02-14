@@ -7,6 +7,7 @@ import coupleOne from 'assets/couple-1.jpg'
 import coupleFour from 'assets/couple-4.jpg'
 import { Button } from 'lib/Button'
 import { NavBar } from 'components/NavBar'
+import { Footer } from 'components/Footer'
 
 const Wrapper = styled.main`
 
@@ -116,6 +117,7 @@ export const StartPage = () => {
         <Text>with love</Text>
         <Text>Magnus | Sofie</Text>
       </SectionGray>
+      <Footer />
     </Wrapper>
   )
 }

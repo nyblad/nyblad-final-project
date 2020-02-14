@@ -111,19 +111,25 @@ export const NavBar = () => {
 
       {/* Tabindex -1 to not have double tabbing at every link*/}
       <NavLinks menuActive={menuActive === true}>
+
         <Link to={'/'} tabIndex='-1'>
           <NavButton>Info</NavButton>
         </Link>
-        <Link to={'/rsvp'} tabIndex='-1'>
-          <NavButton>RSVP</NavButton>
+
+        <Link to={'/location'} tabIndex='-1'>
+          <NavButton>Location</NavButton>
         </Link>
+
         <CoupleHeading>Sofie & Magnus</CoupleHeading>
+
         <Link to={'/music'} tabIndex='-1'>
           <NavButton>Music</NavButton>
         </Link>
-        <Link to={'/guests'} tabIndex='-1'>
-          <NavButton>Guestlist</NavButton>
+
+        <Link to={'/rsvp'} tabIndex='-1'>
+          <NavButton>RSVP</NavButton>
         </Link>
+
       </NavLinks>
     </NavWrapper>
   )

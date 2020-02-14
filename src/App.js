@@ -9,6 +9,7 @@ import { RsvpPage } from './pages/RsvpPage'
 import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
 import { MusicPage } from './pages/MusicPage'
+import { LocationPage } from './pages/LocationPage'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -50,8 +51,13 @@ export const App = () => {
           <Route path="/guests">
             <GuestPage />
           </Route>
+
           <Route path="/music">
             <MusicPage />
+          </Route>
+
+          <Route path="/location">
+            <LocationPage />
           </Route>
 
         </Switch>
