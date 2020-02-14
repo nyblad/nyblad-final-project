@@ -1,10 +1,7 @@
 import React from 'react'
-import { useSelector } from 'react-redux'
 import styled from 'styled-components/macro'
 import wallpaperLarge from 'assets/couple-hills-2500.jpg'
 import wallpaperSmall from 'assets/couple-hills-1100.jpg'
-import { RsvpForm } from 'components/rsvpForm'
-import { RsvpConfirm } from 'components/rsvpConfirm'
 import { NavBar } from 'components/NavBar'
 
 const Wrapper = styled.main`
@@ -12,7 +9,6 @@ const Wrapper = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: url(${wallpaperSmall});
   background-size: cover;
@@ -27,16 +23,27 @@ const Wrapper = styled.main`
     padding-top: 0;
   }
 `
+const Text = styled.p`
+  color: #fff;
+  font-size: 16px;
+  text-align: center;
+  margin: 0 0 20px 0;
+`
+const Iframe = styled.iframe`
+  width: 90%;
+  height: 400px;
+  @media (min-width: 668px) {
+    width: 50%;
+  }
+`
 
-export const RsvpPage = () => {
-
-  const submitted = useSelector(state => state.ui.isSubmitted)
+export const MusicPage = () => {
 
   return (
     <Wrapper>
       <NavBar />
-      {!submitted && <RsvpForm />}
-      {submitted && <RsvpConfirm />}
+      <Text>Want to add your favourite song to our playlist? Open the playlist in your Spotify app and shoot!</Text>
+      <Iframe src="https://open.spotify.com/embed/playlist/2WlD0nCuBif7ftksjMn9TL" frameBorder="0" allowtransparency="true" allow="encrypted-media" SameSite="none" />
     </Wrapper>
   )
 }

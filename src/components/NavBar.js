@@ -99,7 +99,7 @@ export const NavBar = () => {
           <NavButton>Guestlist</NavButton>
         </Link>
         <CoupleHeading>Sofie & Magnus</CoupleHeading>
-        <Link to={'/'}>
+        <Link to={'/music'}>
           <NavButton>Music</NavButton>
         </Link>
         <Link to={'/rsvp'}>

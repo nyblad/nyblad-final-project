@@ -8,6 +8,7 @@ import { guests } from './reducers/guests'
 import { RsvpPage } from './pages/RsvpPage'
 import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
+import { MusicPage } from './pages/MusicPage'
 
 const GlobalStyle = createGlobalStyle`
   * {
@@ -48,6 +49,9 @@ export const App = () => {
 
           <Route path="/guests">
             <GuestPage />
+          </Route>
+          <Route path="/music">
+            <MusicPage />
           </Route>
 
         </Switch>
