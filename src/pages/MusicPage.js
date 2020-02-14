@@ -35,6 +35,9 @@ const Iframe = styled.iframe`
   @media (min-width: 668px) {
     width: 50%;
   }
+  @media (min-width: 992px) {
+    height: 600px;
+  }
 `
 
 export const MusicPage = () => {

@@ -49,6 +49,10 @@ const ActionButton = styled.button`
   &:hover {
     cursor: pointer;
   }
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 3px;
+  }
 `
 const Icon = styled.img`
   margin: 0;

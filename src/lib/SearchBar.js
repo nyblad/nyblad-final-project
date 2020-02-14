@@ -16,6 +16,10 @@ const SearchInput = styled.input`
   height: 45px;
   border-radius: 6px 0 0 6px;
   border: none;
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 3px;
+  }
 `
 const SearchButton = styled.button`
   height: 45px;
@@ -29,6 +33,10 @@ const SearchButton = styled.button`
   background: #fff;
   border-radius: 0 6px 6px 0;
   border: none;
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 3px;
+  }
 `
 const Icon = styled.img`
   margin: 0;

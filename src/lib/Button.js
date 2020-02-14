@@ -14,6 +14,10 @@ const StyledButton = styled.button`
   &:hover {
     background: rgba(0,0,0, 0.6);
   }
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 5px;
+  }
   @media (min-width: 450px) {
     font-size: 16px;
   }

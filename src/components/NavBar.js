@@ -13,19 +13,25 @@ const NavWrapper = styled.section`
   bottom: 0;
   left: 0;
   padding: 10px;
-  background: ${props => (props.menuActive ? "rgba(102, 102, 102, 0.9)" : "none")};
+  background: ${props => (props.menuActive ? 'rgba(102, 102, 102, 0.9)' : 'none')};
   @media (min-width: 668px) {
     position: relative;
     background: none;
   }
 `
 const BurgerWrapper = styled.div`
+  width: 42px;
+  height: 34px;
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 3px;
+  }
   @media (min-width: 668px) {
     display: none;
   }
 `
 const NavLinks = styled.nav`
-  display: ${props => (props.menuActive ? "flex" : "none")};
+  display: ${props => (props.menuActive ? 'flex' : 'none')};
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
@@ -52,6 +58,10 @@ const NavButton = styled.button`
   background: transparent;
   transition: 0.6s;
   cursor: pointer;
+  &:focus {
+    outline-color: #BC7C43;
+    outline-offset: 3px;
+  }
   &:hover {
     color: #BC7C43;
   }
@@ -77,32 +87,41 @@ export const NavBar = () => {
   const [menuActive, setMenuActive] = useState(false)
 
   return (
-    <NavWrapper menuActive={menuActive === true}>
-      <BurgerWrapper>
+    <NavWrapper menuActive={menuActive === true} role='navigation'>
+
+      <BurgerWrapper
+        onKeyPress={(event) => { event.key === "Enter" && setMenuActive(!menuActive) }}
+        tabIndex='0'
+        aria-label='Open menu'
+        role='button'
+        aria-pressed={menuActive ? 'true' : 'false'}
+      >
         <HamburgerMenu
           isOpen={menuActive === true}
           menuClicked={() => setMenuActive(!menuActive)}
           width={40}
           height={32}
-          strokeWidth={1}
+          strokeWidth={1.2}
           rotate={0}
           color='white'
           borderRadius={0}
           animationDuration={0.5}
         />
       </BurgerWrapper>
+
+      {/* Tabindex -1 to not have double tabbing at every link*/}
       <NavLinks menuActive={menuActive === true}>
-        <Link to={'/'}>
+        <Link to={'/'} tabIndex='-1'>
           <NavButton>Info</NavButton>
         </Link>
-        <Link to={'/rsvp'}>
+        <Link to={'/rsvp'} tabIndex='-1'>
           <NavButton>RSVP</NavButton>
         </Link>
         <CoupleHeading>Sofie & Magnus</CoupleHeading>
-        <Link to={'/music'}>
+        <Link to={'/music'} tabIndex='-1'>
           <NavButton>Music</NavButton>
         </Link>
-        <Link to={'/guests'}>
+        <Link to={'/guests'} tabIndex='-1'>
           <NavButton>Guestlist</NavButton>
         </Link>
       </NavLinks>

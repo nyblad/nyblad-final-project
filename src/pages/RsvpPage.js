@@ -12,7 +12,6 @@ const Wrapper = styled.main`
   min-height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: url(${wallpaperSmall});
   background-size: cover;

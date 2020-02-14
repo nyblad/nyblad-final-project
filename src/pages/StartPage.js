@@ -100,7 +100,7 @@ export const StartPage = () => {
         <HeroInner>
           <Headline>Celebrate with us.</Headline>
           <SecondaryText>Hälsingland | Fall 2022</SecondaryText>
-          <Link to={'/rsvp'}>
+          <Link to={'/rsvp'} tabIndex='-1'>
             <Button title='RSVP' />
           </Link>
         </HeroInner>
