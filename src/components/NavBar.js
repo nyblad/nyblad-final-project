@@ -1,43 +1,51 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import menuIcon from 'assets/menu-24.png'
+import HamburgerMenu from 'react-hamburger-menu'
 
 const NavWrapper = styled.section`
+  position: fixed;
+  z-index: 1001;
   width: 100%;
+  height: 100%;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
   padding: 10px;
-  height: ${props => (props.menuActive ? "100vh" : "")};
-  background: ${props => (props.menuActive ? "gray" : "none")};
+  background: ${props => (props.menuActive ? "rgba(102, 102, 102, 0.9)" : "none")};
+  @media (min-width: 668px) {
+    position: relative;
+    background: none;
+  }
 `
-const MenuButton = styled.button`
-  width: 40px;
-  height: 40px;
-  background: none;
-  border: none;
+const BurgerWrapper = styled.div`
   @media (min-width: 668px) {
     display: none;
   }
-  /* Rotate 90 degrees when clicked? */
-`
-const MenuIcon = styled.img`
-  height: 25px;
 `
 const NavLinks = styled.nav`
   display: ${props => (props.menuActive ? "flex" : "none")};
   flex-direction: column;
   justify-content: space-between;
+  align-items: center;
   width: 100%;
+  height: 60%;
+  padding-top: 50px;
   @media (min-width: 668px) {
-    background: transparent;
+    background: none;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    align-items: center;
+    padding-top: 0;
   }
 `
 const NavButton = styled.button`
   font-family: 'Open Sans', sans-serif;
-  font-size: 16px;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 26px;
+  font-weight: 600;
   color: #fff;
   height: 40px;
   border: none;
@@ -45,13 +53,15 @@ const NavButton = styled.button`
   transition: 0.6s;
   cursor: pointer;
   &:hover {
-    color: #666;
+    color: #333;
   }
-  @media (min-width: 450px) {
-    font-size: 18px;
+  @media (min-width: 668px) {
+    font-size: 22px;
+    font-weight: 400;
   }
   @media (min-width: 992px) {
     font-size: 25px;
+    font-weight: 400;
   }
 `
 
@@ -61,9 +71,19 @@ export const NavBar = () => {
 
   return (
     <NavWrapper menuActive={menuActive === true}>
-      <MenuButton onClick={() => setMenuActive(!menuActive)}>
-        <MenuIcon src={menuIcon} />
-      </MenuButton>
+      <BurgerWrapper>
+        <HamburgerMenu
+          isOpen={menuActive === true}
+          menuClicked={() => setMenuActive(!menuActive)}
+          width={40}
+          height={32}
+          strokeWidth={1}
+          rotate={0}
+          color='white'
+          borderRadius={0}
+          animationDuration={0.5}
+        />
+      </BurgerWrapper>
       <NavLinks menuActive={menuActive === true}>
         <Link to={'/'}>
           <NavButton>Info</NavButton>
@@ -72,7 +92,7 @@ export const NavBar = () => {
           <NavButton>Guestlist</NavButton>
         </Link>
         <Link to={'/'}>
-          <NavButton>Other</NavButton>
+          <NavButton>Music</NavButton>
         </Link>
         <Link to={'/rsvp'}>
           <NavButton>RSVP</NavButton>
