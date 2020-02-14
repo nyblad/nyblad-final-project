@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 // import { useDispatch } from 'react-redux'
-import remove from 'assets/remove-24.png'
-import edit from 'assets/edit-24.png'
+import remove from 'assets/remove-16.png'
+import edit from 'assets/edit-16.png'
 
 const GuestWrapper = styled.div`
   width: 100%;

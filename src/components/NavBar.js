@@ -95,15 +95,15 @@ export const NavBar = () => {
         <Link to={'/'}>
           <NavButton>Info</NavButton>
         </Link>
-        <Link to={'/guests'}>
-          <NavButton>Guestlist</NavButton>
+        <Link to={'/rsvp'}>
+          <NavButton>RSVP</NavButton>
         </Link>
         <CoupleHeading>Sofie & Magnus</CoupleHeading>
         <Link to={'/music'}>
           <NavButton>Music</NavButton>
         </Link>
-        <Link to={'/rsvp'}>
-          <NavButton>RSVP</NavButton>
+        <Link to={'/guests'}>
+          <NavButton>Guestlist</NavButton>
         </Link>
       </NavLinks>
     </NavWrapper>

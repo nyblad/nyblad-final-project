@@ -10,12 +10,12 @@ import search from 'assets/search-24.png'
 
 const ActionWrapper = styled.div`
   padding: 10px;
-  margin-bottom: 10px;
-  background: rgba(255,255,255, 0.5);
+  /* background: rgba(255,255,255, 0.5); */
+  background: none;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   align-items: center;
   width: 97%;
   @media (min-width: 668px) {
@@ -23,7 +23,7 @@ const ActionWrapper = styled.div`
   }
   @media (min-width: 992px) {
     flex-direction: row;
-    padding: 10px 5px;
+    padding: 10px;
   }
 `
 const ButtonWrapper = styled.div`
@@ -31,19 +31,15 @@ const ButtonWrapper = styled.div`
   width: 100%;
   display: flex;
   justify-content: space-between;
-  @media (min-width: 992px) {
-    width: 55%;
+  @media (min-width: 668px) {
+    width: 50%;
   }
 `
 const SearchWrapper = styled.div`
   width: 100%;
   @media (min-width: 668px) {
-    width: 45%;
+    width: 50%;
     margin-left: 15px;
-  }
-  @media (min-width: 992px) {
-    width: 35%;
-    margin-left: 10px;
   }
 `
 const ListWrapper = styled.div`
@@ -55,6 +51,7 @@ const ListWrapper = styled.div`
 `
 const ItemWrapper = styled.section`
   width: 100%;
+  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
