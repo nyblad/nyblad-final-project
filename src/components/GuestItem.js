@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import { useDispatch } from 'react-redux'
 import remove from 'assets/remove-16.png'
 import edit from 'assets/edit-16.png'
 
@@ -58,19 +57,7 @@ const Icon = styled.img`
   margin: 0;
 `
 
-export const GuestItem = ({ firstName, lastName, email, phone, allergies, other, attending }) => {
-
-  // const dispatch = useDispatch()
-
-  // PREPARE FOR DELETING GUEST
-  const handleRemoveGuest = () => {
-    // dispatchEvent(guests.actions.removeGuest(guest._id))
-  }
-
-  // PREPARE FOR UPDATING GUEST
-  const handleUpdateGuest = () => {
-    // dispatchEvent(guests.actions.updateGuest(guest._id))
-  }
+export const GuestItem = ({ firstName, lastName, email, phone, allergies, other, attending, onClickEdit, onClickDelete }) => {
 
   return (
     <GuestWrapper>
@@ -83,10 +70,10 @@ export const GuestItem = ({ firstName, lastName, email, phone, allergies, other,
         <Text><FatText>Attending:</FatText> {attending}</Text>
       </InfoWrapper>
       <ActionsWrapper>
-        <ActionButton onClick={handleUpdateGuest}>
+        <ActionButton onClick={onClickEdit}>
           <Icon src={edit} alt='edit' />
         </ActionButton>
-        <ActionButton onClick={handleRemoveGuest}>
+        <ActionButton onClick={onClickDelete}>
           <Icon src={remove} alt='delete' />
         </ActionButton>
       </ActionsWrapper>

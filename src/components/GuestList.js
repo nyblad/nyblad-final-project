@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGuests } from 'reducers/guests'
+import { deleteGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
 import { Button } from 'lib/Button'
 import { SearchBar } from 'lib/SearchBar'
@@ -114,6 +115,10 @@ export const GuestList = () => {
     setCurrentPage(1)
   }
 
+  // const handleDeleteGuest = () => {
+  //   dispatch(deleteGuests(guest._id))
+  // }
+
   useEffect(() => {
     dispatch(fetchGuests(`/${query}`))
   }, [dispatch, query])
@@ -162,6 +167,8 @@ export const GuestList = () => {
                 allergies={guest.allergies}
                 other={guest.other}
                 attending={guest.isAttending ? "😃" : "☹️"}
+                // onClickDelete={handleDeleteGuest}
+                onClickDelete={() => dispatch(deleteGuests(guest._id))}
               />
             ))}
           </ItemWrapper>

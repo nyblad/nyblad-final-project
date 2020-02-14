@@ -14,10 +14,10 @@ export const guests = createSlice({
     addGuest: (state, action) => {
       // Takes all form values and pushing them into array or guests
       state.guests.push({ guest: action.payload })
+    },
+    deleteGuest: (state, action) => {
+      state.guests = state.guests.filter(guest => guest._id !== action.payload)
     }
-
-    // deleteGuest
-    // updateGuest isAttending
   }
 })
 
@@ -44,6 +44,16 @@ export const sendGuests = (guest) => {
       .then(() => {
         // Dispatching the form values to the action to add guest
         dispatch(guests.actions.addGuest(guest))
+      })
+  }
+}
+
+// Thunk middleware for deleting a guest
+export const deleteGuests = (guestId) => {
+  return dispatch => {
+    fetch(`https://nyblad-guest-list.herokuapp.com/guests/${guestId}`, { method: "DELETE" })
+      .then(() => {
+        dispatch(guests.actions.deleteGuest(guestId))
       })
   }
 }
