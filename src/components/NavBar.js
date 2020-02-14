@@ -56,7 +56,7 @@ const NavButton = styled.button`
     color: #BC7C43;
   }
   @media (min-width: 668px) {
-    font-size: 20px;
+    font-size: 18px;
     font-weight: 400;
   }
 `
