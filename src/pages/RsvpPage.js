@@ -8,6 +8,7 @@ import { RsvpConfirm } from 'components/rsvpConfirm'
 import { NavBar } from 'components/NavBar'
 
 const Wrapper = styled.main`
+  padding-top: 60px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
@@ -22,12 +23,10 @@ const Wrapper = styled.main`
     background-size: cover;
     background-position: center;
   }
-  /* @media (min-width: 668px) {
-    padding: 20px;
+  @media (min-width: 668px) {
+    padding-top: 0;
   }
-  @media (min-width: 992px) {
-    padding: 30px;
-  } */
+
 `
 
 export const RsvpPage = () => {

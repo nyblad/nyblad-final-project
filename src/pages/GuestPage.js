@@ -8,6 +8,7 @@ import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 const Wrapper = styled.section`
   width: 100%;
   min-height: 100vh;
+  padding-top: 60px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -19,6 +20,9 @@ const Wrapper = styled.section`
     background: url(${wallpaperLarge});
     background-size: cover;
     background-position: center;
+  }
+  @media (min-width: 668px) {
+    padding-top: 0;
   }
 `
 
