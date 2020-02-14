@@ -59,9 +59,6 @@ const NavButton = styled.button`
     font-size: 20px;
     font-weight: 400;
   }
-  @media (min-width: 992px) {
-    font-size: 22px;
-  }
 `
 const CoupleHeading = styled.p`
   text-transform: uppercase;
