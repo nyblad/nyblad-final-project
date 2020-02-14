@@ -9,7 +9,6 @@ import { RsvpPage } from './pages/RsvpPage'
 import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
 
-
 const GlobalStyle = createGlobalStyle`
   * {
     box-sizing: border-box;
@@ -39,7 +38,6 @@ export const App = () => {
       <GlobalStyle />
       <BrowserRouter>
         <Switch>
-
           <Route path="/" exact>
             <StartPage />
           </Route>

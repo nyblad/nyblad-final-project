@@ -1,11 +1,11 @@
 import React from 'react'
 import styled from 'styled-components/macro'
+import { NavBar } from 'components/NavBar'
 import { GuestList } from 'components/GuestList'
 import wallpaperLarge from 'assets/couple-hills-2500.jpg'
 import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 
 const Wrapper = styled.section`
-  padding: 10px;
   width: 100%;
   min-height: 100vh;
   display: flex;
@@ -26,6 +26,7 @@ export const GuestPage = () => {
 
   return (
     <Wrapper>
+      <NavBar />
       <GuestList />
     </Wrapper>
   )

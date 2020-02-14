@@ -5,10 +5,10 @@ import wallpaperLarge from 'assets/couple-hills-2500.jpg'
 import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import { RsvpForm } from 'components/rsvpForm'
 import { RsvpConfirm } from 'components/rsvpConfirm'
+import { NavBar } from 'components/NavBar'
 
 const Wrapper = styled.main`
   min-height: 100vh;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -22,12 +22,12 @@ const Wrapper = styled.main`
     background-size: cover;
     background-position: center;
   }
-  @media (min-width: 668px) {
+  /* @media (min-width: 668px) {
     padding: 20px;
   }
   @media (min-width: 992px) {
     padding: 30px;
-  }
+  } */
 `
 
 export const RsvpPage = () => {
@@ -36,6 +36,7 @@ export const RsvpPage = () => {
 
   return (
     <Wrapper>
+      <NavBar />
       {!submitted && <RsvpForm />}
       {submitted && <RsvpConfirm />}
     </Wrapper>

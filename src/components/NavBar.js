@@ -53,15 +53,25 @@ const NavButton = styled.button`
   transition: 0.6s;
   cursor: pointer;
   &:hover {
-    color: #333;
+    color: #BC7C43;
   }
   @media (min-width: 668px) {
-    font-size: 22px;
+    font-size: 20px;
     font-weight: 400;
   }
   @media (min-width: 992px) {
-    font-size: 25px;
-    font-weight: 400;
+    font-size: 22px;
+  }
+`
+const CoupleHeading = styled.p`
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  font-size: 25px;
+  font-weight: 600;
+  color: #BC7C43;
+  display: none;
+  @media (min-width: 668px) {
+    display: block;
   }
 `
 
@@ -91,6 +101,7 @@ export const NavBar = () => {
         <Link to={'/guests'}>
           <NavButton>Guestlist</NavButton>
         </Link>
+        <CoupleHeading>Sofie & Magnus</CoupleHeading>
         <Link to={'/'}>
           <NavButton>Music</NavButton>
         </Link>
