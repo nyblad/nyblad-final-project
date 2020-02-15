@@ -20,8 +20,12 @@ const NavWrapper = styled.section`
   }
 `
 const BurgerWrapper = styled.div`
-  width: 42px;
-  height: 34px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(102, 102, 102, 0.3);
+  width: 46px;
+  height: 42px;
   &:focus {
     outline-color: #BC7C43;
     outline-offset: 3px;
@@ -101,7 +105,7 @@ export const NavBar = () => {
           menuClicked={() => setMenuActive(!menuActive)}
           width={40}
           height={32}
-          strokeWidth={1.2}
+          strokeWidth={2}
           rotate={0}
           color='white'
           borderRadius={0}
