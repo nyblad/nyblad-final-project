@@ -27,7 +27,7 @@ const BurgerWrapper = styled.div`
   width: 46px;
   height: 42px;
   &:focus {
-    outline-color: #BC7C43;
+    outline-color: #B2621C;
     outline-offset: 3px;
   }
   @media (min-width: 668px) {
@@ -63,11 +63,11 @@ const NavButton = styled.button`
   transition: 0.6s;
   cursor: pointer;
   &:focus {
-    outline-color: #BC7C43;
+    outline-color: #B2621C;
     outline-offset: 3px;
   }
   &:hover {
-    color: #BC7C43;
+    color: #B2621C;
   }
   @media (min-width: 668px) {
     font-size: 18px;
@@ -79,7 +79,7 @@ const CoupleHeading = styled.p`
   letter-spacing: 1.5px;
   font-size: 25px;
   font-weight: 600;
-  color: #BC7C43;
+  color: #B2621C;
   display: none;
   @media (min-width: 668px) {
     display: block;
