@@ -6,6 +6,7 @@ import { Button } from 'lib/Button'
 import { ui } from 'reducers/ui'
 
 const Form = styled.form`
+  margin: 15px 0;
   width: 100%;
   padding: 15px;
   display: flex;

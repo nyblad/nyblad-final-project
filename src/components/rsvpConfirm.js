@@ -4,11 +4,12 @@ import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Button } from 'lib/Button'
 import { ui } from 'reducers/ui'
+import { TextDark } from 'lib/StyledComps'
 
-const Wrapper = styled.section`
+const ConfirmWrapper = styled.section`
   width: 100%;
-  height: 200px;
-  padding: 15px;
+  height: 300px;
+  padding: 20px;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -25,11 +26,7 @@ const Wrapper = styled.section`
     width: 40%;
   }
 `
-const Text = styled.h3`
-  margin: 15px 0 2px 0;
-  color: #333;
-  /* text-align: center; */
-`
+
 export const RsvpConfirm = () => {
 
   const dispatch = useDispatch()
@@ -39,13 +36,13 @@ export const RsvpConfirm = () => {
   }
 
   return (
-    <Wrapper>
-      <Text>Thank you.</Text>
-      <Text>Hope we see you at the ceremony!</Text>
+    <ConfirmWrapper>
+      <TextDark>Thank you.</TextDark>
+      <TextDark>Hope we see you at the ceremony!</TextDark>
       <Link to={'/rsvp'}>
         <Button title='RSVP for another guest?' onClick={handleClick} />
       </Link>
-    </Wrapper>
+    </ConfirmWrapper>
   )
 
 }

@@ -8,10 +8,8 @@ import coupleFour from 'assets/couple-4.jpg'
 import { Button } from 'lib/Button'
 import { NavBar } from 'components/NavBar'
 import { Footer } from 'components/Footer'
+import { Headline, TextDark } from 'lib/StyledComps'
 
-const Wrapper = styled.main`
-
-`
 const Hero = styled.section`
   display: flex;
   flex-direction: column;
@@ -60,21 +58,6 @@ const Image = styled.img`
     width: 25%;
   }
 `
-const Headline = styled.h1`
-  margin: 0;
-  color: #fff;
-  font-weight: 700;
-  font-size: 32px;
-  @media (min-width: 450px) {
-    font-size: 48px;
-  }
-  @media (min-width: 668px) {
-    font-size: 56px;
-  }
-  @media (min-width: 992px) {
-    font-size: 72px;
-  }
-`
 const SecondaryText = styled.h3`
   margin: 0;
   color: #fff;
@@ -85,17 +68,12 @@ const SecondaryText = styled.h3`
     font-size: 36px;
   }
 `
-const Text = styled.h4`
-  margin: 5px 0;
-  color: #333;
-  letter-spacing: 1.5px;
-  text-align: center;
-`
+
 
 export const StartPage = () => {
 
   return (
-    <Wrapper>
+    <>
       <Hero>
         <NavBar />
         <HeroInner>
@@ -108,16 +86,16 @@ export const StartPage = () => {
       </Hero>
       <SectionWhite>
         <Image src={coupleFour} alt="hands" />
-        <Text>Date & place for the wedding day will be released soon.</Text>
-        <Text>Ceremony | Dinner | Afterparty</Text>
+        <TextDark>date & place for the wedding day will be released soon.</TextDark>
+        <TextDark>Ceremony | Dinner | Afterparty</TextDark>
 
       </SectionWhite>
       <SectionGray>
         <Image src={coupleOne} alt="couple" />
-        <Text>with love</Text>
-        <Text>Magnus | Sofie</Text>
+        <TextDark>with love.</TextDark>
+        <TextDark>Magnus | Sofie</TextDark>
       </SectionGray>
       <Footer />
-    </Wrapper>
+    </>
   )
 }

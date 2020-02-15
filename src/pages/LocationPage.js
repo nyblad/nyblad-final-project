@@ -1,31 +1,14 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import wallpaperLarge from 'assets/couple-hills-2500.jpg'
-import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import { NavBar } from 'components/NavBar'
 import { Footer } from 'components/Footer'
+import { Button } from 'lib/Button'
+import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 
-const Wrapper = styled.main`
-  padding-top: 60px;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  background: url(${wallpaperSmall});
-  background-size: cover;
-  background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
-  @media (min-width: 450px) {
-    background: url(${wallpaperLarge});
-    background-size: cover;
-    background-position: center;
-  }
-  @media (min-width: 668px) {
-    padding-top: 0;
-  }
-`
 const InnerWrapper = styled.section`
+  padding: 10px;
   width: 100%;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -34,27 +17,39 @@ const InnerWrapper = styled.section`
     flex-direction: row;
   }
 `
-const Text = styled.p`
-  color: #fff;
-  font-size: 16px;
-  text-align: center;
-  margin: 0 0 20px 0;
-`
-const Iframe = styled.iframe`
+const InfoWrapper = styled.section`
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   width: 90%;
-  height: 400px;
-  margin: 0;
-  /* @media (min-width: 668px) {
-    width: 90%;
-  } */
+  height: 300px;
+  padding: 20px;
+  @media (min-width: 668px) {
+    width: 40%;
+  }
+  @media (min-width: 992px) {
+    width: 30%;
+  }
 `
-const MapOuter = styled.div`
-  position: relative;
+const MapWrapper = styled.div`
+  padding: 20px;
   text-align: right;
+  width: 90%;
+  @media (min-width: 668px) {
+    width: 40%;
+  }
+  @media (min-width: 992px) {
+    width: 30%;
+  }
 `
 const MapCanvas = styled.div`
   overflow: hidden;
   background: none;
+`
+const Iframe = styled.iframe`
+  width: 100%;
+  height: 400px;
+  margin: 0;
 `
 
 export const LocationPage = () => {
@@ -62,14 +57,20 @@ export const LocationPage = () => {
   return (
     <Wrapper>
       <NavBar />
+      <Headline>Location location.</Headline>
       <InnerWrapper>
-        <Text>The wedding will be in Bollnäs, Hälsingland.</Text>
-        <MapOuter>
+        <InfoWrapper>
+          <TextWhite>The wedding will be in Bollnäs, Hälsingland. Here are accommodations we recommend if you need at place to stay over the night:</TextWhite>
+          <Button title='Book Scandic Hotel' />
+          <Button title='Book Orbaden' />
+        </InfoWrapper>
+        <MapWrapper>
           <MapCanvas>
-            <Iframe src='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no' />
-            <a href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>Map</a>
+            <a href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>
+              <Iframe src='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no' />
+            </a>
           </MapCanvas>
-        </MapOuter>
+        </MapWrapper>
       </InnerWrapper>
       <Footer />
     </Wrapper>

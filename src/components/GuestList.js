@@ -165,7 +165,7 @@ export const GuestList = () => {
                 other={guest.other}
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
-                onClickDelete={() => dispatch(deleteGuests(guest._id))}
+                onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
               />
             ))}
           </ItemWrapper>
