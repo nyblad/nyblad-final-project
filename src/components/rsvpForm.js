@@ -7,8 +7,8 @@ import { ui } from 'reducers/ui'
 
 const Form = styled.form`
   margin: 15px 0;
-  width: 100%;
-  padding: 15px;
+  width: 90%;
+  padding: 20px 40px;
   display: flex;
   flex-direction: column;
   background: rgba(255,255,255, 0.4);
@@ -20,20 +20,24 @@ const Form = styled.form`
     width: 60%;
   }
   @media (min-width: 992px) {
-    width: 40%;
+    width: 50%;
   }
 `
 const Label = styled.label`
   width: 100%;
+  padding: 5px 0;
 `
-const LabelText = styled.h3`
-  margin: 15px 0 2px 0;
+const LabelText = styled.p`
+  margin: 15px 0 8px 0;
+  font-size: 16px;
+  font-weight: bold;
 `
 const Input = styled.input`
   width: 100%;
   padding: 10px;
-  border: 2px solid #e6e6e6;
+  border: none;
   border-radius: 3px;
+  font-size: 16px;
   font-family: 'Open Sans', sans-serif;
 `
 const RadioWrapper = styled.div`

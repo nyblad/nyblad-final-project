@@ -2,8 +2,7 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchGuests } from 'reducers/guests'
-import { deleteGuests } from 'reducers/guests'
+import { fetchGuests, updateGuests, deleteGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
 import { Button } from 'lib/Button'
 import { SearchBar } from 'lib/SearchBar'
@@ -166,6 +165,7 @@ export const GuestList = () => {
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
                 onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
+                onClickEdit={() => { if (window.confirm('Do you want to change attending status on guest?')) dispatch(updateGuests(guest._id)) }}
               />
             ))}
           </ItemWrapper>

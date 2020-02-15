@@ -26,6 +26,7 @@ export const Headline = styled.h1`
   color: #fff;
   font-weight: 700;
   font-size: 32px;
+  text-align: center;
   @media (min-width: 450px) {
     font-size: 48px;
   }

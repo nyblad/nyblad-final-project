@@ -15,6 +15,14 @@ export const guests = createSlice({
       // Takes all form values and pushing them into array or guests
       state.guests.push({ guest: action.payload })
     },
+    updateGuest: (state, action) => {
+      // To find the guest we want to update
+      const foundGuest = state.guests.find(guest => guest._id === action.payload)
+      // To change isAttending status on guest
+      if (foundGuest) {
+        foundGuest.isAttending = !foundGuest.isAttending
+      }
+    },
     deleteGuest: (state, action) => {
       state.guests = state.guests.filter(guest => guest._id !== action.payload)
     }
@@ -44,6 +52,16 @@ export const sendGuests = (guest) => {
       .then(() => {
         // Dispatching the form values to the action to add guest
         dispatch(guests.actions.addGuest(guest))
+      })
+  }
+}
+
+// Thunk middleware for updating a guest
+export const updateGuests = (guestId) => {
+  return dispatch => {
+    fetch(`https://nyblad-guest-list.herokuapp.com/guests/${guestId}`, { method: "PUT" })
+      .then(() => {
+        dispatch(guests.actions.updateGuest(guestId))
       })
   }
 }
