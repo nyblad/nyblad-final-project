@@ -8,7 +8,7 @@ import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 const InnerWrapper = styled.section`
   padding: 10px;
   width: 100%;
-  height: 60vh;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -33,18 +33,15 @@ const InfoWrapper = styled.section`
 `
 const MapWrapper = styled.div`
   padding: 20px;
-  text-align: right;
   width: 90%;
+  overflow: hidden;
+  background: none;
   @media (min-width: 668px) {
     width: 40%;
   }
   @media (min-width: 992px) {
     width: 30%;
   }
-`
-const MapCanvas = styled.div`
-  overflow: hidden;
-  background: none;
 `
 const Iframe = styled.iframe`
   width: 100%;
@@ -65,11 +62,9 @@ export const LocationPage = () => {
           <Button title='Book Orbaden' />
         </InfoWrapper>
         <MapWrapper>
-          <MapCanvas>
-            <a href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>
-              <Iframe src='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no' />
-            </a>
-          </MapCanvas>
+          <a href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>
+            <Iframe src='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no' />
+          </a>
         </MapWrapper>
       </InnerWrapper>
       <Footer />
