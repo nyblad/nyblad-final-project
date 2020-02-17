@@ -105,6 +105,8 @@ export const RsvpForm = () => {
           value={formValues.first_name}
           type="text"
           placeholder="First name"
+          minLength="2"
+          maxLength="50"
           required
         />
       </Label>
@@ -116,6 +118,8 @@ export const RsvpForm = () => {
           value={formValues.last_name}
           type="text"
           placeholder="Last name"
+          minLength="2"
+          maxLength="50"
           required
         />
       </Label>
@@ -153,6 +157,8 @@ export const RsvpForm = () => {
           value={formValues.email}
           placeholder="mail@mail.com"
           required
+          minLength="5"
+          maxLength="100"
         />
       </Label>
 
