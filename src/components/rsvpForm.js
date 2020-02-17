@@ -8,13 +8,14 @@ import { ui } from 'reducers/ui'
 const Form = styled.form`
   margin: 15px 0;
   width: 90%;
-  padding: 20px 40px;
+  padding: 20px 20px;
   display: flex;
   flex-direction: column;
   background: rgba(255,255,255, 0.4);
   border-radius: 6px;
   @media (min-width: 668px) {
     width: 80%;
+    padding: 20px 40px;
   }
   @media (min-width: 800px) {
     width: 60%;

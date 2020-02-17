@@ -7,6 +7,7 @@ import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 const Iframe = styled.iframe`
   width: 90%;
   height: 400px;
+  border-radius: 6px;
   @media (min-width: 668px) {
     width: 50%;
   }
