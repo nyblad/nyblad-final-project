@@ -96,6 +96,9 @@ export const RsvpForm = () => {
     dispatch(ui.actions.setSubmitted(true))
   }
 
+  // Enable submit button if theese validators are ok
+  const enabled = (formValues.first_name.length >= 2 && formValues.last_name.length >= 2 && formValues.email.length >= 5 && formValues.isAttending !== '')
+
   return (
     <Form onSubmit={handleSubmit}>
       <Label>
@@ -192,7 +195,8 @@ export const RsvpForm = () => {
           placeholder="Type your message here.." />
       </Label>
 
-      <Button type="submit" title="Submit" />
+      <Button type="submit" title="Submit" disabled={!enabled} />
+      {!enabled && <LabelText>*Please check the required fields</LabelText>}
     </Form>
   )
 }
