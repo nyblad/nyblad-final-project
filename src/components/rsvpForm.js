@@ -4,6 +4,7 @@ import { useDispatch } from 'react-redux'
 import { sendGuests } from 'reducers/guests'
 import { Button } from 'lib/Button'
 import { ui } from 'reducers/ui'
+import { useAlert } from 'react-alert'
 
 const Form = styled.form`
   margin: 15px 0;
@@ -64,7 +65,7 @@ const TextAreaInput = styled.textarea`
 `
 
 export const RsvpForm = () => {
-
+  const alert = useAlert()
   const dispatch = useDispatch()
   const [formValues, setFormValues] = useState({
     first_name: '',
@@ -94,7 +95,8 @@ export const RsvpForm = () => {
     dispatch(sendGuests(formValues))
     clearInputs()
     // Set isSubmitted to true when submit button is hit
-    dispatch(ui.actions.setSubmitted(true))
+    // dispatch(ui.actions.setSubmitted(true))
+    alert.show('Thank you & have a nice day!')
   }
 
   // Enable submit button if theese validators are ok

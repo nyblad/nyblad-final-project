@@ -11,7 +11,6 @@ import search from 'assets/search-24.png'
 
 const ActionWrapper = styled.div`
   padding: 10px;
-  /* background: rgba(255,255,255, 0.5); */
   background: none;
   border-radius: 6px;
   display: flex;
@@ -165,7 +164,7 @@ export const GuestList = () => {
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
                 onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
-                onClickEdit={() => { if (window.confirm('Do you want to change attending status on guest?')) dispatch(updateGuests(guest._id)) }}
+                onClickEdit={() => { if (window.confirm('Are you sure you want to update status on guest?')) dispatch(updateGuests(guest._id)) }}
               />
             ))}
           </ItemWrapper>
@@ -180,6 +179,6 @@ export const GuestList = () => {
           </PaginationWrapper>
         </ListWrapper>
       }
-    </ >
+    </>
   )
 }

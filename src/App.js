@@ -1,6 +1,8 @@
 import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
+import { Provider as AlertProvider } from 'react-alert'
+import { AlertTemplate } from 'lib/AlertTemplate'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { createGlobalStyle } from 'styled-components'
 import { ui } from './reducers/ui'
@@ -24,6 +26,9 @@ const GlobalStyle = createGlobalStyle`
   h1, h2, h3, h4, h5, h6 {
     font-family: 'Raleway', sans-serif;
   }
+  a {
+    text-decoration: none;
+  }
 `
 // COMBINING REDUCERS
 const reducer = combineReducers({
@@ -37,31 +42,33 @@ export const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <GlobalStyle />
-      <BrowserRouter>
-        <Switch>
-          <Route path="/" exact>
-            <StartPage />
-          </Route>
+      <AlertProvider template={AlertTemplate}>
+        <GlobalStyle />
+        <BrowserRouter>
+          <Switch>
+            <Route path="/" exact>
+              <StartPage />
+            </Route>
 
-          <Route path="/rsvp">
-            <RsvpPage />
-          </Route>
+            <Route path="/rsvp">
+              <RsvpPage />
+            </Route>
 
-          <Route path="/guests">
-            <GuestPage />
-          </Route>
+            <Route path="/guests">
+              <GuestPage />
+            </Route>
 
-          <Route path="/music">
-            <MusicPage />
-          </Route>
+            <Route path="/music">
+              <MusicPage />
+            </Route>
 
-          <Route path="/location">
-            <LocationPage />
-          </Route>
+            <Route path="/location">
+              <LocationPage />
+            </Route>
 
-        </Switch>
-      </BrowserRouter>
+          </Switch>
+        </BrowserRouter>
+      </AlertProvider>
     </Provider>
   )
 }

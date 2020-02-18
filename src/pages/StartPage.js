@@ -5,10 +5,11 @@ import wallpaperLarge from 'assets/couple-hills-2500.jpg'
 import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import coupleOne from 'assets/couple-1.jpg'
 import coupleFour from 'assets/couple-4.jpg'
+import arrow from 'assets/arrow-gold-16.png'
 import { Button } from 'lib/Button'
 import { NavBar } from 'components/NavBar'
 import { Footer } from 'components/Footer'
-import { Headline, TextDark } from 'lib/StyledComps'
+import { Headline, TextDark, LinkText } from 'lib/StyledComps'
 
 const Hero = styled.section`
   display: flex;
@@ -68,7 +69,14 @@ const SecondaryText = styled.h3`
     font-size: 36px;
   }
 `
-
+const Span = styled.span`
+  position: relative;
+  top: 3px;
+`
+const Arrow = styled.img`
+  width: 16px;
+  height: 16px;
+`
 
 export const StartPage = () => {
 
@@ -87,6 +95,9 @@ export const StartPage = () => {
       <SectionWhite>
         <Image src={coupleFour} alt="hands" />
         <TextDark>date & place for the wedding day will be released soon.</TextDark>
+        <Link to={'/location'}>
+          <LinkText>View map <Span><Arrow src={arrow} alt="arrow" /></Span></LinkText>
+        </Link>
         <TextDark>Ceremony | Dinner | Afterparty</TextDark>
 
       </SectionWhite>
