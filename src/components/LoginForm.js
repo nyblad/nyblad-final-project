@@ -84,7 +84,7 @@ const ButtonClose = styled.button`
 export const LoginForm = () => {
 
   const dispatch = useDispatch()
-  const open = useSelector(state => state.ui.isOpen)
+  const open = useSelector(state => state.ui.isLoginOpen)
 
   const [formValues, setFormValues] = useState({
     email: '',
@@ -103,11 +103,11 @@ export const LoginForm = () => {
     clearInputs()
     console.table(formValues)
     // dispatch user info to reducer?
-    dispatch(ui.actions.setOpen(false))
+    dispatch(ui.actions.setLoginOpen(false))
   }
 
   const close = () => {
-    dispatch(ui.actions.setOpen(false))
+    dispatch(ui.actions.setLoginOpen(false))
   }
 
   return (

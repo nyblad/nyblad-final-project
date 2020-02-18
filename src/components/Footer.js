@@ -20,7 +20,7 @@ export const Footer = () => {
   const dispatch = useDispatch()
 
   const openLoginForm = () => {
-    dispatch(ui.actions.setOpen(true))
+    dispatch(ui.actions.setLoginOpen(true))
     // Check auth on user
     // Send user to page guestlist
   }

@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
+import { ui } from 'reducers/ui'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchGuests, updateGuests, deleteGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
@@ -94,6 +95,11 @@ export const GuestList = () => {
   const guests = useSelector(state => state.guests.guests)
   const loading = useSelector(state => state.ui.isLoading)
 
+  const handleConfirm = () => {
+    dispatch(ui.actions.setConfirmOpen(true))
+    // How to pass on the guestId to Confirm component?
+  }
+
   const handleAll = () => {
     setQuery('')
     setCurrentPage(1)
@@ -163,7 +169,8 @@ export const GuestList = () => {
                 other={guest.other}
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
-                onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
+                onClickDelete={() => handleConfirm(guest._id)}
+                // onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
                 onClickEdit={() => { if (window.confirm('Do you want to change attending status on guest?')) dispatch(updateGuests(guest._id)) }}
               />
             ))}

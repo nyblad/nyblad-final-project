@@ -5,7 +5,8 @@ export const ui = createSlice({
   initialState: {
     isLoading: false,
     isSubmitted: false,
-    isOpen: false,
+    isLoginOpen: false,
+    isConfirmOpen: false,
   },
   reducers: {
     setLoading: (state, action) => {
@@ -14,8 +15,11 @@ export const ui = createSlice({
     setSubmitted: (state, action) => {
       state.isSubmitted = action.payload
     },
-    setOpen: (state, action) => {
-      state.isOpen = action.payload
+    setLoginOpen: (state, action) => {
+      state.isLoginOpen = action.payload
+    },
+    setConfirmOpen: (state, action) => {
+      state.isConfirmOpen = action.payload
     }
   }
 })
