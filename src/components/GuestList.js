@@ -118,22 +118,6 @@ export const GuestList = () => {
     dispatch(fetchGuests(`/${query}`))
   }, [dispatch, query])
 
-  // Passing in the guest id from guest item
-  // const handleDeleteAlert = (guestId) => {
-  //   confirm({
-  //     title: 'Do you want to delete guest?',
-  //     language: 'en',
-  //     onOk: () => dispatch(deleteGuests(guestId))
-  //   });
-  // }
-  // const handleEditAlert = (guestId) => {
-  //   confirm({
-  //     title: 'Do you want to update status on guest?',
-  //     language: 'en',
-  //     onOk: () => dispatch(updateGuests(guestId))
-  //   });
-  // }
-
   // Frontend pagination
   const itemsPerPage = 12
   const endIndex = currentPage * itemsPerPage

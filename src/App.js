@@ -2,9 +2,9 @@ import React from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
 import { Provider as AlertProvider } from 'react-alert'
-import { AlertTemplate } from 'lib/AlertTemplate'
+import { AlertInfo } from 'lib/AlertInfo'
 import { BrowserRouter, Switch, Route } from 'react-router-dom'
-import { createGlobalStyle } from 'styled-components'
+import { GlobalStyle } from 'lib/GlobalStyle'
 import { ui } from './reducers/ui'
 import { guests } from './reducers/guests'
 import { RsvpPage } from './pages/RsvpPage'
@@ -13,23 +13,6 @@ import { StartPage } from './pages/StartPage'
 import { MusicPage } from './pages/MusicPage'
 import { LocationPage } from './pages/LocationPage'
 
-const GlobalStyle = createGlobalStyle`
-  * {
-    box-sizing: border-box;
-  }
-  body {
-    margin: 0;
-    font-family: 'Open Sans', sans-serif;
-    color: #333;
-    background: #f1f1f1;
-  }
-  h1, h2, h3, h4, h5, h6 {
-    font-family: 'Raleway', sans-serif;
-  }
-  a {
-    text-decoration: none;
-  }
-`
 // COMBINING REDUCERS
 const reducer = combineReducers({
   ui: ui.reducer,
@@ -42,7 +25,7 @@ export const store = configureStore({ reducer })
 export const App = () => {
   return (
     <Provider store={store}>
-      <AlertProvider template={AlertTemplate}>
+      <AlertProvider template={AlertInfo}>
         <GlobalStyle />
         <BrowserRouter>
           <Switch>

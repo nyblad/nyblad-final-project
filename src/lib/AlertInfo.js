@@ -3,9 +3,9 @@ import styled from 'styled-components/macro'
 import { Button } from './Button'
 
 const AlertWrapper = styled.div`
-  width: 100%;
+  width: 300px;
   height: 300px;
-  padding: 30px;
+  padding: 25px;
   position: relative;
   top: 100px;
   background: rgba(0,0,0, 0.8);
@@ -18,22 +18,10 @@ const AlertWrapper = styled.div`
   flex-direction: column;
 `
 
-export const AlertTemplate = ({ options, message, close }) => {
-
-  // const [open, setOpen] = React.useState(false)
-
-  // const handleClickOpen = () => {
-  //   setOpen(true)
-  // }
-
-  // const handleClose = () => {
-  //   setOpen(false)
-  // }
+export const AlertInfo = ({ message, close }) => {
 
   return (
-
     <AlertWrapper>
-      {options.type === 'info'}
       {message}
       <Button onClick={close} title='X' />
     </AlertWrapper>
