@@ -52,7 +52,7 @@ const ButtonSmall = styled.button`
   }
 `
 
-export const Confirm = () => {
+export const ConfirmDelete = () => {
 
   const dispatch = useDispatch()
   const open = useSelector(state => state.ui.isConfirmOpen)

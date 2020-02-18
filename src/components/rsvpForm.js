@@ -3,8 +3,7 @@ import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { sendGuests } from 'reducers/guests'
 import { Button } from 'lib/Button'
-// import { ui } from 'reducers/ui'
-import { useAlert } from 'react-alert'
+import { ui } from 'reducers/ui'
 
 const Form = styled.form`
   margin: 15px 0;
@@ -65,7 +64,6 @@ const TextAreaInput = styled.textarea`
 `
 
 export const RsvpForm = () => {
-  const alert = useAlert()
   const dispatch = useDispatch()
   const [formValues, setFormValues] = useState({
     first_name: '',
@@ -91,12 +89,9 @@ export const RsvpForm = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    // Sending the form values to the thunk in reducer
-    dispatch(sendGuests(formValues))
+    dispatch(sendGuests(formValues)) // Sending the form values to the thunk in reducer
     clearInputs()
-    // Set isSubmitted to true when submit button is hit
-    // dispatch(ui.actions.setSubmitted(true))
-    alert.show('Thank you & have a nice day!')
+    dispatch(ui.actions.setRsvpConfirmOpen(true)) // Open the confirm alert for rsvp
   }
 
   // Enable submit button if theese validators are ok
