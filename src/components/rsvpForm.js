@@ -109,10 +109,10 @@ export const RsvpForm = () => {
         <Input
           onChange={event => setFormValues({ ...formValues, first_name: event.target.value })}
           value={formValues.first_name}
-          type="text"
-          placeholder="First name"
-          minLength="2"
-          maxLength="50"
+          type='text'
+          placeholder='First name'
+          minLength='2'
+          maxLength='50'
           required
         />
       </Label>
@@ -122,10 +122,10 @@ export const RsvpForm = () => {
         <Input
           onChange={event => setFormValues({ ...formValues, last_name: event.target.value })}
           value={formValues.last_name}
-          type="text"
-          placeholder="Last name"
-          minLength="2"
-          maxLength="50"
+          type='text'
+          placeholder='Last name'
+          minLength='2'
+          maxLength='50'
           required
         />
       </Label>
@@ -135,10 +135,10 @@ export const RsvpForm = () => {
         <RadioWrapper>
           <RadioInput
             onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
-            type="radio"
-            name="isAttending"
-            value="true"
-            checked={formValues.isAttending === "true"}
+            type='radio'
+            name='isAttending'
+            value='true'
+            checked={formValues.isAttending === 'true'}
           />
           <RadioText>Yes</RadioText>
         </RadioWrapper>
@@ -147,10 +147,10 @@ export const RsvpForm = () => {
         <RadioWrapper>
           <RadioInput
             onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}
-            type="radio"
-            name="isAttending"
-            value="false"
-            checked={formValues.isAttending === "false"}
+            type='radio'
+            name='isAttending'
+            value='false'
+            checked={formValues.isAttending === 'false'}
           />
           <RadioText>No</RadioText>
         </RadioWrapper>
@@ -161,10 +161,10 @@ export const RsvpForm = () => {
         <Input
           onChange={event => setFormValues({ ...formValues, email: event.target.value })}
           value={formValues.email}
-          placeholder="mail@mail.com"
+          placeholder='mail@mail.com'
           required
-          minLength="5"
-          maxLength="100"
+          minLength='5'
+          maxLength='100'
         />
       </Label>
 
@@ -173,8 +173,8 @@ export const RsvpForm = () => {
         <Input
           onChange={event => setFormValues({ ...formValues, phone: event.target.value })}
           value={formValues.phone}
-          type="number"
-          placeholder="46700000000"
+          type='number'
+          placeholder='46700000000'
         />
       </Label>
 
@@ -183,8 +183,8 @@ export const RsvpForm = () => {
         <Input
           onChange={event => setFormValues({ ...formValues, allergies: event.target.value })}
           value={formValues.allergies}
-          type="text"
-          placeholder="If you have any food allergies/requirements.."
+          type='text'
+          placeholder='If you have any food allergies/requirements..'
         />
       </Label>
 
@@ -193,12 +193,12 @@ export const RsvpForm = () => {
         <TextAreaInput
           onChange={event => setFormValues({ ...formValues, other: event.target.value })}
           value={formValues.other}
-          type="text"
-          rows="4"
-          placeholder="Type your message here.." />
+          type='text'
+          rows='4'
+          placeholder='Type your message here..' />
       </Label>
 
-      <Button type="submit" title="Submit" disabled={!enabled} />
+      <Button type='submit' title='Submit' disabled={!enabled} />
       {!enabled && <LabelText>*Please check the required fields</LabelText>}
     </Form>
   )

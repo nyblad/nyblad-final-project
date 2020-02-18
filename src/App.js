@@ -12,6 +12,7 @@ import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
 import { MusicPage } from './pages/MusicPage'
 import { LocationPage } from './pages/LocationPage'
+import { LoginForm } from 'components/LoginForm'
 
 // COMBINING REDUCERS
 const reducer = combineReducers({
@@ -31,6 +32,7 @@ export const App = () => {
           <Switch>
             <Route path="/" exact>
               <StartPage />
+              <LoginForm />
             </Route>
 
             <Route path="/rsvp">

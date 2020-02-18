@@ -4,7 +4,8 @@ export const ui = createSlice({
   name: 'ui',
   initialState: {
     isLoading: false,
-    isSubmitted: false
+    isSubmitted: false,
+    isOpen: false,
   },
   reducers: {
     setLoading: (state, action) => {
@@ -12,6 +13,9 @@ export const ui = createSlice({
     },
     setSubmitted: (state, action) => {
       state.isSubmitted = action.payload
+    },
+    setOpen: (state, action) => {
+      state.isOpen = action.payload
     }
   }
 })
