@@ -118,6 +118,22 @@ export const GuestList = () => {
     dispatch(fetchGuests(`/${query}`))
   }, [dispatch, query])
 
+  // Passing in the guest id from guest item
+  // const handleDeleteAlert = (guestId) => {
+  //   confirm({
+  //     title: 'Do you want to delete guest?',
+  //     language: 'en',
+  //     onOk: () => dispatch(deleteGuests(guestId))
+  //   });
+  // }
+  // const handleEditAlert = (guestId) => {
+  //   confirm({
+  //     title: 'Do you want to update status on guest?',
+  //     language: 'en',
+  //     onOk: () => dispatch(updateGuests(guestId))
+  //   });
+  // }
+
   // Frontend pagination
   const itemsPerPage = 12
   const endIndex = currentPage * itemsPerPage
@@ -164,7 +180,7 @@ export const GuestList = () => {
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
                 onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
-                onClickEdit={() => { if (window.confirm('Are you sure you want to update status on guest?')) dispatch(updateGuests(guest._id)) }}
+                onClickEdit={() => { if (window.confirm('Do you want to change attending status on guest?')) dispatch(updateGuests(guest._id)) }}
               />
             ))}
           </ItemWrapper>

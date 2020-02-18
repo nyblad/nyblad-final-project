@@ -18,10 +18,24 @@ const AlertWrapper = styled.div`
   flex-direction: column;
 `
 
-export const AlertTemplate = ({ options, message, close }) => (
-  <AlertWrapper>
-    {options.type === 'info'}
-    {message}
-    <Button onClick={close} title='X' />
-  </AlertWrapper>
-)
+export const AlertTemplate = ({ options, message, close }) => {
+
+  // const [open, setOpen] = React.useState(false)
+
+  // const handleClickOpen = () => {
+  //   setOpen(true)
+  // }
+
+  // const handleClose = () => {
+  //   setOpen(false)
+  // }
+
+  return (
+
+    <AlertWrapper>
+      {options.type === 'info'}
+      {message}
+      <Button onClick={close} title='X' />
+    </AlertWrapper>
+  )
+}

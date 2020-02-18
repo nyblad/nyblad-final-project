@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "private": true,
   "dependencies": {
+    "@material/dialog": "^5.0.0",
     "@reduxjs/toolkit": "^1.2.3",
     "babel-eslint": "^10.0.3",
     "eslint": "^6.7.1",
