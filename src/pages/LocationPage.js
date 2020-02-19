@@ -1,8 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { NavBar } from 'components/NavBar'
-import { Footer } from 'components/Footer'
-import { Button } from 'lib/Button'
+import { Button } from 'lib/Buttons'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 
 const InnerWrapper = styled.section`
@@ -67,7 +66,6 @@ export const LocationPage = () => {
           </a>
         </MapWrapper>
       </InnerWrapper>
-      <Footer />
     </Wrapper>
   )
 

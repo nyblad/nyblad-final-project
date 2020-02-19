@@ -2,24 +2,9 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
-import { TextWhite } from 'lib/StyledComps'
+import { FixedWrapper, TextWhite } from 'lib/StyledComps'
 import { updateGuests } from 'reducers/guests'
 
-const ConfirmWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0, 0.9);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-`
 const ButtonWrapper = styled.div`
   width: 50%;
   display: flex;
@@ -69,13 +54,13 @@ export const ConfirmDelete = () => {
   return (
     <>
       {open && (
-        <ConfirmWrapper>
+        <FixedWrapper>
           <TextWhite>Are you sure you want update status on guest?</TextWhite>
           <ButtonWrapper>
             <ButtonSmall type='button' onClick={handleYes}>Yes</ButtonSmall>
             <ButtonSmall type='button' onClick={handleNo}>No</ButtonSmall>
           </ButtonWrapper>
-        </ConfirmWrapper>
+        </FixedWrapper>
       )}
     </>
   )

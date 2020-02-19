@@ -2,7 +2,7 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { sendGuests } from 'reducers/guests'
-import { Button } from 'lib/Button'
+import { Button } from 'lib/Buttons'
 import { ui } from 'reducers/ui'
 
 const Form = styled.form`

@@ -1,18 +1,44 @@
 import React from 'react'
-import { useDispatch } from 'react-redux'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { Button } from 'lib/Button'
+import { useDispatch } from 'react-redux'
 import { ui } from 'reducers/ui'
+import { ButtonNarrow } from 'lib/Buttons'
+import { TextWhite, TextWhiteBold } from 'lib/StyledComps'
 
 const Wrapper = styled.footer`
-  margin-top: 50px;
+  position: relative;
   width: 100%;
-  height: 100px;
-  /* background: rgba(255,255,255, 0.5); */
+  padding: 60px 45px 40px 45px;
+  background: #1E2D2F;
   display: flex;
-  justify-content: center;
-  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+  @media (min-width: 668px) {
+    flex-direction: row;
+  }
+`
+const InnerWrapperColumn = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+`
+const Circle = styled.div`
+  align-self: center;
+  position: absolute;
+  top: -30px;
+  left: 47%;
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  background: #B2621C;
+  color: #fff;
+  font-size: 10px;
+`
+const CircleSpan = styled.span`
+  position: relative;
+  top: 20px;
+  left: 8px;
 `
 
 export const Footer = () => {
@@ -27,10 +53,18 @@ export const Footer = () => {
 
   return (
     <Wrapper>
-      <Link to={'/guests'} tabIndex='-1'>
-        <Button title='Guestlist' />
-      </Link>
-      <Button title='Log in' onClick={openLoginForm} />
+      <Circle><CircleSpan>with love.</CircleSpan></Circle>
+      <InnerWrapperColumn>
+        <TextWhiteBold>Do you have any questions?</TextWhiteBold>
+        <TextWhite>nyblad@hotmail.com</TextWhite>
+        <TextWhite>070-526 48 20</TextWhite>
+      </InnerWrapperColumn>
+      <InnerWrapperColumn>
+        <Link to={'/guests'} tabIndex='-1'>
+          <ButtonNarrow>Guestlist</ButtonNarrow>
+        </Link>
+        <ButtonNarrow onClick={openLoginForm}>Admin log in</ButtonNarrow>
+      </InnerWrapperColumn>
     </Wrapper>
   )
 }

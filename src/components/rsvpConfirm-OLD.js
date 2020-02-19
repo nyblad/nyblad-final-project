@@ -1,8 +1,10 @@
+// DELETE THIS COMPONENT LATER
+
 import React from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
-import { Button } from 'lib/Button'
+import { Button } from 'lib/Buttons'
 import { ui } from 'reducers/ui'
 import { TextDark } from 'lib/StyledComps'
 

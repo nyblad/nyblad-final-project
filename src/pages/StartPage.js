@@ -6,10 +6,9 @@ import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import coupleOne from 'assets/couple-1.jpg'
 import coupleFour from 'assets/couple-4.jpg'
 import arrow from 'assets/arrow-gold-16.png'
-import { Button } from 'lib/Button'
 import { NavBar } from 'components/NavBar'
-import { Footer } from 'components/Footer'
-import { Headline, TextDark, LinkText } from 'lib/StyledComps'
+import { Button } from 'lib/Buttons'
+import { Headline, SecondaryText, TextDark, LinkText } from 'lib/StyledComps'
 
 const Hero = styled.section`
   display: flex;
@@ -59,16 +58,6 @@ const Image = styled.img`
     width: 25%;
   }
 `
-const SecondaryText = styled.h3`
-  margin: 0;
-  color: #fff;
-  @media (min-width: 450px) {
-    font-size: 30px;
-  }
-  @media (min-width: 992px) {
-    font-size: 36px;
-  }
-`
 const Span = styled.span`
   position: relative;
   top: 3px;
@@ -106,7 +95,6 @@ export const StartPage = () => {
         <TextDark>with love.</TextDark>
         <TextDark>Magnus | Sofie</TextDark>
       </SectionGray>
-      <Footer />
     </>
   )
 }

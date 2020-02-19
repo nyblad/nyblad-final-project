@@ -11,8 +11,7 @@ import { StartPage } from './pages/StartPage'
 import { MusicPage } from './pages/MusicPage'
 import { LocationPage } from './pages/LocationPage'
 import { LoginForm } from 'components/LoginForm'
-import { ConfirmDelete } from 'components/ConfirmDelete'
-import { ConfirmRsvp } from 'components/ConfirmRsvp'
+import { Footer } from 'components/Footer'
 
 // COMBINING REDUCERS
 const reducer = combineReducers({
@@ -30,18 +29,17 @@ export const App = () => {
       <LoginForm />
       <BrowserRouter>
         <Switch>
+
           <Route path="/" exact>
             <StartPage />
           </Route>
 
           <Route path="/rsvp">
             <RsvpPage />
-            <ConfirmRsvp />
           </Route>
 
           <Route path="/guests">
             <GuestPage />
-            <ConfirmDelete />
           </Route>
 
           <Route path="/music">
@@ -53,6 +51,7 @@ export const App = () => {
           </Route>
 
         </Switch>
+        <Footer />
       </BrowserRouter>
     </Provider>
   )

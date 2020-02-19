@@ -1,23 +1,10 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-import { Button } from 'lib/Button'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
+import { Button } from 'lib/Buttons'
+import { FixedWrapper } from 'lib/StyledComps'
 
-const FormWrapper = styled.div`
-  width: 100vw;
-  height: 100vh;
-  background: rgba(0,0,0, 0.9);
-  position: fixed;
-  top: 0;
-  left: 0;
-  bottom: 0;
-  right: 0;
-  z-index: 1000;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-`
 const Form = styled.form`
   margin: 15px 0;
   width: 90%;
@@ -113,7 +100,7 @@ export const LoginForm = () => {
   return (
     <>
       {open && (
-        <FormWrapper>
+        <FixedWrapper>
           <Form onSubmit={handleSubmit}>
             <ButtonClose type='button' onClick={close}>X</ButtonClose>
             <Label>
@@ -140,7 +127,7 @@ export const LoginForm = () => {
             </Label>
             <Button type='submit' title='Login' />
           </Form>
-        </FormWrapper>
+        </FixedWrapper>
       )}
     </>
   )

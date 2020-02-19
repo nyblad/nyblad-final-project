@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { Button } from './Button'
+import { Button } from './Buttons'
 
 const AlertWrapper = styled.div`
   width: 300px;
