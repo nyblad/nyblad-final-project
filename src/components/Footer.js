@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 import { useDispatch } from 'react-redux'
 import { ui } from 'reducers/ui'
 import { ButtonNarrow } from 'lib/Buttons'
-import { TextWhite, TextWhiteBold } from 'lib/StyledComps'
+import { TextWhite, TextWhiteBold, LinkTextWhite } from 'lib/StyledComps'
 
 const Wrapper = styled.footer`
   position: relative;
@@ -52,11 +52,13 @@ export const Footer = () => {
   }
 
   return (
+    // Button to guestlist will be removed later on when login works
+    // Login should redirect you to that page
     <Wrapper>
       <Circle><CircleSpan>with love.</CircleSpan></Circle>
       <InnerWrapperColumn>
         <TextWhiteBold>Do you have any questions?</TextWhiteBold>
-        <TextWhite>nyblad@hotmail.com</TextWhite>
+        <LinkTextWhite href='mailto:nyblad@hotmail.com'>nyblad@hotmail.com</LinkTextWhite>
         <TextWhite>070-526 48 20</TextWhite>
       </InnerWrapperColumn>
       <InnerWrapperColumn>

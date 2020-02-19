@@ -110,3 +110,9 @@ export const LinkText = styled.p`
   text-align: center;
   margin: 5px 0;
 `
+export const LinkTextWhite = styled.a`
+  color: #fff;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 5px 0;
+`

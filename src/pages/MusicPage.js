@@ -4,6 +4,7 @@ import { NavBar } from 'components/NavBar'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 
 const Iframe = styled.iframe`
+  margin-top: 20px;
   width: 90%;
   height: 400px;
   border-radius: 6px;
