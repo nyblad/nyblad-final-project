@@ -29,7 +29,7 @@ export const ButtonNormal = styled.button`
 export const ButtonNarrow = styled.button`
   font-family: 'Open Sans', sans-serif;
   height: 45px;
-  min-width: 60px;
+  min-width: 100px;
   border: 1px solid #fff;
   border-radius: 6px;
   background: rgba(0,0,0, 0.2);
@@ -69,7 +69,6 @@ export const ButtonSmall = styled.button`
   }
   @media (min-width: 992px) {
     font-size: 20px;
-    padding: 0 15px;
   }
 `
 

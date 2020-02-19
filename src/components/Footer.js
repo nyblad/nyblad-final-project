@@ -18,10 +18,22 @@ const Wrapper = styled.footer`
     flex-direction: row;
   }
 `
-const InnerWrapperColumn = styled.div`
+const InnerWrapperText = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  justify-content: space-between;
+`
+const InnerWrapperButtons = styled.div`
+  padding: 20px 0 0 0;
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  justify-content: space-between;
+  @media (min-width: 668px) {
+    flex-direction: column;
+    padding: 0;
+  }
 `
 const Circle = styled.div`
   align-self: center;
@@ -52,21 +64,22 @@ export const Footer = () => {
   }
 
   return (
-    // Button to guestlist will be removed later on when login works
-    // Login should redirect you to that page
+    // Button to guestlist should only be displayed when logged in
+    // Login should redirect you to guestlist
+    // Login button should change title to log out when logged in
     <Wrapper>
       <Circle><CircleSpan>with love.</CircleSpan></Circle>
-      <InnerWrapperColumn>
+      <InnerWrapperText>
         <TextWhiteBold>Do you have any questions?</TextWhiteBold>
         <LinkTextWhite href='mailto:nyblad@hotmail.com'>nyblad@hotmail.com</LinkTextWhite>
         <TextWhite>070-526 48 20</TextWhite>
-      </InnerWrapperColumn>
-      <InnerWrapperColumn>
-        <Link to={'/guests'} tabIndex='-1'>
-          <ButtonNarrow>Guestlist</ButtonNarrow>
-        </Link>
+      </InnerWrapperText>
+      <InnerWrapperButtons>
         <ButtonNarrow onClick={openLoginForm}>Admin log in</ButtonNarrow>
-      </InnerWrapperColumn>
+        <Link to={'/guests'} tabIndex='-1'>
+          <ButtonNarrow>See guestlist</ButtonNarrow>
+        </Link>
+      </InnerWrapperButtons>
     </Wrapper>
   )
 }

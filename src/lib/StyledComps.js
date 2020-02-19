@@ -77,7 +77,7 @@ export const TextWhite = styled.p`
   color: #fff;
   font-size: 16px;
   text-align: center;
-  margin: 0 0 20px 0;
+  margin: 10px 0;
   @media (min-width: 668px) {
     text-align: left;
   }
@@ -86,7 +86,7 @@ export const TextWhiteBold = styled.p`
   color: #fff;
   font-size: 16px;
   font-weight: bold;
-  margin: 0 0 20px 0;
+  margin: 10px 0;
   @media (min-width: 668px) {
     text-align: left;
   }

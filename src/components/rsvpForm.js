@@ -194,7 +194,7 @@ export const RsvpForm = () => {
       </Label>
 
       <Button type='submit' title='Submit' disabled={!enabled} />
-      {!enabled && <LabelText>*Please check the required fields</LabelText>}
+      {!enabled && <LabelText>* Please check the required fields</LabelText>}
     </Form>
   )
 }

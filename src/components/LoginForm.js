@@ -27,6 +27,9 @@ const Form = styled.form`
 const Label = styled.label`
   width: 100%;
   padding: 5px 0;
+  &:nth-last-of-type(1) {
+    margin-bottom: 20px;
+  }
 `
 const LabelText = styled.p`
   margin: 15px 0 8px 0;
