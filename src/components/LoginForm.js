@@ -11,7 +11,6 @@ const Form = styled.form`
   padding: 20px 20px;
   display: flex;
   flex-direction: column;
-  background: rgba(255,255,255, 0.4);
   border-radius: 6px;
   @media (min-width: 668px) {
     width: 80%;
@@ -35,6 +34,7 @@ const LabelText = styled.p`
   margin: 15px 0 8px 0;
   font-size: 16px;
   font-weight: bold;
+  color: #fff;
 `
 const Input = styled.input`
   width: 100%;
@@ -56,7 +56,7 @@ const ButtonClose = styled.button`
   color: #fff;
   cursor: pointer;
   &:hover {
-    background: rgba(0,0,0, 0.6);
+    background: rgba(255,255,255, 0.2);
   }
   &:focus {
     outline-color: #BC7C43;

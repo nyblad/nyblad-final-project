@@ -68,7 +68,6 @@ export const SecondaryText = styled.h3`
 export const TextDark = styled.p`
   margin: 5px 0;
   font-size: 16px;
-  /* font-weight: 700; */
   color: #333;
   letter-spacing: 1.5px;
   text-align: center;

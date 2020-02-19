@@ -12,7 +12,7 @@ export const ButtonNormal = styled.button`
   color: #fff;
   cursor: pointer;
   &:hover {
-    background: rgba(0,0,0, 0.6);
+    background: rgba(255,255,255, 0.2);
   }
   &:focus {
     outline-color: #BC7C43;
@@ -37,7 +37,7 @@ export const ButtonNarrow = styled.button`
   color: #fff;
   cursor: pointer;
   &:hover {
-    background: rgba(0,0,0, 0.6);
+    background: rgba(255,255,255, 0.2);
   }
   &:focus {
     outline-color: #BC7C43;
@@ -58,7 +58,7 @@ export const ButtonSmall = styled.button`
   color: #fff;
   cursor: pointer;
   &:hover {
-    background: rgba(0,0,0, 0.6);
+    background: rgba(255,255,255, 0.2);
   }
   &:focus {
     outline-color: #BC7C43;
