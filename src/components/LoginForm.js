@@ -1,5 +1,6 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+// import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
 import { Button } from 'lib/Buttons'
@@ -74,6 +75,7 @@ const ButtonClose = styled.button`
 export const LoginForm = () => {
 
   const dispatch = useDispatch()
+  // const history = useHistory()
   const open = useSelector(state => state.ui.isLoginOpen)
 
   const [formValues, setFormValues] = useState({
@@ -94,6 +96,7 @@ export const LoginForm = () => {
     console.table(formValues)
     // dispatch user info to reducer?
     dispatch(ui.actions.setLoginOpen(false))
+    // history.pushState('/guests')
   }
 
   const close = () => {

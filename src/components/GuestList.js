@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchGuests, updateGuests, deleteGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
 import { Button } from 'lib/Buttons'
+import { TextWhite } from 'lib/StyledComps'
 import { SearchBar } from 'lib/SearchBar'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 import search from 'assets/search-24.png'
@@ -130,6 +131,7 @@ export const GuestList = () => {
   const startIndex = endIndex - itemsPerPage
   const currentItems = guests.slice(startIndex, endIndex)
   const totalPages = Math.ceil(guests.length / itemsPerPage)
+  console.log('CurrentItems', currentItems)
 
   return (
     <>
@@ -155,7 +157,9 @@ export const GuestList = () => {
 
       {loading && <LoadingSpinner />}
 
-      {!loading &&
+      {!loading && (currentItems < 1) && <TextWhite>No guest matching</TextWhite>}
+
+      {!loading && (currentItems !== 0) &&
         <ListWrapper>
           <ItemWrapper>
             {currentItems.map(guest => (
