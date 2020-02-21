@@ -63,10 +63,16 @@ export const Footer = () => {
     // Send user to page guestlist
   }
 
+  // const handleLogout = () => {
+  //   localStorage.removeItem('accessToken');
+  //   history.push('/');
+  // };
+
   return (
     // Button to guestlist should only be displayed when logged in
     // Login should redirect you to guestlist
-    // Login button should change title to log out when logged in
+    // Login button should be hidden when loggen in
+    // Instead show logout button that calls handleLogout
     <Wrapper>
       <Circle><CircleSpan>with love.</CircleSpan></Circle>
       <InnerWrapperText>

@@ -48,6 +48,9 @@ const Iframe = styled.iframe`
   margin: 0;
   border-radius: 6px;
 `
+const LinkWrap = styled.a`
+  width: 100%;
+`
 
 export const LocationPage = () => {
 
@@ -58,13 +61,13 @@ export const LocationPage = () => {
       <InnerWrapper>
         <InfoWrapper>
           <TextWhite>The wedding will be in Bollnäs, Hälsingland. Here are accommodations we recommend if you need at place to stay over the night:</TextWhite>
-          <Button title='Book Scandic Hotel' />
-          <Button title='Book Orbaden' />
+          <Button title='Book Scandic Hotel' onClick={() => window.open('https://www.scandichotels.se/hotell/sverige/bollnas/scandic-bollnas?cmpid=ppc_BH2d&s_kwcid=AL!7589!3!291097966974!e!!g!!scandic%20bolln%C3%A4s&gclid=Cj0KCQiAnL7yBRD3ARIsAJp_oLbTYh0_awMgtqoqYMu8f773dfyGuCqZNQM1vHgBGptUx5xbPMPtxYcaAv-zEALw_wcB')} />
+          <Button title='Book Orbaden Spa' onClick={() => window.open('https://www.orbaden.se')} />
         </InfoWrapper>
         <MapWrapper>
-          <a href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>
+          <LinkWrap href='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc='>
             <Iframe src='https://maps.google.com/maps?q=bolln%C3%A4s&t=&z=13&ie=UTF8&iwloc=&output=embed' frameBorder='0' scrolling='no' />
-          </a>
+          </LinkWrap>
         </MapWrapper>
       </InnerWrapper>
     </Wrapper>

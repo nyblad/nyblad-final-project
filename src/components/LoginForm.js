@@ -33,12 +33,13 @@ export const LoginForm = () => {
     })
   }
 
-  const handleSubmit = (event) => {
+  const handleLogin = (event) => {
     event.preventDefault()
-    clearInputs()
     console.table(formValues)
-    // dispatch user info to reducer?
-    dispatch(ui.actions.setLoginOpen(false))
+    // dispatch formValues to reducer
+    dispatch(ui.actions.setLoginOpen(false)) // If success
+    // If failed show some message
+    clearInputs() // Move this to reducer?
     // history.pushState('/guests')
   }
 
@@ -50,7 +51,7 @@ export const LoginForm = () => {
     <>
       {open && (
         <FixedWrapper>
-          <Form onSubmit={handleSubmit}>
+          <Form onSubmit={handleLogin}>
             <ButtonClose type='button' onClick={close}>X</ButtonClose>
             <Label>
               <LabelTextWhite>E-mail</LabelTextWhite>
