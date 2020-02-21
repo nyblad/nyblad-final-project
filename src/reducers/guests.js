@@ -52,12 +52,14 @@ export const fetchGuests = (path) => {
 // guest = the formvalues I'm sending with dispatch on form submit
 export const sendGuests = (guest) => {
   return dispatch => {
+    dispatch(ui.actions.setLoading(true))
     fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
       method: "POST", body: JSON.stringify(guest), headers: { "Content-Type": "application/json" }
     })
       .then(() => {
         // Dispatching the form values to the action to add guest
         dispatch(guests.actions.addGuest(guest))
+        dispatch(ui.actions.setLoading(false))
       })
   }
 }
@@ -65,9 +67,11 @@ export const sendGuests = (guest) => {
 // Thunk middleware for updating a guest
 export const updateGuests = (guestId) => {
   return dispatch => {
+    dispatch(ui.actions.setLoading(true))
     fetch(`https://nyblad-guest-list.herokuapp.com/guests/${guestId}`, { method: "PUT" })
       .then(() => {
         dispatch(guests.actions.updateGuest(guestId))
+        dispatch(ui.actions.setLoading(false))
       })
   }
 }
@@ -75,9 +79,11 @@ export const updateGuests = (guestId) => {
 // Thunk middleware for deleting a guest
 export const deleteGuests = (guestId) => {
   return dispatch => {
+    dispatch(ui.actions.setLoading(true))
     fetch(`https://nyblad-guest-list.herokuapp.com/guests/${guestId}`, { method: "DELETE" })
       .then(() => {
         dispatch(guests.actions.deleteGuest(guestId))
+        dispatch(ui.actions.setLoading(false))
       })
   }
 }

@@ -3,73 +3,16 @@ import styled from 'styled-components/macro'
 // import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
-import { Button } from 'lib/Buttons'
+import { Button, ButtonNormal } from 'lib/Buttons'
 import { FixedWrapper } from 'lib/StyledComps'
+import { Form, Label, LabelText, Input } from 'lib/FormStyles'
 
-const Form = styled.form`
-  margin: 15px 0;
-  width: 90%;
-  padding: 20px 20px;
-  display: flex;
-  flex-direction: column;
-  border-radius: 6px;
-  @media (min-width: 668px) {
-    width: 80%;
-    padding: 20px 40px;
-  }
-  @media (min-width: 800px) {
-    width: 60%;
-  }
-  @media (min-width: 992px) {
-    width: 50%;
-  }
-`
-const Label = styled.label`
-  width: 100%;
-  padding: 5px 0;
-  &:nth-last-of-type(1) {
-    margin-bottom: 20px;
-  }
-`
-const LabelText = styled.p`
-  margin: 15px 0 8px 0;
-  font-size: 16px;
-  font-weight: bold;
+const LabelTextWhite = styled(LabelText)`
   color: #fff;
 `
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-`
-const ButtonClose = styled.button`
+const ButtonClose = styled(ButtonNormal)`
   align-self: flex-end;
   width: 45px;
-  font-family: 'Open Sans', sans-serif;
-  height: 45px;
-  border: 3px solid #fff;
-  border-radius: 6px;
-  background: rgba(0,0,0, 0.2);
-  transition: 0.6s;
-  color: #fff;
-  cursor: pointer;
-  &:hover {
-    background: rgba(255,255,255, 0.2);
-  }
-  &:focus {
-    outline-color: #BC7C43;
-    outline-offset: 5px;
-  }
-  @media (min-width: 450px) {
-    font-size: 16px;
-  }
-  @media (min-width: 992px) {
-    font-size: 20px;
-    padding: 0 15px;
-  }
 `
 
 export const LoginForm = () => {
@@ -110,7 +53,7 @@ export const LoginForm = () => {
           <Form onSubmit={handleSubmit}>
             <ButtonClose type='button' onClick={close}>X</ButtonClose>
             <Label>
-              <LabelText>E-mail</LabelText>
+              <LabelTextWhite>E-mail</LabelTextWhite>
               <Input
                 onChange={event => setFormValues({ ...formValues, email: event.target.value })}
                 value={formValues.email}
@@ -123,7 +66,7 @@ export const LoginForm = () => {
             </Label>
 
             <Label>
-              <LabelText>Password</LabelText>
+              <LabelTextWhite>Password</LabelTextWhite>
               <Input
                 onChange={event => setFormValues({ ...formValues, password: event.target.value })}
                 value={formValues.password}

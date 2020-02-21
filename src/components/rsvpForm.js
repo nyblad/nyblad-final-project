@@ -1,66 +1,13 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
+import { ui } from 'reducers/ui'
 import { useDispatch } from 'react-redux'
 import { sendGuests } from 'reducers/guests'
 import { Button } from 'lib/Buttons'
-import { ui } from 'reducers/ui'
+import { Form, Label, LabelText, Input, RadioWrapper, RadioText, RadioInput, TextAreaInput } from 'lib/FormStyles'
 
-const Form = styled.form`
-  margin: 15px 0;
-  width: 90%;
-  padding: 20px 20px;
-  display: flex;
-  flex-direction: column;
+const StyledForm = styled(Form)`
   background: rgba(255,255,255, 0.4);
-  border-radius: 6px;
-  @media (min-width: 668px) {
-    width: 80%;
-    padding: 20px 40px;
-  }
-  @media (min-width: 800px) {
-    width: 60%;
-  }
-  @media (min-width: 992px) {
-    width: 50%;
-  }
-`
-const Label = styled.label`
-  width: 100%;
-  padding: 5px 0;
-`
-const LabelText = styled.p`
-  margin: 15px 0 8px 0;
-  font-size: 16px;
-  font-weight: bold;
-`
-const Input = styled.input`
-  width: 100%;
-  padding: 10px;
-  border: none;
-  border-radius: 3px;
-  font-size: 16px;
-  font-family: 'Open Sans', sans-serif;
-`
-const RadioWrapper = styled.div`
-  display: flex;
-  flex-direction: row;
-  align-items: center;
-  padding: 10px 0;
-`
-const RadioText = styled.p`
-  margin: 0;
-`
-const RadioInput = styled.input`
-  width: 30px;
-  padding: 10px;
-`
-const TextAreaInput = styled.textarea`
-  width: 100%;
-  padding: 10px;
-  margin-bottom: 20px;
-  border: 2px solid #e6e6e6;
-  border-radius: 3px;
-  font-family: 'Open Sans', sans-serif;
 `
 
 export const RsvpForm = () => {
@@ -98,7 +45,7 @@ export const RsvpForm = () => {
   const enabled = (formValues.first_name.length >= 2 && formValues.last_name.length >= 2 && formValues.email.length >= 5 && formValues.isAttending !== '')
 
   return (
-    <Form onSubmit={handleSubmit}>
+    <StyledForm onSubmit={handleSubmit}>
       <Label>
         <LabelText>First name *</LabelText>
         <Input
@@ -195,6 +142,6 @@ export const RsvpForm = () => {
 
       <Button type='submit' title='Submit' disabled={!enabled} />
       {!enabled && <LabelText>* Please check the required fields</LabelText>}
-    </Form>
+    </StyledForm>
   )
 }

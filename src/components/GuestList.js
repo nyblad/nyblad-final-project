@@ -9,6 +9,7 @@ import { GuestItem } from 'components/GuestItem'
 import { Button } from 'lib/Buttons'
 import { TextWhite } from 'lib/StyledComps'
 import { SearchBar } from 'lib/SearchBar'
+import { PaginationWrapper, PageButtons, SmallText } from 'lib/Pagination'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 import search from 'assets/search-24.png'
 
@@ -63,30 +64,6 @@ const ItemWrapper = styled.section`
     flex-wrap: wrap;
   }
 `
-const PaginationWrapper = styled.div`
-  width: 100%;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  align-self: baseline;
-`
-const PageButtons = styled.div`
-  width: 100%;
-  display: flex;
-  flex-direction: row;
-  justify-content: space-around;
-  @media (min-width: 668px) {
-    width: 50%;
-  }
-  @media (min-width: 992px) {
-    width: 30%;
-  }
-`
-const SmallText = styled.p`
-  font-size: 14px;
-  color: #999;
-`
 
 export const GuestList = () => {
   const dispatch = useDispatch()
@@ -107,16 +84,8 @@ export const GuestList = () => {
     dispatch(ui.actions.setConfirmEditOpen(true))
   }
 
-  const handleAll = () => {
-    setQuery('')
-    setCurrentPage(1)
-  }
-  const handleAttending = () => {
-    setQuery('?attending=true')
-    setCurrentPage(1)
-  }
-  const handleNotAttending = () => {
-    setQuery('?attending=false')
+  const handleFilterButtons = (filterQuery) => {
+    setQuery(filterQuery)
     setCurrentPage(1)
   }
 
@@ -143,9 +112,9 @@ export const GuestList = () => {
     <>
       <ActionWrapper>
         <ButtonWrapper>
-          <Button title='All guests' onClick={handleAll} />
-          <Button title='Attending' onClick={handleAttending} />
-          <Button title='Not attending' onClick={handleNotAttending} />
+          <Button title='All guests' onClick={() => handleFilterButtons('')} />
+          <Button title='Attending' onClick={() => handleFilterButtons('?attending=true')} />
+          <Button title='Not attending' onClick={() => handleFilterButtons('?attending=false')} />
         </ButtonWrapper>
 
         <SearchWrapper>
