@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
+import { deleteGuests } from 'reducers/guests'
+import { useDispatch, useSelector } from 'react-redux'
 import { ButtonSmall } from 'lib/Buttons'
 import { FixedWrapper, TextWhite } from 'lib/StyledComps'
-import { deleteGuests } from 'reducers/guests'
 
 const ButtonWrapper = styled.div`
   width: 50%;
@@ -16,15 +16,17 @@ const ButtonWrapper = styled.div`
 export const ConfirmDelete = () => {
 
   const dispatch = useDispatch()
-  const open = useSelector(state => state.ui.isConfirmOpen)
+  const open = useSelector(state => state.ui.isConfirmDeleteOpen)
+  const guestId = useSelector(state => state.guests.guest)
 
-  const handleYes = (guestId) => {
+  // Need to get GuestID from mapped guest in GuestList.js
+  const handleYes = () => {
     dispatch(deleteGuests(guestId))
-    dispatch(ui.actions.setConfirmOpen(false))
+    dispatch(ui.actions.setConfirmDeleteOpen(false))
   }
 
   const handleNo = () => {
-    dispatch(ui.actions.setConfirmOpen(false))
+    dispatch(ui.actions.setConfirmDeleteOpen(false))
   }
 
   return (

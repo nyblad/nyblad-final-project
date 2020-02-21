@@ -2,8 +2,9 @@ import React, { useState, useEffect } from 'react'
 import styled from 'styled-components/macro'
 import moment from 'moment'
 import { ui } from 'reducers/ui'
+import { guests } from 'reducers/guests'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchGuests, updateGuests, deleteGuests } from 'reducers/guests'
+import { fetchGuests } from 'reducers/guests'
 import { GuestItem } from 'components/GuestItem'
 import { Button } from 'lib/Buttons'
 import { TextWhite } from 'lib/StyledComps'
@@ -93,12 +94,17 @@ export const GuestList = () => {
   const [searchInput, setSearchInput] = useState('')
   const [currentPage, setCurrentPage] = useState(1)
 
-  const guests = useSelector(state => state.guests.guests)
+  const allGuests = useSelector(state => state.guests.guests)
   const loading = useSelector(state => state.ui.isLoading)
 
-  const handleConfirm = () => {
-    dispatch(ui.actions.setConfirmOpen(true))
-    // How to pass on the guestId to Confirm component?
+  const handleConfirmDelete = (guestId) => {
+    dispatch(guests.actions.setGuest(guestId))
+    dispatch(ui.actions.setConfirmDeleteOpen(true))
+  }
+
+  const handleConfirmEdit = (guestId) => {
+    dispatch(guests.actions.setGuest(guestId))
+    dispatch(ui.actions.setConfirmEditOpen(true))
   }
 
   const handleAll = () => {
@@ -129,8 +135,8 @@ export const GuestList = () => {
   const itemsPerPage = 12
   const endIndex = currentPage * itemsPerPage
   const startIndex = endIndex - itemsPerPage
-  const currentItems = guests.slice(startIndex, endIndex)
-  const totalPages = Math.ceil(guests.length / itemsPerPage)
+  const currentItems = allGuests.slice(startIndex, endIndex)
+  const totalPages = Math.ceil(allGuests.length / itemsPerPage)
   console.log('CurrentItems', currentItems)
 
   return (
@@ -173,9 +179,8 @@ export const GuestList = () => {
                 other={guest.other}
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
-                onClickDelete={() => handleConfirm(guest._id)}
-                // onClickDelete={() => { if (window.confirm('Are you sure you want to delete guest?')) dispatch(deleteGuests(guest._id)) }}
-                onClickEdit={() => { if (window.confirm('Do you want to change attending status on guest?')) dispatch(updateGuests(guest._id)) }}
+                onClickDelete={() => handleConfirmDelete(guest._id)}
+                onClickEdit={() => handleConfirmEdit(guest._id)}
               />
             ))}
           </ItemWrapper>
@@ -185,7 +190,7 @@ export const GuestList = () => {
               {currentPage < totalPages && <Button title='Next' onClick={() => setCurrentPage(currentPage + 1)} />}
             </PageButtons>
 
-            <SmallText>Guests in list: {guests.length} | Page {currentPage} of {totalPages}</SmallText>
+            <SmallText>Guests in list: {allGuests.length} | Page {currentPage} of {totalPages}</SmallText>
 
           </PaginationWrapper>
         </ListWrapper>

@@ -4,11 +4,17 @@ import { ui } from './ui'
 export const guests = createSlice({
   name: 'guests',
   initialState: {
-    guests: []
+    guests: [],
+    guest: [],
   },
   // The actions of the reducer
   reducers: {
+    setGuest: (state, action) => {
+      // To set a single guest with id
+      state.guest = action.payload
+    },
     setGuests: (state, action) => {
+      // To set all guests
       state.guests = action.payload
     },
     addGuest: (state, action) => {

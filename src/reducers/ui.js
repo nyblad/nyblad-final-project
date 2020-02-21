@@ -5,7 +5,8 @@ export const ui = createSlice({
   initialState: {
     isLoading: false,
     isLoginOpen: false,
-    isConfirmOpen: false,
+    isConfirmDeleteOpen: false,
+    isConfirmEditOpen: false,
     isRsvpConfirmOpen: false,
   },
   reducers: {
@@ -15,8 +16,11 @@ export const ui = createSlice({
     setLoginOpen: (state, action) => {
       state.isLoginOpen = action.payload
     },
-    setConfirmOpen: (state, action) => {
-      state.isConfirmOpen = action.payload
+    setConfirmDeleteOpen: (state, action) => {
+      state.isConfirmDeleteOpen = action.payload
+    },
+    setConfirmEditOpen: (state, action) => {
+      state.isConfirmEditOpen = action.payload
     },
     setRsvpConfirmOpen: (state, action) => {
       state.isRsvpConfirmOpen = action.payload
