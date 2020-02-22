@@ -1,8 +1,9 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
+import { users } from 'reducers/users'
 import { ButtonNarrow } from 'lib/Buttons'
 import { TextWhite, TextWhiteBold, LinkTextWhite } from 'lib/StyledComps'
 
@@ -56,6 +57,8 @@ const CircleSpan = styled.span`
 export const Footer = () => {
 
   const dispatch = useDispatch()
+  const accessToken = useSelector(state => state.users.accessToken)
+  const userName = useSelector(state => state.users.userName)
 
   const openLoginForm = () => {
     dispatch(ui.actions.setLoginOpen(true))
@@ -63,10 +66,10 @@ export const Footer = () => {
     // Send user to page guestlist
   }
 
-  // const handleLogout = () => {
-  //   dispatch(users.actions.setAccessToken(''))
-  //   history.push('/');
-  // };
+  const handleLogout = () => {
+    dispatch(users.actions.setAccessToken(''))
+    // history.push('/');
+  };
 
   return (
     // Button to guestlist should only be displayed when logged in
@@ -81,10 +84,12 @@ export const Footer = () => {
         <TextWhite>070-526 48 20</TextWhite>
       </InnerWrapperText>
       <InnerWrapperButtons>
-        <ButtonNarrow onClick={openLoginForm}>Admin log in</ButtonNarrow>
-        <Link to={'/guests'} tabIndex='-1'>
+        {!accessToken && <ButtonNarrow onClick={openLoginForm}>Admin log in</ButtonNarrow>}
+        {accessToken && <ButtonNarrow onClick={handleLogout}>Log out {userName}</ButtonNarrow>}
+        {accessToken && <Link to={'/guests'} tabIndex='-1'>
           <ButtonNarrow>See guestlist</ButtonNarrow>
         </Link>
+        }
       </InnerWrapperButtons>
     </Wrapper>
   )

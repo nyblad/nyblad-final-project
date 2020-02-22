@@ -5,14 +5,19 @@ import { createSlice } from '@reduxjs/toolkit'
 export const users = createSlice({
   name: 'users',
   initialState: {
-    user: 0,
+    userId: 0,
+    userName: '',
     accessToken: '',
   },
   // The actions of the reducer
   reducers: {
-    setUser: (state, action) => {
+    setUserId: (state, action) => {
       // To set the logged in user
-      state.user = action.payload
+      state.userId = action.payload
+    },
+    setUserName: (state, action) => {
+      // To set the logged in user
+      state.userName = action.payload
     },
     setAccessToken: (state, action) => {
       // To set accesstoken for logged in user
@@ -25,7 +30,7 @@ export const users = createSlice({
 export const fetchUser = (loginValues) => {
   return dispatch => {
     dispatch(users.actions.setAccessToken(''))
-    fetch('https://nyblad-guest-list.herokuapp.com/login', {
+    fetch('http://localhost:8000/login', {
       method: 'POST',
       body: JSON.stringify(loginValues),
       headers: { 'Content-Type': 'application/json' }
@@ -33,7 +38,8 @@ export const fetchUser = (loginValues) => {
       .then(res => res.json())
       .then(json => {
         console.log(json)
-        dispatch(users.actions.setUser(json.userId))
+        dispatch(users.actions.setUserId(json.userId))
+        dispatch(users.actions.setUserName(json.name))
         dispatch(users.actions.setAccessToken(json.accessToken))
         console.log('Logged in:', json.name)
         console.log('AccesToken:', json.accessToken)
