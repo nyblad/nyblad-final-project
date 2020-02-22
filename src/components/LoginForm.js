@@ -11,6 +11,11 @@ import { Form, Label, LabelText, Input } from 'lib/FormStyles'
 const LabelTextWhite = styled(LabelText)`
   color: #fff;
 `
+const FailedText = styled.p`
+  font-size: 16px;
+  color: #c65353;
+  margin: 0;
+`
 const ButtonClose = styled(ButtonNormal)`
   align-self: flex-end;
   width: 45px;
@@ -21,6 +26,7 @@ export const LoginForm = () => {
   const dispatch = useDispatch()
   // const history = useHistory()
   const open = useSelector(state => state.ui.isLoginOpen)
+  const failed = useSelector(state => state.ui.isLoginFailed)
 
   const [formValues, setFormValues] = useState({
     email: '',
@@ -38,11 +44,7 @@ export const LoginForm = () => {
     event.preventDefault()
     console.table(formValues)
     dispatch(fetchUser(formValues))
-    // If success:
-    dispatch(ui.actions.setLoginOpen(false))
-    // If failed show some message
     clearInputs() // Move this to reducer?
-    // history.push('/guests')
   }
 
   const close = () => {
@@ -79,6 +81,7 @@ export const LoginForm = () => {
             </Label>
             <Button type='submit' title='Login' />
           </Form>
+          {failed && <FailedText>Incorrect user and/or password.</FailedText>}
         </FixedWrapper>
       )}
     </>

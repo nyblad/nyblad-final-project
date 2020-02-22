@@ -57,7 +57,8 @@ const CircleSpan = styled.span`
 export const Footer = () => {
 
   const dispatch = useDispatch()
-  const accessToken = useSelector(state => state.users.accessToken)
+  const accessToken = localStorage.getItem('accessToken')
+  // const accessToken = useSelector(state => state.users.accessToken)
   const userName = useSelector(state => state.users.userName)
 
   const openLoginForm = () => {
