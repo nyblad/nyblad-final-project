@@ -6,8 +6,9 @@
 // How to do this if I don't have "secret route in backend"?
 // Can I just have guarded routes in frontend?
 
+// useSelector to get the accesstoken from reducer
+
 // useEffect(() => {
-//   const abortController = new AbortController();
 //   fetch('http://localhost:8080/secrets', {
 //     method: 'GET',
 //     headers: {
@@ -17,9 +18,4 @@
 //     signal: abortController.signal
 //   })
 //     .then(res => res.json())
-
-//   return () => {
-//     abortController.abort();
-//   };
-// }, [accessToken]);
-
+// }, [accessToken])

@@ -5,6 +5,7 @@ import { BrowserRouter, Switch, Route } from 'react-router-dom'
 import { GlobalStyle } from 'lib/GlobalStyle'
 import { ui } from './reducers/ui'
 import { guests } from './reducers/guests'
+import { users } from './reducers/users'
 import { RsvpPage } from './pages/RsvpPage'
 import { GuestPage } from './pages/GuestPage'
 import { StartPage } from './pages/StartPage'
@@ -16,7 +17,8 @@ import { Footer } from 'components/Footer'
 // COMBINING REDUCERS
 const reducer = combineReducers({
   ui: ui.reducer,
-  guests: guests.reducer
+  guests: guests.reducer,
+  users: users.reducer
 })
 
 // THE STORE

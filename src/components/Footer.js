@@ -64,7 +64,7 @@ export const Footer = () => {
   }
 
   // const handleLogout = () => {
-  //   localStorage.removeItem('accessToken');
+  //   dispatch(users.actions.setAccessToken(''))
   //   history.push('/');
   // };
 

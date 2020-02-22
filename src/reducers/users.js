@@ -1,25 +1,43 @@
 // Reducer to handle users and login in to admin pages
 // Set a user for myself and a demo user for others
-// action: setLoggedInUser?
-// action: setAccessToken?
-// thunk for login: something like this:
+import { createSlice } from '@reduxjs/toolkit'
 
-// export const fetchUser = (loginValues) => {
-//  return dispatch => {
-//   localStorage.removeItem('accessToken');
+export const users = createSlice({
+  name: 'users',
+  initialState: {
+    user: 0,
+    accessToken: '',
+  },
+  // The actions of the reducer
+  reducers: {
+    setUser: (state, action) => {
+      // To set the logged in user
+      state.user = action.payload
+    },
+    setAccessToken: (state, action) => {
+      // To set accesstoken for logged in user
+      state.accessToken = action.payload
+    }
+  }
+})
 
-//   fetch('http://localhost:8080/login', {
-//     method: 'POST',
-//     body: JSON.stringify(loginValues),
-//     headers: { 'Content-Type': 'application/json' }
-//   })
-//     .then(res => res.json())
-//     .then(json => {
-//      dispatch(users.actions.setLoggedInUser(json));
-//      localStorage.setItem('accessToken', data.accessToken);
-// }
-//     .catch(err => console.log('error', err);
-// };
-
-
-// How to handle logout?
+// Thunk for login: 
+export const fetchUser = (loginValues) => {
+  return dispatch => {
+    dispatch(users.actions.setAccessToken(''))
+    fetch('https://nyblad-guest-list.herokuapp.com/login', {
+      method: 'POST',
+      body: JSON.stringify(loginValues),
+      headers: { 'Content-Type': 'application/json' }
+    })
+      .then(res => res.json())
+      .then(json => {
+        console.log(json)
+        dispatch(users.actions.setUser(json.userId))
+        dispatch(users.actions.setAccessToken(json.accessToken))
+        console.log('Logged in:', json.name)
+        console.log('AccesToken:', json.accessToken)
+      })
+      .catch(err => console.log('error', err))
+  }
+}

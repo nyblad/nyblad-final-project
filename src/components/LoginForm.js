@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 // import { useHistory } from 'react-router-dom'
+import { fetchUser } from 'reducers/users'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
 import { Button, ButtonNormal } from 'lib/Buttons'
@@ -36,11 +37,12 @@ export const LoginForm = () => {
   const handleLogin = (event) => {
     event.preventDefault()
     console.table(formValues)
-    // dispatch formValues to reducer
-    dispatch(ui.actions.setLoginOpen(false)) // If success
+    dispatch(fetchUser(formValues))
+    // If success:
+    dispatch(ui.actions.setLoginOpen(false))
     // If failed show some message
     clearInputs() // Move this to reducer?
-    // history.pushState('/guests')
+    // history.push('/guests')
   }
 
   const close = () => {
