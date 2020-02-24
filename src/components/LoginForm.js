@@ -1,6 +1,5 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
-// import { useHistory } from 'react-router-dom'
 import { fetchUser } from 'reducers/users'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
@@ -24,9 +23,10 @@ const ButtonClose = styled(ButtonNormal)`
 export const LoginForm = () => {
 
   const dispatch = useDispatch()
-  // const history = useHistory()
+
   const open = useSelector(state => state.ui.isLoginOpen)
   const failed = useSelector(state => state.ui.isLoginFailed)
+  const userName = useSelector(state => state.users.userName)
 
   const [formValues, setFormValues] = useState({
     email: '',
@@ -42,9 +42,9 @@ export const LoginForm = () => {
 
   const handleLogin = (event) => {
     event.preventDefault()
-    console.table(formValues)
     dispatch(fetchUser(formValues))
-    clearInputs() // Move this to reducer?
+    clearInputs()
+    console.log(userName)
   }
 
   const close = () => {

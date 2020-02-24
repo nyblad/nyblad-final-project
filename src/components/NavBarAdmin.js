@@ -13,7 +13,7 @@ const NavWrapper = styled.section`
   bottom: 0;
   left: 0;
   padding: 10px;
-  background: ${props => (props.menuActive ? 'rgba(0, 0, 0, 0.9)' : 'none')};  
+  background: ${props => (props.menuActive ? 'rgba(0, 0, 0, 0.9)' : 'none')};
   @media (min-width: 668px) {
     position: relative;
     background: none;
@@ -23,7 +23,7 @@ const BurgerWrapper = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  background: ${props => (props.menuActive ? 'rgba(0, 0, 0, 0.9)' : 'rgba(0, 0, 0, 0.3)')};  
+  background: rgba(102, 102, 102, 0.3);
   width: 46px;
   height: 42px;
   &:focus {
@@ -89,7 +89,7 @@ const CoupleHeading = styled.p`
   }
 `
 
-export const NavBar = () => {
+export const NavBarAdmin = () => {
 
   const [menuActive, setMenuActive] = useState(false)
 
@@ -120,21 +120,21 @@ export const NavBar = () => {
       <NavLinks menuActive={menuActive === true}>
 
         <Link to={'/'} tabIndex='-1'>
-          <NavButton>Info</NavButton>
+          <NavButton>Back to start</NavButton>
         </Link>
 
-        <Link to={'/location'} tabIndex='-1'>
-          <NavButton>Location</NavButton>
+        <Link to={'/admin'} tabIndex='-1'>
+          <NavButton>Admin</NavButton>
         </Link>
 
         <CoupleHeading>Sofie & Magnus</CoupleHeading>
 
-        <Link to={'/music'} tabIndex='-1'>
-          <NavButton>Music</NavButton>
+        <Link to={'/todos'} tabIndex='-1'>
+          <NavButton>To do list</NavButton>
         </Link>
 
-        <Link to={'/rsvp'} tabIndex='-1'>
-          <NavButton>RSVP</NavButton>
+        <Link to={'/guests'} tabIndex='-1'>
+          <NavButton>Guest list</NavButton>
         </Link>
 
       </NavLinks>

@@ -6,7 +6,6 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
   const accessToken = localStorage.getItem('accessToken')
 
   return (
-
     // Show the component only when the user is logged in
     // Otherwise, redirect the user to startpage
     <Route {...rest} render={props => (
@@ -14,5 +13,5 @@ export const PrivateRoute = ({ component: Component, ...rest }) => {
         ? <Component {...props} />
         : <Redirect to='/' />
     )} />
-  );
-};
+  )
+}
