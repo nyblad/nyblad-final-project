@@ -52,7 +52,9 @@ export const App = () => {
           </Route>
 
           <PrivateRoute component={AdminPage} path="/admin" exact />
+
           <PrivateRoute component={GuestPage} path="/guests" exact />
+
           <PrivateRoute component={TodoPage} path="/todos" exact />
 
         </Switch>

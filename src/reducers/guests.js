@@ -39,7 +39,7 @@ export const guests = createSlice({
 export const fetchGuests = (path) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-guest-list.herokuapp.com/guests${path}`)
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests${path}`)
       .then(res => res.json())
       .then(json => {
         dispatch(guests.actions.setGuests(json.guests))
@@ -53,7 +53,7 @@ export const fetchGuests = (path) => {
 export const sendGuests = (guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-guest-list.herokuapp.com/guests`, {
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests`, {
       method: "POST", body: JSON.stringify(guest), headers: { "Content-Type": "application/json" }
     })
       .then(() => {
@@ -68,7 +68,7 @@ export const sendGuests = (guest) => {
 export const updateGuests = (guestId) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-guest-list.herokuapp.com/guests/${guestId}`, { method: "PUT" })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, { method: "PUT" })
       .then(() => {
         dispatch(guests.actions.updateGuest(guestId))
         dispatch(ui.actions.setLoading(false))
@@ -80,7 +80,7 @@ export const updateGuests = (guestId) => {
 export const deleteGuests = (guestId) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-guest-list.herokuapp.com/guests/${guestId}`, { method: "DELETE" })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, { method: "DELETE" })
       .then(() => {
         dispatch(guests.actions.deleteGuest(guestId))
         dispatch(ui.actions.setLoading(false))

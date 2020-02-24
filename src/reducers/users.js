@@ -31,7 +31,7 @@ export const users = createSlice({
 export const fetchUser = (loginValues) => {
   return dispatch => {
     // dispatch(users.actions.setAccessToken(''))
-    fetch('http://localhost:8000/login', {
+    fetch('https://nyblad-final-project-api.herokuapp.com/login', {
       method: 'POST',
       body: JSON.stringify(loginValues),
       headers: { 'Content-Type': 'application/json' }
