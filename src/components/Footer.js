@@ -100,4 +100,5 @@ export const Footer = () => {
       </InnerWrapper>
     </Wrapper>
   )
+
 }

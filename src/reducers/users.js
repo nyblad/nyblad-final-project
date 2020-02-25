@@ -27,17 +27,15 @@ export const users = createSlice({
   }
 })
 
-// Thunk for login: 
+// Thunk middleware for login: 
 export const fetchUser = (loginValues) => {
   return dispatch => {
-    // dispatch(users.actions.setAccessToken(''))
     fetch('https://nyblad-final-project-api.herokuapp.com/login', {
       method: 'POST',
       body: JSON.stringify(loginValues),
       headers: { 'Content-Type': 'application/json' }
     })
       .then(res => res.json())
-
       .then(json => {
         console.log(json)
         if (json.notFound !== true) {
