@@ -1,19 +1,39 @@
-# Technigo React Starter App
+# Final project @ Technigo Bootcamp 2020
 
-This app has been generated using `create-react-app`, then cleaned up a little so we have a project with just the elements we need to get started.
+My final project at Technigo Bootcamp was supposed to wrap up and include everything I've learned during this bootcamp. Timeplan was about 80 hours.
 
-Add components in the `src` folder and use them in `src/app.js` to get started.
+I pitched a wedding site that included public pages with information about the wedding day, form for RSVP. It also included private pages that you only can access after logging in, and there you would find the guest list (of those who had RSVPd) and a to do list for wedding planning.
 
-## Usage
+Live site: https://the-nyblad-wedding.netlify.com/ <br>
+Demo user to log in: demo@demo.io / demo123<br>
 
-1. On GitHub, click the 'use this template' button to create a new repo on your account
-1. Clone the new repo to your computer
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+Backend repo: https://github.com/nyblad/nyblad-final-project-api <br>
 
-Alternatively, if you don't want a new git repo on your account;
+## Learning objectives
 
-1. Download & extract the [latest release](https://github.com/Technigo/react-starter/releases/latest) from GitHub
-1. Open the directory in the terminal: `cd /path/to/react-starter`
-1. Install required dependencies with npm: `npm install`
-1. Start the project: `npm start`
+* How to structure and plan a bigger project
+* How to build both backend and frontend
+* How to use and combine the technologies I've learned
+
+## Technologies used
+
+Frontend:
+* JavaScript ES6 <br>
+* React <br>
+* React Hooks<br>
+* React Router<br>
+* Redux<br>
+* CSS3 <br>
+* Styled components <br>
+* API <br>
+
+Backend:
+* Express <br>
+* MongoDB <br>
+* Mongoose <br>
+* Mongo Atlas <br>
+
+## Illustrations/Credits
+Wallpaper from StockSnap.io <br>
+
+Sofie Nyblad 2020
