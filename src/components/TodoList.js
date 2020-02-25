@@ -1,6 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import styled from 'styled-components/macro'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
+import { fetchTodos } from 'reducers/todos'
 import { TodoItem } from 'components/TodoItem'
 import done from 'assets/done.png'
 
@@ -35,10 +36,15 @@ const NoTodosImg = styled.img`
 `
 
 export const TodoList = () => {
-
+  const dispatch = useDispatch()
   const allTodos = useSelector(state => state.todos.items)
-  const todosCompleted = allTodos.filter(todo => (todo.completed === true))
-  const todosNotCompleted = allTodos.filter(todo => (todo.completed === false))
+  console.log(allTodos)
+  const todosCompleted = allTodos.filter(todo => (todo.isCompleted === true))
+  const todosNotCompleted = allTodos.filter(todo => (todo.isCompleted === false))
+
+  useEffect(() => {
+    dispatch(fetchTodos())
+  }, [dispatch])
 
   return (
     <TodosWrapper>

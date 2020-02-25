@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
-import { todos } from 'reducers/todos'
+import { sendTodos } from 'reducers/todos'
+// import { todos } from 'reducers/todos'
 // import { Form, Input } from 'lib/FormStyles'
 
 const StyledForm = styled.form`
@@ -58,7 +59,8 @@ export const TodoForm = () => {
 
   const handleAddTodo = (event) => {
     event.preventDefault()
-    dispatch(todos.actions.addTodo(newTodo))
+    dispatch(sendTodos(newTodo))
+    // dispatch(todos.actions.addTodo(newTodo))
     setNewTodo('')
   }
 

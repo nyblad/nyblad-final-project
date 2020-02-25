@@ -11,26 +11,25 @@ export const todos = createSlice({
     items: [],
   },
   reducers: {
-    addTodo: (state, action) => {
-      state.items.push({ id: Date.now(), text: action.payload, completed: false })
+    setTodos: (state, action) => {
+      // To set all todos
+      state.items = action.payload
     },
-    removeTodo: (state, action) => {
-      // Filter and display new array with the todo that don't match the payloads todo id
-      state.items = state.items.filter((todo) => todo.id !== action.payload)
+    addTodo: (state, action) => {
+      state.items.push({ text: action.payload })
     },
     toggleTodo: (state, action) => {
       // To find the todo we want to toggle
       const foundTodo = state.items.find((todo) => todo.id === action.payload)
-
       // To change completed status on that todo
       if (foundTodo) {
-        foundTodo.completed = !foundTodo.completed
+        foundTodo.isCompleted = !foundTodo.isCompleted
       }
+    },
+    deleteTodo: (state, action) => {
+      // Filter and display new array with the todo that don't match the payloads todo id
+      state.items = state.items.filter((todo) => todo.id !== action.payload)
     }
-    // removeAllTodos: (state) => {
-    //   // return initialState (gives same result as below)
-    //   state.items = []
-    // }
   }
 })
 
@@ -48,7 +47,7 @@ export const fetchTodos = () => {
     })
       .then(res => res.json())
       .then(json => {
-        dispatch(todos.actions.setGuests(json.todos))
+        dispatch(todos.actions.setTodos(json.todos))
         dispatch(ui.actions.setLoading(false))
       })
   }
@@ -64,7 +63,7 @@ export const sendTodos = (todo) => {
     })
       .then(() => {
         // Dispatching the form values to the action to add guest
-        dispatch(todos.actions.addGuest(todo))
+        dispatch(todos.actions.addTodo(todo))
         dispatch(ui.actions.setLoading(false))
       })
   }
@@ -78,7 +77,7 @@ export const updateTodos = (todoId) => {
       method: "PUT"
     })
       .then(() => {
-        dispatch(todos.actions.updateGuest(todoId))
+        dispatch(todos.actions.toggleTodo(todoId))
         dispatch(ui.actions.setLoading(false))
       })
   }
@@ -92,7 +91,7 @@ export const deleteTodos = (todoId) => {
       method: "DELETE"
     })
       .then(() => {
-        dispatch(todos.actions.deleteGuest(todoId))
+        dispatch(todos.actions.deleteTodo(todoId))
         dispatch(ui.actions.setLoading(false))
       })
   }

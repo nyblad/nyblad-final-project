@@ -57,7 +57,7 @@ const TodoRemoveButton = styled.button`
 export const TodoItem = (props) => {
   // Instead of props we can use {todo}
   const dispatch = useDispatch()
-  const todoStatus = props.todo.completed
+  const todoStatus = props.todo.isCompleted
 
   const handleToggleTodo = () => {
     dispatch(todos.actions.toggleTodo(props.todo.id))
