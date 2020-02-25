@@ -54,27 +54,26 @@ const Input = styled.input`
 
 export const TodoForm = () => {
 
-  const [newTodo, setNewTodo] = useState('')
+  const [formValues, setFormValues] = useState({ text: '' })
   const dispatch = useDispatch()
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(sendTodos(newTodo))
-    console.log(newTodo)
-    setNewTodo('')
+    dispatch(sendTodos(formValues))
+    setFormValues({ text: '' })
   }
 
   return (
     <>
       <StyledForm onSubmit={handleSubmit}>
-        <AddButton type='submit' disabled={newTodo.length === 0}>+</AddButton>
+        <AddButton type='submit' disabled={formValues.text.length === 0}>+</AddButton>
         <Input
           type='text'
           required
           placeholder='Add todo'
           maxLength='50'
-          onChange={(event) => setNewTodo(event.target.value)}
-          value={newTodo}
+          onChange={(event) => setFormValues({ ...formValues, text: event.target.value })}
+          value={formValues.text}
         />
       </StyledForm>
     </>

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
-import { fetchTodos } from 'reducers/todos'
+import { fetchTodos, updateTodos, deleteTodos } from 'reducers/todos'
 import { todos } from 'reducers/todos'
 import { TodoItem } from 'components/TodoItem'
 import done from 'assets/done.png'
@@ -44,12 +44,11 @@ export const TodoList = () => {
 
   const handleToggleTodo = (todoId) => {
     dispatch(todos.actions.toggleTodo(todoId))
-    console.log(todoId)
+    dispatch(updateTodos(todoId))
   }
 
   const handleDeleteTodo = (todoId) => {
-    dispatch(todos.actions.deleteTodo(todoId))
-    console.log(todoId)
+    dispatch(deleteTodos(todoId))
   }
 
   useEffect(() => {

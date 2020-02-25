@@ -23,7 +23,7 @@ const reducer = combineReducers({
   ui: ui.reducer,
   guests: guests.reducer,
   users: users.reducer,
-  todos: todos.reducer,
+  todos: todos.reducer
 })
 
 // THE STORE
