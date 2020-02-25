@@ -2,6 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodos } from 'reducers/todos'
+import { todos } from 'reducers/todos'
 import { TodoItem } from 'components/TodoItem'
 import done from 'assets/done.png'
 
@@ -38,9 +39,18 @@ const NoTodosImg = styled.img`
 export const TodoList = () => {
   const dispatch = useDispatch()
   const allTodos = useSelector(state => state.todos.items)
-  console.log(allTodos)
   const todosCompleted = allTodos.filter(todo => (todo.isCompleted === true))
   const todosNotCompleted = allTodos.filter(todo => (todo.isCompleted === false))
+
+  const handleToggleTodo = (todoId) => {
+    dispatch(todos.actions.toggleTodo(todoId))
+    console.log(todoId)
+  }
+
+  const handleDeleteTodo = (todoId) => {
+    dispatch(todos.actions.deleteTodo(todoId))
+    console.log(todoId)
+  }
 
   useEffect(() => {
     dispatch(fetchTodos())
@@ -56,11 +66,22 @@ export const TodoList = () => {
       }
 
       {todosNotCompleted.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem
+          key={todo._id}
+          isCompleted={todo.isCompleted}
+          text={todo.text}
+          onClickToggle={() => handleToggleTodo(todo._id)}
+          onClickDelete={() => handleDeleteTodo(todo._id)}
+        />
       ))}
 
       {todosCompleted.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} />
+        <TodoItem
+          key={todo._id}
+          isCompleted={todo.isCompleted}
+          text={todo.text}
+          onClickToggle={() => handleToggleTodo(todo._id)}
+          onClickDelete={() => handleDeleteTodo(todo._id)} />
       ))}
     </TodosWrapper>
   )

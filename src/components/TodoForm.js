@@ -57,22 +57,22 @@ export const TodoForm = () => {
   const [newTodo, setNewTodo] = useState('')
   const dispatch = useDispatch()
 
-  const handleAddTodo = (event) => {
+  const handleSubmit = (event) => {
     event.preventDefault()
     dispatch(sendTodos(newTodo))
-    // dispatch(todos.actions.addTodo(newTodo))
+    console.log(newTodo)
     setNewTodo('')
   }
 
   return (
     <>
-      <StyledForm onSubmit={handleAddTodo}>
+      <StyledForm onSubmit={handleSubmit}>
         <AddButton type='submit' disabled={newTodo.length === 0}>+</AddButton>
         <Input
           type='text'
           required
           placeholder='Add todo'
-          maxLength='100'
+          maxLength='50'
           onChange={(event) => setNewTodo(event.target.value)}
           value={newTodo}
         />

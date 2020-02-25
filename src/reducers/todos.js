@@ -20,7 +20,7 @@ export const todos = createSlice({
     },
     toggleTodo: (state, action) => {
       // To find the todo we want to toggle
-      const foundTodo = state.items.find((todo) => todo.id === action.payload)
+      const foundTodo = state.items.find((todo) => todo._id === action.payload)
       // To change completed status on that todo
       if (foundTodo) {
         foundTodo.isCompleted = !foundTodo.isCompleted
@@ -28,7 +28,7 @@ export const todos = createSlice({
     },
     deleteTodo: (state, action) => {
       // Filter and display new array with the todo that don't match the payloads todo id
-      state.items = state.items.filter((todo) => todo.id !== action.payload)
+      state.items = state.items.filter((todo) => todo._id !== action.payload)
     }
   }
 })
@@ -57,14 +57,12 @@ export const fetchTodos = () => {
 // todo = the formvalues I'm sending with dispatch on form submit for todo
 export const sendTodos = (todo) => {
   return dispatch => {
-    dispatch(ui.actions.setLoading(true))
     fetch(`https://nyblad-final-project-api.herokuapp.com/todos`, {
       method: "POST", body: JSON.stringify(todo), headers: { "Content-Type": "application/json" }
     })
       .then(() => {
-        // Dispatching the form values to the action to add guest
+        // Dispatching the form values to the action to add todo
         dispatch(todos.actions.addTodo(todo))
-        dispatch(ui.actions.setLoading(false))
       })
   }
 }
@@ -72,13 +70,9 @@ export const sendTodos = (todo) => {
 // Thunk middleware for updating a todo
 export const updateTodos = (todoId) => {
   return dispatch => {
-    dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, {
-      method: "PUT"
-    })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, { method: "PUT" })
       .then(() => {
         dispatch(todos.actions.toggleTodo(todoId))
-        dispatch(ui.actions.setLoading(false))
       })
   }
 }
@@ -86,13 +80,9 @@ export const updateTodos = (todoId) => {
 // Thunk middleware for deleting a todo
 export const deleteTodos = (todoId) => {
   return dispatch => {
-    dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, {
-      method: "DELETE"
-    })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, { method: "DELETE" })
       .then(() => {
         dispatch(todos.actions.deleteTodo(todoId))
-        dispatch(ui.actions.setLoading(false))
       })
   }
 }
