@@ -38,8 +38,15 @@ export const guests = createSlice({
 // Thunk middleware for get
 export const fetchGuests = (path) => {
   return dispatch => {
+    const accessToken = localStorage.getItem('accessToken')
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests${path}`)
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests${path}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: `${accessToken}`
+      }
+    })
       .then(res => res.json())
       .then(json => {
         dispatch(guests.actions.setGuests(json.guests))

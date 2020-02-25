@@ -26,7 +26,6 @@ export const LoginForm = () => {
 
   const open = useSelector(state => state.ui.isLoginOpen)
   const failed = useSelector(state => state.ui.isLoginFailed)
-  const userName = useSelector(state => state.users.userName)
 
   const [formValues, setFormValues] = useState({
     email: '',
@@ -44,7 +43,6 @@ export const LoginForm = () => {
     event.preventDefault()
     dispatch(fetchUser(formValues))
     clearInputs()
-    console.log(userName)
   }
 
   const close = () => {
