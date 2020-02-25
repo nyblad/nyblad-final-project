@@ -1,9 +1,9 @@
-// Page for admin to dos - todo list with categories
 import React from 'react'
 import styled from 'styled-components/macro'
-// import { Link } from 'react-router-dom'
 import { NavBarAdmin } from 'components/NavBarAdmin'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
+import { TodoList } from 'components/TodoList'
+import { TodoForm } from 'components/TodoForm'
 // import { Button } from 'lib/Buttons'
 
 const InnerWrapper = styled.section`
@@ -24,6 +24,8 @@ export const TodoPage = () => {
       <Headline>Wedding planning.</Headline>
       <InnerWrapper>
         <TextWhite>Here you can plan your wedding by adding, check off or delete to dos with different categories.</TextWhite>
+        <TodoForm />
+        <TodoList />
       </InnerWrapper>
     </Wrapper >
   )

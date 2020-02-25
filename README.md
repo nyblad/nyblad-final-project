@@ -1,4 +1,4 @@
-# Final project @ Technigo Bootcamp 2020
+# Final project @ Technigo Bootcamp 2020 (frontend)
 
 My final project at Technigo Bootcamp was supposed to wrap up and include everything I've learned during this bootcamp. Timeplan was about 80 hours.
 
@@ -32,6 +32,7 @@ Backend:
 * MongoDB <br>
 * Mongoose <br>
 * Mongo Atlas <br>
+* bcrypt/crypto <br>
 
 ## Illustrations/Credits
 Wallpaper from StockSnap.io <br>

@@ -7,6 +7,7 @@ import { GlobalStyle } from 'lib/GlobalStyle'
 import { ui } from './reducers/ui'
 import { guests } from './reducers/guests'
 import { users } from './reducers/users'
+import { todos } from './reducers/todos'
 import { AdminPage } from './pages/AdminPage'
 import { TodoPage } from './pages/TodoPage'
 import { GuestPage } from './pages/GuestPage'
@@ -21,7 +22,8 @@ import { Footer } from 'components/Footer'
 const reducer = combineReducers({
   ui: ui.reducer,
   guests: guests.reducer,
-  users: users.reducer
+  users: users.reducer,
+  todos: todos.reducer,
 })
 
 // THE STORE
