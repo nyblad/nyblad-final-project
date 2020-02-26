@@ -6,6 +6,7 @@ import { ui } from 'reducers/ui'
 import { Button, ButtonNormal } from 'lib/Buttons'
 import { FixedWrapper } from 'lib/StyledComps'
 import { Form, Label, LabelText, Input } from 'lib/FormStyles'
+import { LoadingSpinner } from 'components/LoadingSpinner'
 
 const LabelTextWhite = styled(LabelText)`
   color: #fff;
@@ -26,6 +27,7 @@ export const LoginForm = () => {
 
   const open = useSelector(state => state.ui.isLoginOpen)
   const failed = useSelector(state => state.ui.isLoginFailed)
+  const loading = useSelector(state => state.ui.isLoading)
 
   const [formValues, setFormValues] = useState({
     email: '',
@@ -51,6 +53,8 @@ export const LoginForm = () => {
 
   return (
     <>
+
+
       {open && (
         <FixedWrapper>
           <Form onSubmit={handleLogin}>
@@ -80,6 +84,7 @@ export const LoginForm = () => {
             <Button type='submit' title='Login' />
           </Form>
           {failed && <FailedText>Incorrect user and/or password.</FailedText>}
+          {loading && <LoadingSpinner />}
         </FixedWrapper>
       )}
     </>

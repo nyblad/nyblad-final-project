@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodos, updateTodos, deleteTodos } from 'reducers/todos'
 import { todos } from 'reducers/todos'
 import { TodoItem } from 'components/TodoItem'
+import { LoadingSpinner } from 'components/LoadingSpinner'
 import done from 'assets/done.png'
 
 const TodosWrapper = styled.section`
@@ -38,6 +39,7 @@ const NoTodosImg = styled.img`
 
 export const TodoList = () => {
   const dispatch = useDispatch()
+  const loading = useSelector(state => state.ui.isLoading)
   const allTodos = useSelector(state => state.todos.items)
   const todosCompleted = allTodos.filter(todo => (todo.isCompleted === true))
   const todosNotCompleted = allTodos.filter(todo => (todo.isCompleted === false))
@@ -57,14 +59,15 @@ export const TodoList = () => {
 
   return (
     <TodosWrapper>
-      {allTodos.length === 0 &&
+      {loading && <LoadingSpinner />}
+      {!loading && allTodos.length === 0 &&
         <>
           <NoTodos>Yay - you don't have any todos!</NoTodos>
           <NoTodosImg src={done} alt='No todos' />
         </>
       }
 
-      {todosNotCompleted.map((todo) => (
+      {!loading && todosNotCompleted.map((todo) => (
         <TodoItem
           key={todo._id}
           isCompleted={todo.isCompleted}
@@ -74,7 +77,7 @@ export const TodoList = () => {
         />
       ))}
 
-      {todosCompleted.map((todo) => (
+      {!loading && todosCompleted.map((todo) => (
         <TodoItem
           key={todo._id}
           isCompleted={todo.isCompleted}

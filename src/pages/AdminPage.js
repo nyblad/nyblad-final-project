@@ -22,7 +22,7 @@ export const AdminPage = () => {
     <Wrapper>
       <NavBarAdmin />
       <Headline>Wedding admin.</Headline>
-      <TextWhite>Here you can handle the list of guests that have RSVPd and add to dos in your wedding planning.</TextWhite>
+      <TextWhite>Here you can handle the list of guests that have responded and add to dos in your wedding planning.</TextWhite>
       <ButtonWrapper>
         <Link to={'/guests'} tabIndex='-1'>
           <Button title='Guest list' />
