@@ -53,6 +53,7 @@ export const TodoList = () => {
     dispatch(deleteTodos(todoId))
   }
 
+  // I have to refresh page to see new todo - how to fix?
   useEffect(() => {
     dispatch(fetchTodos())
   }, [dispatch])

@@ -32,7 +32,7 @@ export const LoginForm = () => {
   const [formValues, setFormValues] = useState({
     email: '',
     password: '',
-  });
+  })
 
   const clearInputs = () => {
     setFormValues({
@@ -53,8 +53,6 @@ export const LoginForm = () => {
 
   return (
     <>
-
-
       {open && (
         <FixedWrapper>
           <Form onSubmit={handleLogin}>

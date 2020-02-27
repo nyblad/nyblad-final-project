@@ -3,7 +3,8 @@ import { NavBarAdmin } from 'components/NavBarAdmin'
 import { GuestList } from 'components/GuestList'
 import { Wrapper, Headline } from 'lib/StyledComps'
 import { ConfirmDelete } from 'components/ConfirmDelete'
-import { ConfirmEdit } from 'components/ConfirmEdit'
+// import { ConfirmEdit } from 'components/ConfirmEdit'
+import { ConfirmEditGuest } from 'components/ConfirmEditGuest'
 
 export const GuestPage = () => {
 
@@ -13,7 +14,9 @@ export const GuestPage = () => {
       <Headline>Guests so far.</Headline>
       <GuestList />
       <ConfirmDelete />
-      <ConfirmEdit />
+      {/* <ConfirmEdit /> */}
+      <ConfirmEditGuest />
+
     </Wrapper>
   )
 

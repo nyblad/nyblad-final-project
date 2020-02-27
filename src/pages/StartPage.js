@@ -37,14 +37,12 @@ const SectionWhite = styled.section`
   display: flex;
   flex-direction: column;
   align-items: center;
-  padding: 50px;
+  padding: 50px 30px;
+  @media (min-width: 668px) {
+    padding: 50px;
+  }
 `
-const SectionGray = styled.section`
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  padding: 50px;
+const SectionGray = styled(SectionWhite)`
   background: #E8E3E3;
 `
 const Image = styled.img`

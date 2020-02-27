@@ -24,7 +24,7 @@ export const guests = createSlice({
     updateGuest: (state, action) => {
       // To find the guest we want to update
       const foundGuest = state.guests.find(guest => guest._id === action.payload)
-      // To change isAttending status on guest
+      // To change isAttending status on guest - How to update all data instead?
       if (foundGuest) {
         foundGuest.isAttending = !foundGuest.isAttending
       }
@@ -72,10 +72,30 @@ export const sendGuests = (guest) => {
 }
 
 // Thunk middleware for updating a guest
-export const updateGuests = (guestId) => {
+// export const updateGuests = (guestId) => {
+//   return dispatch => {
+//     dispatch(ui.actions.setLoading(true))
+//     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, { 
+//       method: "PUT",
+//     })
+//       .then(() => {
+//         dispatch(guests.actions.updateGuest(guestId))
+//         dispatch(ui.actions.setLoading(false))
+//       })
+//   }
+// }
+
+// How to PUT the formValues from ConfirmEditGuest? 
+// Need both formValues and guestId?
+export const updateGuests = (guestId, formValues) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, { method: "PUT" })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
+      method: "PUT",
+      body: JSON.stringify(formValues),
+      headers: { "Content-Type": "application/json" }
+    })
+      .then(res => res.json())
       .then(() => {
         dispatch(guests.actions.updateGuest(guestId))
         dispatch(ui.actions.setLoading(false))

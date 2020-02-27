@@ -14,7 +14,7 @@ const Todo = styled.section`
   border-bottom: 1px solid #333;
 `
 const TodoToggleButton = styled.button`
-  background: ${props => (props.status ? "#1E2D2F" : "transparent")};
+  background: ${props => (props.status ? '#1E2D2F' : 'transparent')};
   color: #1E2D2F;
   border: 2px solid #1E2D2F;
   border-radius: 50%;
@@ -28,7 +28,7 @@ const TodoToggleButton = styled.button`
   }
   &:after {
     content: '';
-    display: ${props => (props.status ? "block" : "none")};
+    display: ${props => (props.status ? 'block' : 'none')};
     /*Create white L-shape turned 45 degrees*/
     width: 3px;
     height: 6px;
@@ -41,7 +41,8 @@ const TodoText = styled.article`
   font-size: 16px;
   overflow-wrap: break-word;
   word-break: break-word;
-  color: ${props => (props.status ? "#d9d9d9" : "#333")};
+  color: #333;
+  text-decoration: ${props => (props.status ? 'line-through' : 'none')};
 `
 const TodoRemoveButton = styled.button`
   background: transparent;

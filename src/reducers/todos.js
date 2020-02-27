@@ -59,7 +59,7 @@ export const fetchTodos = () => {
 export const sendTodos = (todo) => {
   return dispatch => {
     fetch(`https://nyblad-final-project-api.herokuapp.com/todos`, {
-      method: "POST", body: JSON.stringify(todo), headers: { "Content-Type": "application/json" }
+      method: 'POST', body: JSON.stringify(todo), headers: { 'Content-Type': 'application/json' }
     })
       .then(() => {
         console.log(todo)
@@ -74,8 +74,8 @@ export const updateTodos = (todoId) => {
   return dispatch => {
     fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, {
       method: "PUT",
-      body: JSON.stringify({ "isCompleted": true }), // How to toggle this value?
-      headers: { "Content-Type": "application/json" }
+      body: JSON.stringify({ 'isCompleted': true }), // How to toggle this value?
+      headers: { 'Content-Type': 'application/json' }
     })
       // .then(res => res.json())
       .then(() => {
@@ -88,7 +88,9 @@ export const updateTodos = (todoId) => {
 // Thunk middleware for deleting a todo
 export const deleteTodos = (todoId) => {
   return dispatch => {
-    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, { method: "DELETE" })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, {
+      method: "DELETE"
+    })
       .then(() => {
         dispatch(todos.actions.deleteTodo(todoId))
       })

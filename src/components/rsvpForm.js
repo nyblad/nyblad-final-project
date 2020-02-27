@@ -84,8 +84,6 @@ export const RsvpForm = () => {
           />
           <RadioText>Yes</RadioText>
         </RadioWrapper>
-      </Label>
-      <Label>
         <RadioWrapper>
           <RadioInput
             onChange={event => setFormValues({ ...formValues, isAttending: event.target.value })}

@@ -1,5 +1,4 @@
 // Maybe a summary of quantity of guests who has rsvp:d
-// Can I just have guarded routes in frontend? What should I add in backend?
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'

@@ -30,12 +30,18 @@ const ActionsWrapper = styled.div`
   flex-direction: column;
 `
 const Text = styled.p`
-  font-size: 14px;
+  font-size: 12px;
   margin: 5px 0;
+  @media (min-width: 668px) {
+    font-size: 14px;
+  }
 `
 const FatText = styled.span`
   font-weight: bold;
-  font-size: 14px;
+  font-size: 12px;
+  @media (min-width: 668px) {
+    font-size: 14px;
+  }
 `
 const ActionButton = styled.button`
   margin: 0 0 10px 0;

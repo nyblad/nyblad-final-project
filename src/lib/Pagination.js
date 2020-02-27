@@ -21,6 +21,9 @@ export const PageButtons = styled.div`
   }
 `
 export const SmallText = styled.p`
-  font-size: 14px;
+  font-size: 12px;
   color: #999;
+  @media (min-width: 668px) {
+    font-size: 14px;
+  }
 `

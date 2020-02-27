@@ -7,6 +7,7 @@ export const FixedWrapper = styled.div`
   width: 100vw;
   height: 100vh;
   background: rgba(0,0,0, 0.9);
+  padding: 10px;
   position: fixed;
   top: 0;
   left: 0;
@@ -67,10 +68,13 @@ export const SecondaryText = styled.h3`
 `
 export const TextDark = styled.p`
   margin: 5px 0;
-  font-size: 16px;
+  font-size: 14px;
   color: #333;
   letter-spacing: 1.5px;
   text-align: center;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
 `
 export const TextWhite = styled.p`
   color: #fff;
@@ -101,13 +105,16 @@ export const TextDarkItalic = styled.p`
 `
 export const LinkText = styled.p`
   color: #B2621C;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: 400;
   font-style: italic;
   text-decoration: none;
   cursor: pointer;
   text-align: center;
   margin: 5px 0;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
 `
 export const LinkTextWhite = styled.a`
   color: #fff;
