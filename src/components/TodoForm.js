@@ -2,8 +2,6 @@ import React, { useState } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch } from 'react-redux'
 import { sendTodos } from 'reducers/todos'
-// import { todos } from 'reducers/todos'
-// import { Form, Input } from 'lib/FormStyles'
 
 const StyledForm = styled.form`
   width: 90%;

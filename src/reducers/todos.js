@@ -1,9 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
-// Declaring initialState to use it in the Slice and to return initialState when invoking removeAll()
-// const initialState = {
-//   items: []
-// }
 
 export const todos = createSlice({
   name: 'todos',
@@ -58,7 +54,9 @@ export const fetchTodos = () => {
 export const sendTodos = (todo) => {
   return dispatch => {
     fetch(`https://nyblad-final-project-api.herokuapp.com/todos`, {
-      method: 'POST', body: JSON.stringify(todo), headers: { 'Content-Type': 'application/json' }
+      method: 'POST',
+      body: JSON.stringify(todo),
+      headers: { 'Content-Type': 'application/json' }
     })
       .then(res => res.json())
       .then((json) => {
@@ -69,17 +67,14 @@ export const sendTodos = (todo) => {
   }
 }
 
-// Thunk middleware for updating a todo
-export const updateTodos = (todo) => {
+// Thunk middleware for toggle/udpdate a todos status
+export const updateTodos = (todoId) => {
   return dispatch => {
-    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todo._id}`, {
-      method: "PUT",
-      body: JSON.stringify(todo), // How to toggle the todo status?
-      headers: { 'Content-Type': 'application/json' }
+    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, {
+      method: "PUT"
     })
-      // .then(res => res.json())
       .then(() => {
-        dispatch(todos.actions.toggleTodo(todo._id))
+        dispatch(todos.actions.toggleTodo(todoId))
       })
       .catch(err => console.log('error:', err))
   }

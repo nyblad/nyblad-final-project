@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-// import { useSelector } from 'react-redux'
 
 const TodoWrapper = styled.section`
   display: flex;
@@ -55,8 +54,6 @@ const TodoRemoveButton = styled.button`
 `
 
 export const TodoItem = ({ isCompleted, text, onClickToggle, onClickDelete }) => {
-
-  // const status = useSelector(state => state.todos.items.isCompleted)
 
   return (
     <TodoWrapper>
