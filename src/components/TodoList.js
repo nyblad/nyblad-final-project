@@ -2,7 +2,7 @@ import React, { useEffect } from 'react'
 import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodos, updateTodos, deleteTodos } from 'reducers/todos'
-import { todos } from 'reducers/todos'
+// import { todos } from 'reducers/todos'
 import { TodoItem } from 'components/TodoItem'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 import done from 'assets/done.png'
@@ -44,16 +44,16 @@ export const TodoList = () => {
   const todosCompleted = allTodos.filter(todo => (todo.isCompleted === true))
   const todosNotCompleted = allTodos.filter(todo => (todo.isCompleted === false))
 
-  const handleToggleTodo = (todoId) => {
-    dispatch(todos.actions.toggleTodo(todoId))
-    dispatch(updateTodos(todoId))
+  const handleToggleTodo = (todo) => {
+    // dispatch(todos.actions.toggleTodo(todo._id))
+    dispatch(updateTodos(todo))
+    console.log(todo)
   }
 
   const handleDeleteTodo = (todoId) => {
     dispatch(deleteTodos(todoId))
   }
 
-  // I have to refresh page to see new todo - how to fix?
   useEffect(() => {
     dispatch(fetchTodos())
   }, [dispatch])
@@ -73,7 +73,7 @@ export const TodoList = () => {
           key={todo._id}
           isCompleted={todo.isCompleted}
           text={todo.text}
-          onClickToggle={() => handleToggleTodo(todo._id)}
+          onClickToggle={() => handleToggleTodo(todo)}
           onClickDelete={() => handleDeleteTodo(todo._id)}
         />
       ))}
@@ -83,7 +83,7 @@ export const TodoList = () => {
           key={todo._id}
           isCompleted={todo.isCompleted}
           text={todo.text}
-          onClickToggle={() => handleToggleTodo(todo._id)}
+          onClickToggle={() => handleToggleTodo(todo)}
           onClickDelete={() => handleDeleteTodo(todo._id)} />
       ))}
     </TodosWrapper>

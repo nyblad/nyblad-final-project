@@ -16,8 +16,7 @@ export const todos = createSlice({
       state.items = action.payload
     },
     addTodo: (state, action) => {
-      state.items.push({ todo: action.payload })
-      console.log(action)
+      state.items.push(action.payload)
     },
     toggleTodo: (state, action) => {
       // To find the todo we want to toggle
@@ -61,26 +60,28 @@ export const sendTodos = (todo) => {
     fetch(`https://nyblad-final-project-api.herokuapp.com/todos`, {
       method: 'POST', body: JSON.stringify(todo), headers: { 'Content-Type': 'application/json' }
     })
-      .then(() => {
-        console.log(todo)
+      .then(res => res.json())
+      .then((json) => {
+        console.log(json)
         // Dispatching the form values to the action to add todo
-        dispatch(todos.actions.addTodo(todo))
+        dispatch(todos.actions.addTodo(json))
       })
   }
 }
 
 // Thunk middleware for updating a todo
-export const updateTodos = (todoId) => {
+export const updateTodos = (todo) => {
   return dispatch => {
-    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todoId}`, {
+    dispatch(todos.actions.toggleTodo(todo._id))
+    fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todo._id}`, {
       method: "PUT",
-      body: JSON.stringify({ 'isCompleted': true }), // How to toggle this value?
+      body: JSON.stringify(todo), // How to toggle the todos?
       headers: { 'Content-Type': 'application/json' }
     })
       // .then(res => res.json())
-      .then(() => {
-        dispatch(todos.actions.toggleTodo(todoId))
-      })
+      // .then(() => {
+      //   // dispatch(todos.actions.toggleTodo(todo._id))
+      // })
       .catch(err => console.log('error:', err))
   }
 }
