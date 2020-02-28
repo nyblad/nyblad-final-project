@@ -72,16 +72,15 @@ export const sendTodos = (todo) => {
 // Thunk middleware for updating a todo
 export const updateTodos = (todo) => {
   return dispatch => {
-    dispatch(todos.actions.toggleTodo(todo._id))
     fetch(`https://nyblad-final-project-api.herokuapp.com/todos/${todo._id}`, {
       method: "PUT",
-      body: JSON.stringify(todo), // How to toggle the todos?
+      body: JSON.stringify(todo), // How to toggle the todo status?
       headers: { 'Content-Type': 'application/json' }
     })
       // .then(res => res.json())
-      // .then(() => {
-      //   // dispatch(todos.actions.toggleTodo(todo._id))
-      // })
+      .then(() => {
+        dispatch(todos.actions.toggleTodo(todo._id))
+      })
       .catch(err => console.log('error:', err))
   }
 }
