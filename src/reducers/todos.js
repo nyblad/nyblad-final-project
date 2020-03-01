@@ -60,7 +60,6 @@ export const sendTodos = (todo) => {
     })
       .then(res => res.json())
       .then((json) => {
-        console.log(json)
         // Dispatching the form values to the action to add todo
         dispatch(todos.actions.addTodo(json))
       })

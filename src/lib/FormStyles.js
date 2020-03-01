@@ -24,16 +24,22 @@ export const Label = styled.label`
 `
 export const LabelText = styled.p`
   margin: 15px 0 8px 0;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
 `
 export const Input = styled.input`
   width: 100%;
   padding: 10px;
   border: none;
   border-radius: 3px;
-  font-size: 16px;
+  font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
 `
 export const RadioWrapper = styled.div`
   display: flex;

@@ -36,7 +36,7 @@ const AddButton = styled.button`
   }
 `
 const Input = styled.input`
-  font-size: 16px;
+  font-size: 14px;
   color: #666;
   border: none;
   background: transparent;
@@ -47,6 +47,9 @@ const Input = styled.input`
     outline-style: none;
     border-bottom: 1px dashed #666;
     color: #333;
+  }
+  @media (min-width: 668px) {
+    font-size: 16px;
   }
 `
 

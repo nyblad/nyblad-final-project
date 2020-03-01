@@ -17,10 +17,10 @@ export const ConfirmDelete = () => {
 
   const dispatch = useDispatch()
   const open = useSelector(state => state.ui.isConfirmDeleteOpen)
-  const guestId = useSelector(state => state.guests.guest)
+  const guest = useSelector(state => state.guests.guest)
 
   const handleYes = () => {
-    dispatch(deleteGuests(guestId))
+    dispatch(deleteGuests(guest))
     dispatch(ui.actions.setConfirmDeleteOpen(false))
   }
 

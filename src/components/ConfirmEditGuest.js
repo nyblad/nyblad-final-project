@@ -47,23 +47,23 @@ export const ConfirmEditGuest = () => {
 
   const dispatch = useDispatch()
   const open = useSelector(state => state.ui.isConfirmEditOpen)
-  const guestId = useSelector(state => state.guests.guest)
+  const guest = useSelector(state => state.guests.guest)
   const loading = useSelector(state => state.ui.isLoading)
 
   // Fetch the current values on guest as initial states - how?
   const [formValues, setFormValues] = useState({
-    first_name: guestId.first_name,
-    last_name: guestId.last_name,
-    isAttending: guestId.isAttending,
-    email: guestId.email,
-    phone: guestId.phone,
-    allergies: guestId.allergies,
-    other: guestId.others,
+    first_name: '',
+    last_name: '',
+    isAttending: '',
+    email: '',
+    phone: '',
+    allergies: '',
+    other: '',
   })
 
   // Update specific guest with new values - how?
-  const handleUpdate = (formValues) => {
-    dispatch(updateGuests(guestId, formValues))
+  const handleSubmit = (formValues) => {
+    dispatch(updateGuests(guest, formValues))
     dispatch(ui.actions.setConfirmEditOpen(false))
   }
 
@@ -76,30 +76,32 @@ export const ConfirmEditGuest = () => {
     <>
       {open && (
         <FixedWrapper>
-          <Form onSubmit={handleUpdate}>
+          <Form onSubmit={handleSubmit}>
             <ButtonClose type='button' onClick={handleClose}>X</ButtonClose>
             <WrapperRow>
               <StyledLabel>
                 <LabelTextWhite>First name *</LabelTextWhite>
                 <StyledInput
-                  onChange={event => setFormValues({ ...formValues, first_name: event.target.value })}
-                  value={formValues.first_name}
+                  onChange={event => setFormValues({ ...formValues, first_name: event.target.defaultValue })}
+                  // value={formValues.first_name}
                   type='text'
                   minLength='2'
                   maxLength='50'
                   required
+                  defaultValue={guest.first_name}
                 />
               </StyledLabel>
 
               <StyledLabel>
                 <LabelTextWhite>Last name *</LabelTextWhite>
                 <StyledInput
-                  onChange={event => setFormValues({ ...formValues, last_name: event.target.value })}
-                  value={formValues.last_name}
+                  onChange={event => setFormValues({ ...formValues, last_name: event.target.defaultValue })}
+                  // value={formValues.last_name}
                   type='text'
                   minLength='2'
                   maxLength='50'
                   required
+                  defaultValue={guest.last_name}
                 />
               </StyledLabel>
             </WrapperRow>
@@ -134,39 +136,44 @@ export const ConfirmEditGuest = () => {
               <StyledLabel>
                 <LabelTextWhite>E-mail *</LabelTextWhite>
                 <StyledInput
-                  onChange={event => setFormValues({ ...formValues, email: event.target.value })}
-                  value={formValues.email}
+                  onChange={event => setFormValues({ ...formValues, email: event.target.defaultValue })}
+                  // value={formValues.email}
                   required
                   minLength='5'
                   maxLength='100'
+                  defaultValue={guest.email}
                 />
               </StyledLabel>
 
               <StyledLabel>
                 <LabelTextWhite>Phone number</LabelTextWhite>
                 <StyledInput
-                  onChange={event => setFormValues({ ...formValues, phone: event.target.value })}
-                  value={formValues.phone}
+                  onChange={event => setFormValues({ ...formValues, phone: event.target.defaultValue })}
+                  // value={formValues.phone}
                   type='number'
+                  defaultValue={guest.phone}
                 />
               </StyledLabel>
             </WrapperRow>
             <Label>
               <LabelTextWhite>Allergies</LabelTextWhite>
               <StyledInput
-                onChange={event => setFormValues({ ...formValues, allergies: event.target.value })}
-                value={formValues.allergies}
+                onChange={event => setFormValues({ ...formValues, allergies: event.target.defaultValue })}
+                // value={formValues.allergies}
                 type='text'
+                defaultValue={guest.allergies}
               />
             </Label>
 
             <Label>
               <LabelTextWhite>Other</LabelTextWhite>
               <StyledTextAreaInput
-                onChange={event => setFormValues({ ...formValues, other: event.target.value })}
-                value={formValues.other}
+                onChange={event => setFormValues({ ...formValues, other: event.target.defaultValue })}
+                // value={formValues.other}
                 type='text'
-                rows='2' />
+                rows='2'
+                defaultValue={guest.other}
+              />
             </Label>
             <ButtonNormal type='submit'>Update guest</ButtonNormal>
           </Form>

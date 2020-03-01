@@ -37,11 +37,14 @@ const TodoToggleButton = styled.button`
   }
 `
 const TodoText = styled.article`
-  font-size: 16px;
+  font-size: 14px;
   overflow-wrap: break-word;
   word-break: break-word;
   color: #333;
   text-decoration: ${props => (props.status ? 'line-through' : 'none')};
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
 `
 const TodoRemoveButton = styled.button`
   background: transparent;

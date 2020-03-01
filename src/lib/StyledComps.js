@@ -47,7 +47,7 @@ export const Headline = styled.h1`
   font-size: 32px;
   text-align: center;
   @media (min-width: 450px) {
-    font-size: 48px;
+    font-size: 44px;
   }
   @media (min-width: 668px) {
     font-size: 56px;
@@ -78,20 +78,22 @@ export const TextDark = styled.p`
 `
 export const TextWhite = styled.p`
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   text-align: center;
   margin: 10px 0;
   @media (min-width: 668px) {
     text-align: left;
+    font-size: 16px;
   }
 `
 export const TextWhiteBold = styled.p`
   color: #fff;
-  font-size: 16px;
+  font-size: 14px;
   font-weight: bold;
   margin: 10px 0;
   @media (min-width: 668px) {
     text-align: left;
+    font-size: 16px;
   }
 `
 export const TextDarkItalic = styled.p`

@@ -5,12 +5,12 @@ export const guests = createSlice({
   name: 'guests',
   initialState: {
     guests: [],
-    guest: [],
+    guest: {},
   },
   // The actions of the reducer
   reducers: {
     setGuest: (state, action) => {
-      // To set a single guest with id
+      // To set a single guest
       state.guest = action.payload
     },
     setGuests: (state, action) => {
@@ -19,7 +19,7 @@ export const guests = createSlice({
     },
     addGuest: (state, action) => {
       // Takes all form values and pushing them into array or guests
-      state.guests.push({ guest: action.payload })
+      state.guests.push(action.payload)
     },
     updateGuest: (state, action) => {
       // To find the guest we want to update
@@ -72,14 +72,14 @@ export const sendGuests = (guest) => {
 }
 
 // Thunk middleware for updating a guest
-// export const updateGuests = (guestId) => {
+// export const updateGuests = (guest) => {
 //   return dispatch => {
 //     dispatch(ui.actions.setLoading(true))
-//     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, { 
+//     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, { 
 //       method: "PUT",
 //     })
 //       .then(() => {
-//         dispatch(guests.actions.updateGuest(guestId))
+//         dispatch(guests.actions.updateGuest(guest._id))
 //         dispatch(ui.actions.setLoading(false))
 //       })
 //   }
@@ -87,29 +87,29 @@ export const sendGuests = (guest) => {
 
 // How to PUT the formValues from ConfirmEditGuest? 
 // Need both formValues and guestId?
-export const updateGuests = (guestId, formValues) => {
+export const updateGuests = (guest, formValues) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, {
       method: "PUT",
       body: JSON.stringify(formValues),
       headers: { "Content-Type": "application/json" }
     })
-      .then(res => res.json())
       .then(() => {
-        dispatch(guests.actions.updateGuest(guestId))
+        dispatch(guests.actions.updateGuest(guest._id))
         dispatch(ui.actions.setLoading(false))
+        console.log(guest._id)
       })
   }
 }
 
 // Thunk middleware for deleting a guest
-export const deleteGuests = (guestId) => {
+export const deleteGuests = (guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, { method: "DELETE" })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, { method: "DELETE" })
       .then(() => {
-        dispatch(guests.actions.deleteGuest(guestId))
+        dispatch(guests.actions.deleteGuest(guest._id))
         dispatch(ui.actions.setLoading(false))
       })
   }

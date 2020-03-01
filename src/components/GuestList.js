@@ -74,13 +74,13 @@ export const GuestList = () => {
   const allGuests = useSelector(state => state.guests.guests)
   const loading = useSelector(state => state.ui.isLoading)
 
-  const handleConfirmDelete = (guestId) => {
-    dispatch(guests.actions.setGuest(guestId))
+  const handleConfirmDelete = (guest) => {
+    dispatch(guests.actions.setGuest(guest))
     dispatch(ui.actions.setConfirmDeleteOpen(true))
   }
 
-  const handleConfirmEdit = (guestId) => {
-    dispatch(guests.actions.setGuest(guestId))
+  const handleConfirmEdit = (guest) => {
+    dispatch(guests.actions.setGuest(guest))
     dispatch(ui.actions.setConfirmEditOpen(true))
   }
 
@@ -106,7 +106,6 @@ export const GuestList = () => {
   const startIndex = endIndex - itemsPerPage
   const currentItems = allGuests.slice(startIndex, endIndex)
   const totalPages = Math.ceil(allGuests.length / itemsPerPage)
-  console.log('CurrentItems', currentItems)
 
   return (
     <>
@@ -148,8 +147,8 @@ export const GuestList = () => {
                 other={guest.other}
                 attending={guest.isAttending ? "😃" : "☹️"}
                 addedAt={moment(guest.addedAt).format('ll')}
-                onClickDelete={() => handleConfirmDelete(guest._id)}
-                onClickEdit={() => handleConfirmEdit(guest._id)}
+                onClickDelete={() => handleConfirmDelete(guest)}
+                onClickEdit={() => handleConfirmEdit(guest)}
               />
             ))}
           </ItemWrapper>
