@@ -60,5 +60,9 @@ export const TextAreaInput = styled.textarea`
   margin-bottom: 20px;
   border: 2px solid #e6e6e6;
   border-radius: 3px;
+  font-size: 14px;
   font-family: 'Open Sans', sans-serif;
+  @media (min-width: 668px) {
+    font-size: 16px;
+  }
 `

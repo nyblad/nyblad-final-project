@@ -1,3 +1,4 @@
+// REDUCERS FOR GUEST INFORMATION
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
 
@@ -7,35 +8,35 @@ export const guests = createSlice({
     guests: [],
     guest: {},
   },
-  // The actions of the reducer
   reducers: {
     setGuest: (state, action) => {
-      // To set a single guest
+      // To set a single guest object (all data about the guest)
       state.guest = action.payload
     },
     setGuests: (state, action) => {
-      // To set all guests
+      // To set guest list
       state.guests = action.payload
     },
     addGuest: (state, action) => {
-      // Takes all form values and pushing them into array or guests
+      // Takes all form values from rsvp and adds to array of guests
       state.guests.push(action.payload)
     },
-    updateGuest: (state, action) => {
-      // To find the guest we want to update
-      const foundGuest = state.guests.find(guest => guest._id === action.payload)
-      // To change isAttending status on guest - How to update all data instead?
-      if (foundGuest) {
-        foundGuest.isAttending = !foundGuest.isAttending
-      }
-    },
+    // updateGuest: (state, action) => {
+    //   // To find the guest we want to update (guest = action.payload)
+    //   const foundGuest = state.guests.find(guest => guest._id === action.payload)
+    //   console.log(action.payload)
+    //   // How to update all data on guest and see the updated data without refresh page
+    //   if (foundGuest) {
+    //     //
+    //   }
+    // },
     deleteGuest: (state, action) => {
       state.guests = state.guests.filter(guest => guest._id !== action.payload)
     }
   }
 })
 
-// Thunk middleware for get
+// THUNK MIDDLEWARE FOR GUESTLIST
 export const fetchGuests = (path) => {
   return dispatch => {
     const accessToken = localStorage.getItem('accessToken')
@@ -63,47 +64,33 @@ export const sendGuests = (guest) => {
     fetch(`https://nyblad-final-project-api.herokuapp.com/guests`, {
       method: "POST", body: JSON.stringify(guest), headers: { "Content-Type": "application/json" }
     })
-      .then(() => {
+      .then(res => res.json())
+      .then((json) => {
         // Dispatching the form values to the action to add guest
-        dispatch(guests.actions.addGuest(guest))
+        dispatch(guests.actions.addGuest(json))
         dispatch(ui.actions.setLoading(false))
       })
   }
 }
 
-// Thunk middleware for updating a guest
-// export const updateGuests = (guest) => {
-//   return dispatch => {
-//     dispatch(ui.actions.setLoading(true))
-//     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, { 
-//       method: "PUT",
-//     })
-//       .then(() => {
-//         dispatch(guests.actions.updateGuest(guest._id))
-//         dispatch(ui.actions.setLoading(false))
-//       })
-//   }
-// }
-
-// How to PUT the formValues from ConfirmEditGuest? 
-// Need both formValues and guestId?
-export const updateGuests = (guest, formValues) => {
+// THUNK MIDDLEWARE FOR UPDATE SPECIFIC GUEST
+export const updateGuests = (formValues, guestId) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, {
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
       method: "PUT",
       body: JSON.stringify(formValues),
       headers: { "Content-Type": "application/json" }
     })
       .then(() => {
-        dispatch(guests.actions.updateGuest(guest._id))
+        // dispatch(guests.actions.updateGuest(guestId))
+        console.log(guestId)
         dispatch(ui.actions.setLoading(false))
-        console.log(guest._id)
       })
   }
 }
 
-// Thunk middleware for deleting a guest
+// THUK MIDDLEWARE FOR DELETING SPECIFIC GUEST
 export const deleteGuests = (guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))

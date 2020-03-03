@@ -1,4 +1,4 @@
-// Reducers to handle users and login in to admin pages
+// REDUCERS FOR USERS/LOGIN
 import { createSlice } from '@reduxjs/toolkit'
 import { ui } from './ui'
 
@@ -8,7 +8,6 @@ export const users = createSlice({
     accessToken: localStorage.getItem('accessToken'),
     userName: localStorage.getItem('userName')
   },
-  // The actions of the reducer
   reducers: {
     setUserName: (state, action) => {
       localStorage.setItem('userName', action.payload)
@@ -22,12 +21,13 @@ export const users = createSlice({
       state.accessToken = action.payload
     },
     removeAccessToken: (state, action) => {
-      state.accessToken = localStorage.removeItem('accessToken', action.payload)
+      localStorage.removeItem('accessToken', action.payload)
+      state.accessToken = action.payload
     }
   }
 })
 
-// Thunk middleware for login: 
+// THUNK MIDDLEWARE FOR LOGIN
 export const fetchUser = (loginValues) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
@@ -38,7 +38,6 @@ export const fetchUser = (loginValues) => {
     })
       .then(res => res.json())
       .then(json => {
-        console.log(json)
         if (json.notFound !== true) {
           dispatch(users.actions.setAccessToken(json.accessToken))
           dispatch(users.actions.setUserName(json.name))

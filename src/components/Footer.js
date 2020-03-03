@@ -74,7 +74,6 @@ export const Footer = () => {
   }
 
   const handleLogout = () => {
-
     dispatch(users.actions.removeAccessToken(accessToken))
     dispatch(users.actions.removeUserName(userName))
     history.push('/')
