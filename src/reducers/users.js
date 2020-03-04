@@ -5,8 +5,10 @@ import { ui } from './ui'
 export const users = createSlice({
   name: 'users',
   initialState: {
-    accessToken: localStorage.getItem('accessToken'),
-    userName: localStorage.getItem('userName')
+    // accessToken: localStorage.getItem('accessToken'),
+    // userName: localStorage.getItem('userName')
+    accessToken: '',
+    userName: ''
   },
   reducers: {
     setUserName: (state, action) => {
@@ -22,7 +24,7 @@ export const users = createSlice({
     },
     removeAccessToken: (state, action) => {
       localStorage.removeItem('accessToken', action.payload)
-      state.accessToken = action.payload
+      state.accessToken = ''
     }
   }
 })

@@ -6,7 +6,7 @@ export const guests = createSlice({
   name: 'guests',
   initialState: {
     guests: [],
-    guest: {},
+    guest: [],
   },
   reducers: {
     setGuest: (state, action) => {
@@ -21,15 +21,15 @@ export const guests = createSlice({
       // Takes all form values from rsvp and adds to array of guests
       state.guests.push(action.payload)
     },
-    // updateGuest: (state, action) => {
-    //   // To find the guest we want to update (guest = action.payload)
-    //   const foundGuest = state.guests.find(guest => guest._id === action.payload)
-    //   console.log(action.payload)
-    //   // How to update all data on guest and see the updated data without refresh page
-    //   if (foundGuest) {
-    //     //
-    //   }
-    // },
+    updateGuest: (state, action) => {
+      // To find the guest we want to update (guest = action.payload)
+      const foundGuest = state.guests.find(guest => guest._id === action.payload)
+      console.log(action.payload)
+      // How to update all data on guest and see the updated data without refresh page
+      if (foundGuest) {
+        //
+      }
+    },
     deleteGuest: (state, action) => {
       state.guests = state.guests.filter(guest => guest._id !== action.payload)
     }
@@ -74,6 +74,21 @@ export const sendGuests = (guest) => {
 }
 
 // THUNK MIDDLEWARE FOR UPDATE SPECIFIC GUEST
+// export const updateGuests = (formValues, guestId) => {
+//   return dispatch => {
+//     dispatch(ui.actions.setLoading(true))
+//     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
+//       method: "PUT",
+//       body: JSON.stringify(formValues),
+//       headers: { "Content-Type": "application/json" }
+//     })
+//       .then(() => {
+//         // dispatch(guests.actions.updateGuest(guestId))
+//         console.log(guestId)
+//         dispatch(ui.actions.setLoading(false))
+//       })
+//   }
+// }
 export const updateGuests = (formValues, guestId) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
@@ -83,8 +98,9 @@ export const updateGuests = (formValues, guestId) => {
       headers: { "Content-Type": "application/json" }
     })
       .then(() => {
+        console.log(formValues)
         // dispatch(guests.actions.updateGuest(guestId))
-        console.log(guestId)
+        // console.log(guestId)
         dispatch(ui.actions.setLoading(false))
       })
   }
