@@ -4,7 +4,6 @@ import { NavBarAdmin } from 'components/NavBarAdmin'
 import { Wrapper, Headline } from 'lib/StyledComps'
 import { TodoList } from 'components/TodoList'
 import { TodoForm } from 'components/TodoForm'
-// import { Button } from 'lib/Buttons'
 
 const InnerWrapper = styled.section`
   padding: 10px;

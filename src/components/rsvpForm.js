@@ -91,6 +91,7 @@ export const RsvpForm = () => {
             name='isAttending'
             value='false'
             checked={formValues.isAttending === 'false'}
+            required
           />
           <RadioText>No</RadioText>
         </RadioWrapper>
@@ -113,7 +114,7 @@ export const RsvpForm = () => {
         <Input
           onChange={event => setFormValues({ ...formValues, phone: event.target.value })}
           value={formValues.phone}
-          type='number'
+          type='text'
           placeholder='46700000000'
         />
       </Label>

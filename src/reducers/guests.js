@@ -6,7 +6,7 @@ export const guests = createSlice({
   name: 'guests',
   initialState: {
     guests: [],
-    guest: [],
+    guest: ''
   },
   reducers: {
     setGuest: (state, action) => {
@@ -24,8 +24,7 @@ export const guests = createSlice({
     updateGuest: (state, action) => {
       // To find the guest we want to update (guest = action.payload)
       const foundGuest = state.guests.find(guest => guest._id === action.payload)
-      console.log(action.payload)
-      // How to update all data on guest and see the updated data without refresh page
+      // How to see the updated data without refresh page
       if (foundGuest) {
         //
       }
@@ -56,13 +55,15 @@ export const fetchGuests = (path) => {
   }
 }
 
-// Thunk middleware for post
-// guest = the formvalues I'm sending with dispatch on form submit
+// THUNK MIDDLEWARE FOR ADD GUESTS
+// guest = the formvalues from dispatch on form submit
 export const sendGuests = (guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
     fetch(`https://nyblad-final-project-api.herokuapp.com/guests`, {
-      method: "POST", body: JSON.stringify(guest), headers: { "Content-Type": "application/json" }
+      method: 'POST',
+      body: JSON.stringify(guest),
+      headers: { 'Content-Type': 'application/json' }
     })
       .then(res => res.json())
       .then((json) => {
@@ -74,33 +75,16 @@ export const sendGuests = (guest) => {
 }
 
 // THUNK MIDDLEWARE FOR UPDATE SPECIFIC GUEST
-// export const updateGuests = (formValues, guestId) => {
-//   return dispatch => {
-//     dispatch(ui.actions.setLoading(true))
-//     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
-//       method: "PUT",
-//       body: JSON.stringify(formValues),
-//       headers: { "Content-Type": "application/json" }
-//     })
-//       .then(() => {
-//         // dispatch(guests.actions.updateGuest(guestId))
-//         console.log(guestId)
-//         dispatch(ui.actions.setLoading(false))
-//       })
-//   }
-// }
 export const updateGuests = (formValues, guestId) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
     fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
-      method: "PUT",
+      method: 'PUT',
       body: JSON.stringify(formValues),
-      headers: { "Content-Type": "application/json" }
+      headers: { 'Content-Type': 'application/json' }
     })
       .then(() => {
-        console.log(formValues)
         // dispatch(guests.actions.updateGuest(guestId))
-        // console.log(guestId)
         dispatch(ui.actions.setLoading(false))
       })
   }
@@ -110,7 +94,9 @@ export const updateGuests = (formValues, guestId) => {
 export const deleteGuests = (guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, { method: "DELETE" })
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, {
+      method: 'DELETE'
+    })
       .then(() => {
         dispatch(guests.actions.deleteGuest(guest._id))
         dispatch(ui.actions.setLoading(false))

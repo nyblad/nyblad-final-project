@@ -37,27 +37,27 @@ export const App = () => {
       <BrowserRouter>
         <Switch>
 
-          <Route path="/" exact>
+          <Route path='/' exact>
             <StartPage />
           </Route>
 
-          <Route path="/rsvp">
+          <Route path='/rsvp'>
             <RsvpPage />
           </Route>
 
-          <Route path="/music">
+          <Route path='/music'>
             <MusicPage />
           </Route>
 
-          <Route path="/location">
+          <Route path='/location'>
             <LocationPage />
           </Route>
 
-          <PrivateRoute component={AdminPage} path="/admin" exact />
+          <PrivateRoute component={AdminPage} path='/admin' exact />
 
-          <PrivateRoute component={GuestPage} path="/guests" exact />
+          <PrivateRoute component={GuestPage} path='/guests' exact />
 
-          <PrivateRoute component={TodoPage} path="/todos" exact />
+          <PrivateRoute component={TodoPage} path='/todos' exact />
 
         </Switch>
         <Footer />

@@ -11,7 +11,7 @@ export const NavBarAdmin = () => {
     <NavWrapper menuActive={menuActive === true} role='navigation'>
 
       <BurgerWrapper
-        onKeyPress={(event) => { event.key === "Enter" && setMenuActive(!menuActive) }}
+        onKeyPress={(event) => { event.key === 'Enter' && setMenuActive(!menuActive) }}
         tabIndex='0'
         aria-label='Open menu'
         role='button'

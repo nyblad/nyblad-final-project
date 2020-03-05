@@ -17,7 +17,7 @@ export const LoadingSpinner = () => {
     <>
       {isLoading &&
         <LoadingWrapper>
-          <Loader type="ThreeDots" color="#f2f2f2" height={80} width={80} />
+          <Loader type='ThreeDots' color='#f2f2f2' height={80} width={80} />
         </LoadingWrapper>
       }
     </>

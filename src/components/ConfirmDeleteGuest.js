@@ -13,7 +13,7 @@ const ButtonWrapper = styled.div`
   align-items: center;
 `
 
-export const ConfirmDelete = () => {
+export const ConfirmDeleteGuest = () => {
 
   const dispatch = useDispatch()
   const open = useSelector(state => state.ui.isConfirmDeleteOpen)

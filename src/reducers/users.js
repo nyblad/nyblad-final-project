@@ -5,10 +5,8 @@ import { ui } from './ui'
 export const users = createSlice({
   name: 'users',
   initialState: {
-    // accessToken: localStorage.getItem('accessToken'),
-    // userName: localStorage.getItem('userName')
-    accessToken: '',
-    userName: ''
+    accessToken: localStorage.getItem('accessToken'),
+    userName: localStorage.getItem('userName')
   },
   reducers: {
     setUserName: (state, action) => {

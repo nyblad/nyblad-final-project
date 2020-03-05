@@ -62,10 +62,10 @@ export const LoginForm = () => {
               <Input
                 onChange={event => setFormValues({ ...formValues, email: event.target.value })}
                 value={formValues.email}
-                type="email"
-                placeholder="mail@mail.com"
-                minLength="2"
-                maxLength="50"
+                type='email'
+                placeholder='mail@mail.com'
+                minLength='2'
+                maxLength='50'
                 required
               />
             </Label>
@@ -75,7 +75,7 @@ export const LoginForm = () => {
               <Input
                 onChange={event => setFormValues({ ...formValues, password: event.target.value })}
                 value={formValues.password}
-                type="password"
+                type='password'
                 required
               />
             </Label>

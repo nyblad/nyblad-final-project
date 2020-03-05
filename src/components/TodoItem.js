@@ -63,7 +63,7 @@ export const TodoItem = ({ isCompleted, text, onClickToggle, onClickDelete }) =>
       <Todo>
         <TodoToggleButton status={isCompleted} onClick={onClickToggle} />
         <TodoText status={isCompleted}>{text}</TodoText>
-        <TodoRemoveButton onClick={onClickDelete} aria-label="remove">🗑</TodoRemoveButton>
+        <TodoRemoveButton onClick={onClickDelete} aria-label='remove'>🗑</TodoRemoveButton>
       </Todo>
     </TodoWrapper>
   )

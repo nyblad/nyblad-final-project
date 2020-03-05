@@ -80,16 +80,16 @@ export const StartPage = () => {
         </HeroInner>
       </Hero>
       <SectionWhite>
-        <Image src={coupleFour} alt="hands" />
+        <Image src={coupleFour} alt='hands' />
         <TextDark>date & place for the wedding day will be released soon.</TextDark>
         <Link to={'/location'}>
-          <LinkText>View map <Span><Arrow src={arrow} alt="arrow" /></Span></LinkText>
+          <LinkText>View map <Span><Arrow src={arrow} alt='arrow' /></Span></LinkText>
         </Link>
         <TextDark>Ceremony | Dinner | Afterparty</TextDark>
 
       </SectionWhite>
       <SectionGray>
-        <Image src={coupleOne} alt="couple" />
+        <Image src={coupleOne} alt='couple' />
         <TextDark>with love.</TextDark>
         <TextDark>Magnus | Sofie</TextDark>
       </SectionGray>
