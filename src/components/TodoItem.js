@@ -5,7 +5,7 @@ const TodoWrapper = styled.section`
   display: flex;
   flex-direction: column;
 `
-const Todo = styled.section`
+const Todo = styled.div`
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -24,6 +24,8 @@ const TodoToggleButton = styled.button`
   margin-right: 10px;
   &:hover {
     cursor: pointer;
+    background-color: rgba(30, 45, 47, 0.5);
+    transition: background-color 0.5s;
   }
   &:after {
     content: '';

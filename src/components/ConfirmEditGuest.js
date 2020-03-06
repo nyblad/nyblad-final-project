@@ -8,6 +8,9 @@ import { ButtonNormal } from 'lib/Buttons'
 import { Form, Label, LabelText, Input, RadioWrapper, RadioText, RadioInput, TextAreaInput } from 'lib/FormStyles'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 
+const StyledForm = styled(Form)`
+  padding: 0;
+`
 const WrapperRow = styled.div`
   display: flex;
   flex-direction: row;
@@ -77,7 +80,7 @@ export const ConfirmEditGuest = () => {
     <>
       {open && (
         <FixedWrapper>
-          <Form onSubmit={handleSubmit}>
+          <StyledForm onSubmit={handleSubmit}>
             <ButtonClose type='button' onClick={handleClose}>X</ButtonClose>
             <WrapperRow>
               <StyledLabel>
@@ -172,7 +175,7 @@ export const ConfirmEditGuest = () => {
               />
             </Label>
             <ButtonNormal type='submit'>Update guest</ButtonNormal>
-          </Form>
+          </StyledForm>
           {loading && <LoadingSpinner />}
         </FixedWrapper>
       )}
