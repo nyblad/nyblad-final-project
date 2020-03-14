@@ -49,6 +49,7 @@ const Image = styled.img`
   width: 85%;
   border-radius: 50%;
   margin: 20px;
+  filter: sepia(20%);
   @media (min-width: 450px) {
     width: 50%;
   }
