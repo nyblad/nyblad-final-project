@@ -1,6 +1,6 @@
 import React from 'react'
 import { useSelector } from 'react-redux'
-import { NavBarAdmin } from 'components/NavBarAdmin'
+import { NavBar } from 'lib/NavBar'
 import { GuestList } from 'components/GuestList'
 import { Wrapper, Headline } from 'lib/StyledComps'
 import { ConfirmDeleteGuest } from 'components/ConfirmDeleteGuest'
@@ -12,7 +12,7 @@ export const GuestPage = () => {
 
   return (
     <Wrapper>
-      <NavBarAdmin />
+      <NavBar navA='Back to home' navB='Admin' navC='To dos' navD='Guest list' linkB='admin' linkC='todos' linkD='guests' />
       <Headline>Guests so far.</Headline>
       <GuestList />
       {guest && <ConfirmDeleteGuest />}

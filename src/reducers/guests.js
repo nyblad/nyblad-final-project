@@ -22,8 +22,8 @@ export const guests = createSlice({
       state.guests.push(action.payload)
     },
     updateGuest: (state, action) => {
-      // To find the guest we want to update (guest = action.payload)
-      // If guest found, return the guests updated data
+      // To find the guest we want to update (guest data = action.payload)
+      // If guest found, return the guest with updated data
       state.guests = state.guests.map((guest) => {
         if (guest._id === action.payload._id) {
           return action.payload

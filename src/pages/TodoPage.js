@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { NavBarAdmin } from 'components/NavBarAdmin'
+import { NavBar } from 'lib/NavBar'
 import { Wrapper, Headline } from 'lib/StyledComps'
 import { TodoList } from 'components/TodoList'
 import { TodoForm } from 'components/TodoForm'
@@ -19,7 +19,7 @@ export const TodoPage = () => {
 
   return (
     <Wrapper>
-      <NavBarAdmin />
+      <NavBar navA='Back to home' navB='Admin' navC='To dos' navD='Guest list' linkB='admin' linkC='todos' linkD='guests' />
       <Headline>Wedding planning.</Headline>
       <InnerWrapper>
         <TodoForm />

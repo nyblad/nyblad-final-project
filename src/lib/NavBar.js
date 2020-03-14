@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom'
 import HamburgerMenu from 'react-hamburger-menu'
 import { NavWrapper, BurgerWrapper, NavLinks, NavButton, CoupleHeading } from 'lib/NavBarStyles'
 
-export const NavBarAdmin = () => {
+export const NavBar = ({ navA, navB, navC, navD, linkB, linkC, linkD }) => {
 
   const [menuActive, setMenuActive] = useState(false)
 
@@ -11,7 +11,7 @@ export const NavBarAdmin = () => {
     <NavWrapper menuActive={menuActive === true} role='navigation'>
 
       <BurgerWrapper
-        onKeyPress={(event) => { event.key === 'Enter' && setMenuActive(!menuActive) }}
+        onKeyPress={(event) => { event.key === "Enter" && setMenuActive(!menuActive) }}
         tabIndex='0'
         aria-label='Open menu'
         role='button'
@@ -34,21 +34,21 @@ export const NavBarAdmin = () => {
       <NavLinks menuActive={menuActive === true}>
 
         <Link to={'/'} tabIndex='-1'>
-          <NavButton>Back to start</NavButton>
+          <NavButton>{navA}</NavButton>
         </Link>
 
-        <Link to={'/admin'} tabIndex='-1'>
-          <NavButton>Admin</NavButton>
+        <Link to={`/${linkB}`} tabIndex='-1'>
+          <NavButton>{navB}</NavButton>
         </Link>
 
         <CoupleHeading>Sofie & Magnus</CoupleHeading>
 
-        <Link to={'/todos'} tabIndex='-1'>
-          <NavButton>To do list</NavButton>
+        <Link to={`/${linkC}`} tabIndex='-1'>
+          <NavButton>{navC}</NavButton>
         </Link>
 
-        <Link to={'/guests'} tabIndex='-1'>
-          <NavButton>Guest list</NavButton>
+        <Link to={`/${linkD}`} tabIndex='-1'>
+          <NavButton>{navD}</NavButton>
         </Link>
 
       </NavLinks>

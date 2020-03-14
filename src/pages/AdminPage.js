@@ -2,7 +2,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import { NavBarAdmin } from 'components/NavBarAdmin'
+import { NavBar } from 'lib/NavBar'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 import { Button } from 'lib/Buttons'
 
@@ -19,7 +19,7 @@ export const AdminPage = () => {
 
   return (
     <Wrapper>
-      <NavBarAdmin />
+      <NavBar navA='Back to home' navB='Admin' navC='To dos' navD='Guest list' linkB='admin' linkC='todos' linkD='guests' />
       <Headline>Wedding admin.</Headline>
       <TextWhite>Here you can handle the list of guests that have responded and add to dos in your wedding planning.</TextWhite>
       <ButtonWrapper>

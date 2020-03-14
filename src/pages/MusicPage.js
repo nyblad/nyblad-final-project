@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import { NavBar } from 'components/NavBar'
+import { NavBar } from 'lib/NavBar'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 
 const Iframe = styled.iframe`
@@ -20,7 +20,7 @@ export const MusicPage = () => {
 
   return (
     <Wrapper>
-      <NavBar />
+      <NavBar navA='Home' navB='Location' navC='Music' navD='RSVP' linkB='location' linkC='music' linkD='rsvp' />
       <Headline>Music for the party.</Headline>
       <TextWhite>Want to add your favourite song to our playlist? Open the playlist in your Spotify app and shoot!</TextWhite>
       <Iframe src='https://open.spotify.com/embed/playlist/2WlD0nCuBif7ftksjMn9TL' frameBorder='0' allowtransparency='true' allow='encrypted-media' />

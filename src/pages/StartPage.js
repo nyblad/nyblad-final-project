@@ -6,7 +6,7 @@ import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 import coupleOne from 'assets/couple-1.jpg'
 import coupleFour from 'assets/couple-4.jpg'
 import arrow from 'assets/arrow-gold-16.png'
-import { NavBar } from 'components/NavBar'
+import { NavBar } from 'lib/NavBar'
 import { Button } from 'lib/Buttons'
 import { Headline, SecondaryText, TextDark, LinkText } from 'lib/StyledComps'
 
@@ -70,7 +70,7 @@ export const StartPage = () => {
   return (
     <>
       <Hero>
-        <NavBar />
+        <NavBar navA='Home' navB='Location' navC='Music' navD='RSVP' linkB='location' linkC='music' linkD='rsvp' />
         <HeroInner>
           <Headline>Celebrate with us.</Headline>
           <SecondaryText>Hälsingland | Fall 2022</SecondaryText>
