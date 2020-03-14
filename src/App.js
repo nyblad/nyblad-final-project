@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Provider } from 'react-redux'
 import { combineReducers, configureStore } from '@reduxjs/toolkit'
-import { BrowserRouter, Switch, Route } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, useLocation } from 'react-router-dom'
 import { PrivateRoute } from 'components/PrivateRoute'
 import { GlobalStyle } from 'lib/GlobalStyle'
 import { ui } from './reducers/ui'
@@ -26,6 +26,15 @@ const reducer = combineReducers({
   todos: todos.reducer
 })
 
+// FUNCTION TO SCROLL TO TOP WHEN RENDER A PAGE
+const ScrollToTop = () => {
+  const { pathname } = useLocation()
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pathname])
+  return null
+}
+
 // THE STORE
 export const store = configureStore({ reducer })
 
@@ -35,6 +44,7 @@ export const App = () => {
       <GlobalStyle />
       <LoginForm />
       <BrowserRouter>
+        <ScrollToTop />
         <Switch>
 
           <Route path='/' exact>

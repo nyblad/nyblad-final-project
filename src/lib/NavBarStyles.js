@@ -80,8 +80,10 @@ export const CoupleHeading = styled.p`
   font-size: 25px;
   font-weight: 600;
   color: #B2621C;
-  display: none;
+  position: absolute;
+  top: -10px;
   @media (min-width: 668px) {
-    display: block;
+    position: relative;
+    top: 0;
   }
 `

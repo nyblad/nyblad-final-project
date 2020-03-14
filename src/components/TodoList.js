@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { fetchTodos, updateTodos, deleteTodos } from 'reducers/todos'
 import { TodoItem } from 'components/TodoItem'
 import { LoadingSpinner } from 'components/LoadingSpinner'
-import done from 'assets/done.png'
+import done from 'assets/images/done.png'
 
 const TodosWrapper = styled.section`
   background: rgba(255,255,255, 0.4);

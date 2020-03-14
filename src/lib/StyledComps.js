@@ -1,6 +1,4 @@
 import styled from 'styled-components/macro'
-import wallpaperLarge from 'assets/couple-hills-2500.jpg'
-import wallpaperSmall from 'assets/couple-hills-1100.jpg'
 
 // FOR CONFIRMATION DIALOGS
 export const FixedWrapper = styled.div`
@@ -26,12 +24,13 @@ export const Wrapper = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
-  background: url(${wallpaperSmall});
+  background-color: #1E2D2F;
+  ${p => p.backgroundSmall && `background: url(${p.backgroundSmall})`};
   background-size: cover;
   background-position: center;
-  box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
+  box-shadow: inset 0 0 0 100vmax rgba(0, 0, 0, 0.5);
   @media (min-width: 450px) {
-    background: url(${wallpaperLarge});
+    ${p => p.backgroundLarge && `background: url(${p.backgroundLarge})`};
     background-size: cover;
     background-position: center;
   }

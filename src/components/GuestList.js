@@ -11,7 +11,7 @@ import { TextWhite } from 'lib/StyledComps'
 import { SearchBar } from 'lib/SearchBar'
 import { PaginationWrapper, PageButtons, SmallText } from 'lib/Pagination'
 import { LoadingSpinner } from 'components/LoadingSpinner'
-import search from 'assets/search-24.png'
+import search from 'assets/icons/search-24.png'
 
 const ActionWrapper = styled.div`
   padding: 10px;

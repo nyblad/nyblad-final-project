@@ -1,7 +1,7 @@
 import React from 'react'
 import styled from 'styled-components/macro'
-import remove from 'assets/remove-16.png'
-import edit from 'assets/edit-16.png'
+import remove from 'assets/icons/remove-16.png'
+import edit from 'assets/icons/edit-16.png'
 
 const GuestWrapper = styled.div`
   width: 100%;

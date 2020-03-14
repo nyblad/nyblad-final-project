@@ -2,6 +2,8 @@ import React from 'react'
 import styled from 'styled-components/macro'
 import { NavBar } from 'lib/NavBar'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
+import wallpaperL from 'assets/images/music-2500.jpg'
+import wallpaperS from 'assets/images/music-1100.jpg'
 
 const Iframe = styled.iframe`
   margin-top: 20px;
@@ -11,15 +13,12 @@ const Iframe = styled.iframe`
   @media (min-width: 668px) {
     width: 50%;
   }
-  @media (min-width: 992px) {
-    height: 600px;
-  }
 `
 
 export const MusicPage = () => {
 
   return (
-    <Wrapper>
+    <Wrapper backgroundSmall={wallpaperS} backgroundLarge={wallpaperL}>
       <NavBar navA='Home' navB='Location' navC='Music' navD='RSVP' linkB='location' linkC='music' linkD='rsvp' />
       <Headline>Music for the party.</Headline>
       <TextWhite>Want to add your favourite song to our playlist? Open the playlist in your Spotify app and shoot!</TextWhite>

@@ -1,25 +1,25 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 import { Link } from 'react-router-dom'
-import wallpaperLarge from 'assets/couple-hills-2500.jpg'
-import wallpaperSmall from 'assets/couple-hills-1100.jpg'
-import coupleOne from 'assets/couple-1.jpg'
-import coupleFour from 'assets/couple-4.jpg'
-import arrow from 'assets/arrow-gold-16.png'
 import { NavBar } from 'lib/NavBar'
 import { Button } from 'lib/Buttons'
 import { Headline, SecondaryText, TextDark, LinkText } from 'lib/StyledComps'
+import wallpaperL from 'assets/images/couple-hills-2500.jpg'
+import wallpaperS from 'assets/images/couple-hills-1100.jpg'
+import coupleOne from 'assets/images/couple-1.jpg'
+import coupleFour from 'assets/images/couple-4.jpg'
+import arrow from 'assets/icons/arrow-gold-16.png'
 
 const Hero = styled.section`
   display: flex;
   flex-direction: column;
   width: 100%;
-  background: url(${wallpaperSmall});
+  background: url(${wallpaperS});
   background-size: cover;
   background-position: center;
   box-shadow: inset 0 0 0 100vmax rgba(81, 57, 64, 0.4);
   @media (min-width: 450px) {
-    background: url(${wallpaperLarge});
+    background: url(${wallpaperL});
     background-size: cover;
     background-position: center;
   }

@@ -3,6 +3,8 @@ import styled from 'styled-components/macro'
 import { NavBar } from 'lib/NavBar'
 import { Button } from 'lib/Buttons'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
+import wallpaperL from 'assets/images/forest-2000.jpg'
+import wallpaperS from 'assets/images/forest-1000.jpg'
 
 const InnerWrapper = styled.section`
   padding: 10px;
@@ -55,7 +57,7 @@ const LinkWrap = styled.a`
 export const LocationPage = () => {
 
   return (
-    <Wrapper>
+    <Wrapper backgroundSmall={wallpaperS} backgroundLarge={wallpaperL}>
       <NavBar navA='Home' navB='Location' navC='Music' navD='RSVP' linkB='location' linkC='music' linkD='rsvp' />
       <Headline>Location location.</Headline>
       <InnerWrapper>

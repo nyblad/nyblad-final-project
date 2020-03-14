@@ -5,6 +5,8 @@ import { Link } from 'react-router-dom'
 import { NavBar } from 'lib/NavBar'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
 import { Button } from 'lib/Buttons'
+import wallpaperL from 'assets/images/couple-hills-2500.jpg'
+import wallpaperS from 'assets/images/couple-hills-1100.jpg'
 
 const ButtonWrapper = styled.section`
   margin: 30px 0;
@@ -18,7 +20,7 @@ const ButtonWrapper = styled.section`
 export const AdminPage = () => {
 
   return (
-    <Wrapper>
+    <Wrapper backgroundSmall={wallpaperS} backgroundLarge={wallpaperL}>
       <NavBar navA='Back to home' navB='Admin' navC='To dos' navD='Guest list' linkB='admin' linkC='todos' linkD='guests' />
       <Headline>Wedding admin.</Headline>
       <TextWhite>Here you can handle the list of guests that have responded and add to dos in your wedding planning.</TextWhite>
