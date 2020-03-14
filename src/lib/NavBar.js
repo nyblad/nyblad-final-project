@@ -34,7 +34,7 @@ export const NavBar = ({ navA, navB, navC, navD, linkB, linkC, linkD }) => {
       <NavLinks menuActive={menuActive === true}>
 
         <Link to={'/'} tabIndex='-1'>
-          <NavButton>{navA}</NavButton>
+          <NavButton tabIndex='0'>{navA}</NavButton>
         </Link>
 
         <Link to={`/${linkB}`} tabIndex='-1'>
