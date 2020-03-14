@@ -14,14 +14,13 @@ import { LoadingSpinner } from 'components/LoadingSpinner'
 import search from 'assets/icons/search-24.png'
 
 const ActionWrapper = styled.div`
-  padding: 10px;
   background: none;
   border-radius: 6px;
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 97%;
+  width: 98%;
   @media (min-width: 668px) {
     flex-direction: row;
   }
@@ -55,7 +54,6 @@ const ListWrapper = styled.div`
 `
 const ItemWrapper = styled.section`
   width: 100%;
-  padding: 10px;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;

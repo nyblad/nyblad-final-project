@@ -19,7 +19,7 @@ export const FixedWrapper = styled.div`
 `
 // MAIN WRAPPER FOR PAGES
 export const Wrapper = styled.main`
-  padding: 60px 0 80px 0;
+  padding: 60px 10px 80px 10px;
   min-height: 100vh;
   display: flex;
   flex-direction: column;

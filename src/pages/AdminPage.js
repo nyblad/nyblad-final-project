@@ -1,6 +1,6 @@
-// Maybe a summary of quantity of guests who has rsvp:d
 import React from 'react'
 import styled from 'styled-components/macro'
+import { useSelector } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { NavBar } from 'lib/NavBar'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
@@ -19,11 +19,14 @@ const ButtonWrapper = styled.section`
 
 export const AdminPage = () => {
 
+  const userName = useSelector(state => state.users.userName)
+
   return (
     <Wrapper backgroundSmall={wallpaperS} backgroundLarge={wallpaperL}>
       <NavBar navA='Back to home' navB='Admin' navC='To dos' navD='Guest list' linkB='admin' linkC='todos' linkD='guests' />
-      <Headline>Wedding admin.</Headline>
+      <Headline>Hi {userName}!</Headline>
       <TextWhite>Here you can handle the list of guests that have responded and add to dos in your wedding planning.</TextWhite>
+      <TextWhite>Stay calm and don't go wedding-bananas.</TextWhite>
       <ButtonWrapper>
         <Link to={'/guests'} tabIndex='-1'>
           <Button title='Guest list' />
