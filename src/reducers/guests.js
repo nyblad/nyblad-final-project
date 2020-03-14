@@ -23,13 +23,17 @@ export const guests = createSlice({
     },
     updateGuest: (state, action) => {
       // To find the guest we want to update (guest = action.payload)
-      const foundGuest = state.guests.find(guest => guest._id === action.payload)
-      // How to see the updated data without refresh page
-      if (foundGuest) {
-        //
-      }
+      // If guest found, return the guests updated data
+      state.guests = state.guests.map((guest) => {
+        if (guest._id === action.payload._id) {
+          return action.payload
+        }
+        // Otherwhise return guest as is
+        return guest
+      })
     },
     deleteGuest: (state, action) => {
+      // Filter out all guests but the guest with matching id
       state.guests = state.guests.filter(guest => guest._id !== action.payload)
     }
   }
@@ -75,22 +79,23 @@ export const sendGuests = (guest) => {
 }
 
 // THUNK MIDDLEWARE FOR UPDATE SPECIFIC GUEST
-export const updateGuests = (formValues, guestId) => {
+export const updateGuests = (formValues, guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))
-    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guestId}`, {
+    fetch(`https://nyblad-final-project-api.herokuapp.com/guests/${guest._id}`, {
       method: 'PUT',
       body: JSON.stringify(formValues),
       headers: { 'Content-Type': 'application/json' }
     })
-      .then(() => {
-        // dispatch(guests.actions.updateGuest(guestId))
+      .then((res) => res.json())
+      .then((guest) => {
+        dispatch(guests.actions.updateGuest(guest))
         dispatch(ui.actions.setLoading(false))
       })
   }
 }
 
-// THUK MIDDLEWARE FOR DELETING SPECIFIC GUEST
+// THUNK MIDDLEWARE FOR DELETING SPECIFIC GUEST
 export const deleteGuests = (guest) => {
   return dispatch => {
     dispatch(ui.actions.setLoading(true))

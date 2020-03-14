@@ -68,7 +68,7 @@ export const ConfirmEditGuest = () => {
 
   const handleSubmit = (event) => {
     event.preventDefault()
-    dispatch(updateGuests(formValues, guest._id))
+    dispatch(updateGuests(formValues, guest))
     dispatch(ui.actions.setConfirmEditOpen(false))
   }
 
