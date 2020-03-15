@@ -3,8 +3,8 @@ import styled from 'styled-components/macro'
 import { NavBar } from 'lib/NavBar'
 import { Button } from 'lib/Buttons'
 import { Wrapper, Headline, TextWhite } from 'lib/StyledComps'
-import wallpaperL from 'assets/images/forest-2000.jpg'
-import wallpaperS from 'assets/images/forest-1000.jpg'
+import wallpaperL from 'assets/images/barn-2500.jpg'
+import wallpaperS from 'assets/images/barn-1000.jpg'
 
 const InnerWrapper = styled.section`
   padding: 10px;

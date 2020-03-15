@@ -2,7 +2,7 @@
 
 My final project at Technigo Bootcamp was supposed to wrap up and include everything I've learned during this bootcamp. Timeplan was about 80 hours.
 
-I pitched a wedding site that included public pages with information about the wedding day, form for RSVP. It also included private pages that you only can access after logging in, and there you would find the guest list (of those who had RSVPd) and a to do list for wedding planning.
+I pitched a wedding site that included public pages with information about the wedding day, form for RSVP. It also included private pages that you only can access after logging in, and there you would find the guest list (of those who had RSVPd) and a to do list for wedding planning. In the guest list you can delete a guest or update a guests information.
 
 Live site: https://the-nyblad-wedding.netlify.com/ <br>
 Demo user to log in: demo@demo.io / demo123<br>
@@ -35,6 +35,6 @@ Backend:
 * bcrypt/crypto <br>
 
 ## Illustrations/Credits
-Wallpaper from StockSnap.io <br>
+Photos from StockSnap.io & Henrik Nyblad <br>
 
 Sofie Nyblad 2020

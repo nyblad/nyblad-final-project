@@ -12,7 +12,7 @@ export const todos = createSlice({
       state.items = action.payload
     },
     addTodo: (state, action) => {
-      state.items.push(action.payload)
+      state.items.unshift(action.payload)
     },
     toggleTodo: (state, action) => {
       // To find the todo we want to toggle
