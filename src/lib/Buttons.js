@@ -1,10 +1,10 @@
 import React from 'react'
 import styled from 'styled-components/macro'
 
-export const ButtonNormal = styled.button`
+export const StyledButton = styled.button`
   font-family: 'Open Sans', sans-serif;
   height: 45px;
-  min-width: 60px;
+  ${p => p.width && `width: ${p.width}`};
   border: 3px solid #fff;
   border-radius: 6px;
   background: rgba(0,0,0, 0.2);
@@ -26,23 +26,10 @@ export const ButtonNormal = styled.button`
     padding: 0 15px;
   }
 `
-export const ButtonNarrow = styled(ButtonNormal)`
-  min-width: 100px;
-  border: 1px solid #fff;
-  @media (min-width: 992px) {
-    font-size: 16px;
-  }
-`
-export const ButtonSmall = styled(ButtonNormal)`
-  @media (min-width: 992px) {
-    font-size: 20px;
-    padding: 0;
-  }
-`
 
-export const Button = ({ onClick, title }) => (
+export const Button = ({ onClick, title, width, ...props }) => (
 
-  <ButtonNormal onClick={onClick}>{title}</ButtonNormal>
+  <StyledButton onClick={onClick} width={width} {...props}>{title}</StyledButton>
 
 )
 

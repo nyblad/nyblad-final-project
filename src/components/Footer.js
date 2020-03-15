@@ -5,7 +5,7 @@ import { useDispatch, useSelector } from 'react-redux'
 import { useHistory } from 'react-router-dom'
 import { ui } from 'reducers/ui'
 import { users } from 'reducers/users'
-import { ButtonNarrow } from 'lib/Buttons'
+import { Button } from 'lib/Buttons'
 import { TextWhite, TextWhiteBold, LinkTextWhite } from 'lib/StyledComps'
 
 const Wrapper = styled.footer`
@@ -19,30 +19,40 @@ const InnerWrapper = styled.section`
   padding: 60px 30px 40px 30px;
   width: 100%;
   display: flex;
+  text-align: center;
   flex-direction: column;
   justify-content: space-between;
   @media (min-width: 668px) {
     padding: 60px 45px 40px 45px;
     flex-direction: row;
+    text-align: left;
   }
 `
 const InnerWrapperText = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
   justify-content: space-between;
 
 `
 const InnerWrapperButtons = styled.div`
-  padding: 20px 0 0 0;
   display: flex;
-  flex-direction: row;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: space-between;
+  min-height: 100px;
+  margin-top: 20px;
+  width: 100%;
   @media (min-width: 668px) {
     flex-direction: column;
-    padding: 0;
+    /* align-items: flex-end; */
+    width: 30%;
+    margin-top: 0;
   }
+`
+const StyledLink = styled(Link)`
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `
 const Circle = styled.div`
   align-self: center;
@@ -89,11 +99,12 @@ export const Footer = () => {
           <TextWhite>070-526 48 20</TextWhite>
         </InnerWrapperText>
         <InnerWrapperButtons>
-          {!accessToken && <ButtonNarrow onClick={openLoginForm}>Admin log in</ButtonNarrow>}
-          {accessToken && <ButtonNarrow onClick={handleLogout}>Log out {userName}</ButtonNarrow>}
-          {accessToken && <Link to={'/admin'} tabIndex='-1'>
-            <ButtonNarrow>Admin pages</ButtonNarrow>
-          </Link>
+          {!accessToken && <Button onClick={openLoginForm} title='Admin login' width='90%' />}
+          {accessToken && <Button onClick={handleLogout} title={`Log out ${userName}`} width='90%' />}
+          {accessToken &&
+            <StyledLink to={'/admin'} tabIndex='-1'>
+              <Button title='Admin pages' width='90%' />
+            </StyledLink>
           }
         </InnerWrapperButtons>
       </InnerWrapper>

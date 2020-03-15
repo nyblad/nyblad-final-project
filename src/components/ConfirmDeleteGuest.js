@@ -4,7 +4,7 @@ import { ui } from 'reducers/ui'
 import { deleteGuests } from 'reducers/guests'
 import { useDispatch, useSelector } from 'react-redux'
 import { FixedWrapper, TextWhite } from 'lib/StyledComps'
-import { ButtonSmall } from 'lib/Buttons'
+import { Button } from 'lib/Buttons'
 
 const ButtonWrapper = styled.div`
   width: 50%;
@@ -34,8 +34,8 @@ export const ConfirmDeleteGuest = () => {
         <FixedWrapper>
           <TextWhite>Are you sure you want to delete guest?</TextWhite>
           <ButtonWrapper>
-            <ButtonSmall type='button' onClick={handleYes}>Yes</ButtonSmall>
-            <ButtonSmall type='button' onClick={handleNo}>No</ButtonSmall>
+            <Button type='button' title='Yes' onClick={handleYes} />
+            <Button type='button' title='No' onClick={handleNo} />
           </ButtonWrapper>
         </FixedWrapper>
       )}

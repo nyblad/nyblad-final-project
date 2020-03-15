@@ -76,7 +76,7 @@ export const StartPage = () => {
           <Headline>Celebrate with us.</Headline>
           <SecondaryText>Hälsingland | Fall 2022</SecondaryText>
           <Link to={'/rsvp'} tabIndex='-1'>
-            <Button title='RSVP' />
+            <Button title='RSVP' width='200px' />
           </Link>
         </HeroInner>
       </Hero>

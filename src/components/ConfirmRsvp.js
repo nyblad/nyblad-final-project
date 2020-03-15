@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
 import { FixedWrapper, TextWhite } from 'lib/StyledComps'
-import { ButtonSmall } from 'lib/Buttons'
+import { Button } from 'lib/Buttons'
 
 const ButtonWrapper = styled.div`
   width: 50%;
@@ -28,7 +28,7 @@ export const ConfirmRsvp = () => {
         <FixedWrapper>
           <TextWhite>Thank you & have a nice day!</TextWhite>
           <ButtonWrapper>
-            <ButtonSmall type='button' onClick={close}>X</ButtonSmall>
+            <Button type='button' title='X' onClick={close} />
           </ButtonWrapper>
         </FixedWrapper>
       )}

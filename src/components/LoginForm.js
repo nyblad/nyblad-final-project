@@ -3,7 +3,7 @@ import styled from 'styled-components/macro'
 import { fetchUser } from 'reducers/users'
 import { useDispatch, useSelector } from 'react-redux'
 import { ui } from 'reducers/ui'
-import { Button, ButtonNormal } from 'lib/Buttons'
+import { Button } from 'lib/Buttons'
 import { FixedWrapper } from 'lib/StyledComps'
 import { Form, Label, LabelText, Input } from 'lib/FormStyles'
 import { LoadingSpinner } from 'components/LoadingSpinner'
@@ -16,7 +16,7 @@ const FailedText = styled.p`
   color: #c65353;
   margin: 0;
 `
-const ButtonClose = styled(ButtonNormal)`
+const ButtonClose = styled(Button)`
   align-self: flex-end;
   width: 45px;
 `
@@ -56,7 +56,7 @@ export const LoginForm = () => {
       {open && (
         <FixedWrapper>
           <Form onSubmit={handleLogin}>
-            <ButtonClose type='button' onClick={close}>X</ButtonClose>
+            <ButtonClose type='button' title='X' onClick={close} />
             <Label>
               <LabelTextWhite>E-mail</LabelTextWhite>
               <Input

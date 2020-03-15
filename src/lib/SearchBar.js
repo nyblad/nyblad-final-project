@@ -13,6 +13,7 @@ const SearchInput = styled.input`
   color: #1E1E1E;
   width: 80%;
   height: 45px;
+  padding: 0 10px;
   border-radius: 6px 0 0 6px;
   border: none;
   &:focus {

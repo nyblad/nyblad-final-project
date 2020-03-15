@@ -4,7 +4,7 @@ import { ui } from 'reducers/ui'
 import { updateGuests } from 'reducers/guests'
 import { useDispatch, useSelector } from 'react-redux'
 import { FixedWrapper } from 'lib/StyledComps'
-import { ButtonNormal } from 'lib/Buttons'
+import { Button } from 'lib/Buttons'
 import { Form, Label, LabelText, Input, RadioWrapper, RadioText, RadioInput, TextAreaInput } from 'lib/FormStyles'
 import { LoadingSpinner } from 'components/LoadingSpinner'
 
@@ -38,7 +38,7 @@ const StyledTextAreaInput = styled(TextAreaInput)`
   padding: 5px;
   margin-bottom: 10px;
 `
-const ButtonClose = styled(ButtonNormal)`
+const ButtonClose = styled(Button)`
   align-self: flex-end;
   width: 45px;
 `
@@ -81,7 +81,7 @@ export const ConfirmEditGuest = () => {
       {open && (
         <FixedWrapper>
           <StyledForm onSubmit={handleSubmit}>
-            <ButtonClose type='button' onClick={handleClose}>X</ButtonClose>
+            <ButtonClose type='button' title='X' onClick={handleClose} />
             <WrapperRow>
               <StyledLabel>
                 <LabelTextWhite>First name *</LabelTextWhite>
@@ -174,7 +174,7 @@ export const ConfirmEditGuest = () => {
                 rows='2'
               />
             </Label>
-            <ButtonNormal type='submit'>Update guest</ButtonNormal>
+            <Button type='submit' title='Update guest' />
           </StyledForm>
           {loading && <LoadingSpinner />}
         </FixedWrapper>
