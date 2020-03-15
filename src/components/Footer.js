@@ -44,7 +44,6 @@ const InnerWrapperButtons = styled.div`
   width: 100%;
   @media (min-width: 668px) {
     flex-direction: column;
-    /* align-items: flex-end; */
     width: 30%;
     margin-top: 0;
   }
@@ -103,7 +102,7 @@ export const Footer = () => {
           {accessToken && <Button onClick={handleLogout} title={`Log out ${userName}`} width='90%' />}
           {accessToken &&
             <StyledLink to={'/admin'} tabIndex='-1'>
-              <Button title='Admin pages' width='90%' />
+              <Button title='Admin pages' fontSize='16px' width='90%' />
             </StyledLink>
           }
         </InnerWrapperButtons>
