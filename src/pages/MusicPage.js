@@ -22,7 +22,7 @@ export const MusicPage = () => {
       <NavBar navA='Home' navB='Location' navC='Music' navD='RSVP' linkB='location' linkC='music' linkD='rsvp' />
       <Headline>Music for the party.</Headline>
       <TextWhite>Want to add your favourite song to our playlist? Open the playlist in your Spotify app and shoot!</TextWhite>
-      <Iframe src='https://open.spotify.com/playlist/0apQ3bEyP40EbJqBAR4dB9?si=pF4-x9ULSRODuy_pLvSQBw' frameBorder='0' allowtransparency='true' allow='encrypted-media' />
+      <Iframe src='<iframe src="https://open.spotify.com/embed/playlist/0apQ3bEyP40EbJqBAR4dB9" width="300" height="380" frameborder="0" allowtransparency="true" allow="encrypted-media"></iframe>' frameBorder='0' allowtransparency='true' allow='encrypted-media' />
     </Wrapper>
   )
 }
